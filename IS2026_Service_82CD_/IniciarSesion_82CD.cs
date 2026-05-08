@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BE;
+using BLL;
+using Servicio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +13,12 @@ using System.Windows.Forms;
 
 namespace IS2026_Service_82CD_
 {
-    public partial class Form1 : Form
+    public partial class IniciarSesion_82CD : Form
     {
-        public Form1()
+        public IniciarSesion_82CD()
         {
             InitializeComponent();
         }
+
     }
 }

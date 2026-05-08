@@ -16,7 +16,7 @@ namespace IS2026_Service_82CD_
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new IniciarSesion_82CD());
         }
     }
 }
