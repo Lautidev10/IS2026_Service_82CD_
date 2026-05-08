@@ -28,7 +28,7 @@ namespace IS2026_Service_82CD_
 
                 string password_82CD = txtContraseña_82CD.Text;
 
-                string hash_82CD = ServicioHash_82CD.GenerarHash_82CD(password_82CD);
+                string hash_82CD = ServicioEncriptacion_82CD.Encriptar_82CD(password_82CD);
 
                 MapperUsuario_82CD mapperusuario_82CD = new MapperUsuario_82CD();
 

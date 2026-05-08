@@ -140,7 +140,7 @@ namespace DAL
             try
             {
                 Conectar_82CD();
-                string query_82CD = "UPDATE Usuario_82CD SET Bloqueado_82CD = 0, [Password_82CD] = @Password_82CD, WHERE DNI_82CD = @DNI_82CD";
+                string query_82CD = "UPDATE Usuario_82CD SET Bloqueado_82CD = 0, [Password_82CD] = @Password_82CD WHERE DNI_82CD = @DNI_82CD";
                 SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
                 cmd_82CD.Parameters.AddWithValue("@DNI_82CD", dni_82CD);
                 cmd_82CD.Parameters.AddWithValue("@Password_82CD", passwordIni_82CD);
