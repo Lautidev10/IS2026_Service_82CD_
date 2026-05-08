@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -72,5 +73,189 @@ namespace DAL
 
             return ls_82CD;
         }
+
+        public void AgregarUsuario_82CD (UsuarioBE_82CD usuario_82CD)
+        {
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = "INSERT INTO Usuario_82CD (DNI_82CD, Apellidos_82CD, Nombre_82CD, Email_82CD, [LogIn_82CD], [Password_82CD], IdRol_82CD, Bloqueado_82CD, Activo_82CD) VALUES (@DNI_82CD, @Apellidos_82CD, @Nombre_82CD, @Email_82CD, @LogIn_82CD, @Password_82CD, @IdRol_82CD, @Bloqueado_82CD, @Activo_82CD)";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@DNI_82CD", usuario_82CD.DNI_82CD);
+                cmd_82CD.Parameters.AddWithValue("@Apellidos_82CD", usuario_82CD.Apellidos_82CD);
+                cmd_82CD.Parameters.AddWithValue("@Nombre_82CD", usuario_82CD.Nombre_82CD);
+                cmd_82CD.Parameters.AddWithValue("@Email_82CD", usuario_82CD.Email_82CD);
+                cmd_82CD.Parameters.AddWithValue("@LogIn_82CD", usuario_82CD.LogIn_82CD);
+                cmd_82CD.Parameters.AddWithValue("@Password_82CD", usuario_82CD.Password_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdRol_82CD", usuario_82CD.IdRol_82CD);
+                cmd_82CD.Parameters.AddWithValue("@Bloqueado_82CD", usuario_82CD.Bloqueado_82CD);
+                cmd_82CD.Parameters.AddWithValue("@Activo_82CD", usuario_82CD.Activo_82CD);
+                cmd_82CD.ExecuteNonQuery();
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
+
+        public void ModificarUsuario_82CD (UsuarioBE_82CD usuario_82CD)
+        {
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = "UPDATE Usuario_82CD SET Apellidos_82CD = @Apellidos_82CD, Nombre_82CD = @Nombre_82CD, Email_82CD = @Email_82CD, IdRol_82CD = @IdRol_82CD WHERE DNI_82CD = @DNI_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@DNI_82CD", usuario_82CD.DNI_82CD);
+                cmd_82CD.Parameters.AddWithValue("@Apellidos_82CD", usuario_82CD.Apellidos_82CD);
+                cmd_82CD.Parameters.AddWithValue("@Nombre_82CD", usuario_82CD.Nombre_82CD);
+                cmd_82CD.Parameters.AddWithValue("@Email_82CD", usuario_82CD.Email_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdRol_82CD", usuario_82CD.IdRol_82CD);
+                cmd_82CD.ExecuteNonQuery();
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
+
+        public void CambiarEstadoUsuario_82CD (string dni_82CD, bool activo_82CD)
+        {
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = "UPDATE Usuario_82CD SET Activo_82CD = @Activo_82CD WHERE DNI_82CD = @DNI_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@DNI_82CD", dni_82CD);
+                cmd_82CD.Parameters.AddWithValue("@Activo_82CD", activo_82CD);
+                cmd_82CD.ExecuteNonQuery();
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
+
+        public void DesbloquearUsuario_82CD(string dni_82CD, string passwordIni_82CD)
+        {
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = "UPDATE Usuario_82CD SET Bloqueado_82CD = 0, [Password_82CD] = @Password_82CD, WHERE DNI_82CD = @DNI_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@DNI_82CD", dni_82CD);
+                cmd_82CD.Parameters.AddWithValue("@Password_82CD", passwordIni_82CD);
+                cmd_82CD.ExecuteNonQuery();
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
+
+        public void ActualizarContraseña_82CD(string dni_82CD, string passwordEncrip_82CD)
+        {
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = "UPDATE Usuario_82CD SET [Password_82CD] = @Password_82CD WHERE DNI_82CD = @DNI_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@DNI_82CD", dni_82CD);
+                cmd_82CD.Parameters.AddWithValue("@Password_82CD", passwordEncrip_82CD);
+                cmd_82CD.ExecuteNonQuery();
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
+
+        public UsuarioBE_82CD ValidarLogin_82CD(string login_82CD, string password_82CD)
+        {
+            UsuarioBE_82CD usuario_82CD = null;
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = "SELECT DNI_82CD, Apellidos_82CD, Nombre_82CD, Email_82CD, LogIn_82CD, Password_82CD, IdRol_82CD, Bloqueado_82CD, Activo_82CD FROM Usuario_82CD WHERE LogIn_82CD = @LogIn_82CD AND Password_82CD = @Password_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@LogIn_82CD", login_82CD);
+                cmd_82CD.Parameters.AddWithValue("@Password_82CD", password_82CD);
+                SqlDataReader reader_82CD = cmd_82CD.ExecuteReader();
+                if(reader_82CD.Read())
+                {
+                    usuario_82CD = MapearUsuario_82CD(reader_82CD);
+                }
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+            return usuario_82CD;
+        }
+
+        public UsuarioBE_82CD BuscarUsuarioPorLogIn_82CD (string login_82CD)
+        {
+            UsuarioBE_82CD usuario_82CD = null;
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = "SELECT DNI_82CD, Apellidos_82CD, Nombre_82CD, Email_82CD, LogIn_82CD, Password_82CD, IdRol_82CD, Bloqueado_82CD, Activo_82CD FROM Usuario_82CD WHERE LogIn_82CD = @LogIn_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@LogIn_82CD", login_82CD);
+                SqlDataReader reader_82CD = cmd_82CD.ExecuteReader();
+                if (reader_82CD.Read())
+                {
+                    usuario_82CD = MapearUsuario_82CD(reader_82CD);
+                }
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+            return usuario_82CD;
+        }
+
+        public UsuarioBE_82CD BuscarUsuarioPorDNI_82CD(string dni_82CD /*string password_82CD*/)
+        {
+            UsuarioBE_82CD usuario_82CD =null;
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = "SELECT DNI_82CD, Apellidos_82CD, Nombre_82CD, Email_82CD, [LogIn_82CD], [Password_82CD], IdRol_82CD, Bloqueado_82CD, Activo_82CD FROM Usuario_82CD WHERE DNI_82CD = @DNI_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@DNI_82CD", dni_82CD);
+                //cmd_82CD.Parameters.AddWithValue("@Password_82CD", password_82CD);
+                SqlDataReader reader_82CD = cmd_82CD.ExecuteReader();
+                if(reader_82CD.Read())
+                {
+                    usuario_82CD = MapearUsuario_82CD(reader_82CD);
+                }
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+
+            return usuario_82CD;
+        }
+
+        public void BloquearUsuario_82CD (string dni)
+        {
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = "UPDATE Usuario_82CD SET Bloqueado_82CD = 1 WHERE DNI_82CD = @DNI_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@DNI_82CD", dni);
+                cmd_82CD.ExecuteNonQuery();
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
+
+        
+        
+
     }
 }
