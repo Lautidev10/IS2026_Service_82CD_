@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace IS2026_Service_82CD_
 {
-    public partial class frmMenuPrincipal_82CD : Form
+    public partial class frmAdmin_82CD : Form
     {
-        public frmMenuPrincipal_82CD()
+        public frmAdmin_82CD()
         {
             InitializeComponent();
         }
-
-     
     }
 }

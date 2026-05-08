@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace IS2026_Service_82CD_
 {
-    public partial class frmUsuarios_82CD : Form
+    public partial class frmVistaUsuario_82CD : Form
     {
-        public frmUsuarios_82CD()
+        public frmVistaUsuario_82CD()
         {
             InitializeComponent();
         }
