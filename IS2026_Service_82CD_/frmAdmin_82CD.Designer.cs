@@ -35,14 +35,13 @@
             this.DGUsuarios_82CD = new System.Windows.Forms.DataGridView();
             this.lblDNI_82CD = new System.Windows.Forms.Label();
             this.lblNombre_82CD = new System.Windows.Forms.Label();
-            this.lblApellido_82CD = new System.Windows.Forms.Label();
+            this.lblApellidos_82CD = new System.Windows.Forms.Label();
             this.lblRol_82CD = new System.Windows.Forms.Label();
             this.lblLogin_82CD = new System.Windows.Forms.Label();
             this.lblEmail_82CD = new System.Windows.Forms.Label();
             this.txtDNI_82CD = new System.Windows.Forms.TextBox();
             this.txtApellidos_82CD = new System.Windows.Forms.TextBox();
             this.txtNombre_82CD = new System.Windows.Forms.TextBox();
-            this.txtRol_82CD = new System.Windows.Forms.TextBox();
             this.txtLogin_82CD = new System.Windows.Forms.TextBox();
             this.txtEmail_82CD = new System.Windows.Forms.TextBox();
             this.btnCrear_82CD = new System.Windows.Forms.Button();
@@ -53,11 +52,13 @@
             this.btnCancelar_82CD = new System.Windows.Forms.Button();
             this.btnSalir_82CD = new System.Windows.Forms.Button();
             this.panFrmUsuario_82CD = new System.Windows.Forms.Panel();
-            this.Mensaje_82CD = new System.Windows.Forms.ListBox();
             this.txtBloqueado_82CD = new System.Windows.Forms.TextBox();
             this.lblBloqueado_82CD = new System.Windows.Forms.Label();
             this.txtActivo_82CD = new System.Windows.Forms.TextBox();
             this.lblActivo_82CD = new System.Windows.Forms.Label();
+            this.cmbRol_82CD = new System.Windows.Forms.ComboBox();
+            this.rtbMensaje_82CD = new System.Windows.Forms.RichTextBox();
+            this.lclCantUsuarios_82CD = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGUsuarios_82CD)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,16 +145,16 @@
             this.lblNombre_82CD.TabIndex = 6;
             this.lblNombre_82CD.Text = "Nombre";
             // 
-            // lblApellido_82CD
+            // lblApellidos_82CD
             // 
-            this.lblApellido_82CD.AutoSize = true;
-            this.lblApellido_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.lblApellido_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.lblApellido_82CD.Location = new System.Drawing.Point(101, 350);
-            this.lblApellido_82CD.Name = "lblApellido_82CD";
-            this.lblApellido_82CD.Size = new System.Drawing.Size(62, 16);
-            this.lblApellido_82CD.TabIndex = 7;
-            this.lblApellido_82CD.Text = "Apellidos";
+            this.lblApellidos_82CD.AutoSize = true;
+            this.lblApellidos_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.lblApellidos_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.lblApellidos_82CD.Location = new System.Drawing.Point(101, 350);
+            this.lblApellidos_82CD.Name = "lblApellidos_82CD";
+            this.lblApellidos_82CD.Size = new System.Drawing.Size(62, 16);
+            this.lblApellidos_82CD.TabIndex = 7;
+            this.lblApellidos_82CD.Text = "Apellidos";
             // 
             // lblRol_82CD
             // 
@@ -212,14 +213,6 @@
             this.txtNombre_82CD.Size = new System.Drawing.Size(150, 20);
             this.txtNombre_82CD.TabIndex = 13;
             // 
-            // txtRol_82CD
-            // 
-            this.txtRol_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.txtRol_82CD.Location = new System.Drawing.Point(199, 453);
-            this.txtRol_82CD.Name = "txtRol_82CD";
-            this.txtRol_82CD.Size = new System.Drawing.Size(150, 20);
-            this.txtRol_82CD.TabIndex = 14;
-            // 
             // txtLogin_82CD
             // 
             this.txtLogin_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
@@ -247,6 +240,7 @@
             this.btnCrear_82CD.TabIndex = 17;
             this.btnCrear_82CD.Text = "Crear";
             this.btnCrear_82CD.UseVisualStyleBackColor = false;
+            this.btnCrear_82CD.Click += new System.EventHandler(this.btnCrear_82CD_Click);
             // 
             // btnDesbloquear_82CD
             // 
@@ -295,6 +289,7 @@
             this.btnAplicar_82CD.TabIndex = 21;
             this.btnAplicar_82CD.Text = "Aplicar";
             this.btnAplicar_82CD.UseVisualStyleBackColor = false;
+            this.btnAplicar_82CD.Click += new System.EventHandler(this.btnAplicar_82CD_Click);
             // 
             // btnCancelar_82CD
             // 
@@ -307,6 +302,7 @@
             this.btnCancelar_82CD.TabIndex = 22;
             this.btnCancelar_82CD.Text = "Cancelar";
             this.btnCancelar_82CD.UseVisualStyleBackColor = false;
+            this.btnCancelar_82CD.Click += new System.EventHandler(this.btnCancelar_82CD_Click);
             // 
             // btnSalir_82CD
             // 
@@ -327,14 +323,6 @@
             this.panFrmUsuario_82CD.Name = "panFrmUsuario_82CD";
             this.panFrmUsuario_82CD.Size = new System.Drawing.Size(985, 40);
             this.panFrmUsuario_82CD.TabIndex = 24;
-            // 
-            // Mensaje_82CD
-            // 
-            this.Mensaje_82CD.FormattingEnabled = true;
-            this.Mensaje_82CD.Location = new System.Drawing.Point(505, 315);
-            this.Mensaje_82CD.Name = "Mensaje_82CD";
-            this.Mensaje_82CD.Size = new System.Drawing.Size(267, 225);
-            this.Mensaje_82CD.TabIndex = 25;
             // 
             // txtBloqueado_82CD
             // 
@@ -374,17 +362,47 @@
             this.lblActivo_82CD.TabIndex = 28;
             this.lblActivo_82CD.Text = "Activo";
             // 
+            // cmbRol_82CD
+            // 
+            this.cmbRol_82CD.FormattingEnabled = true;
+            this.cmbRol_82CD.Items.AddRange(new object[] {
+            "1"});
+            this.cmbRol_82CD.Location = new System.Drawing.Point(199, 452);
+            this.cmbRol_82CD.Name = "cmbRol_82CD";
+            this.cmbRol_82CD.Size = new System.Drawing.Size(150, 21);
+            this.cmbRol_82CD.TabIndex = 30;
+            // 
+            // rtbMensaje_82CD
+            // 
+            this.rtbMensaje_82CD.Location = new System.Drawing.Point(479, 314);
+            this.rtbMensaje_82CD.Name = "rtbMensaje_82CD";
+            this.rtbMensaje_82CD.Size = new System.Drawing.Size(321, 216);
+            this.rtbMensaje_82CD.TabIndex = 31;
+            this.rtbMensaje_82CD.Text = "";
+            // 
+            // lclCantUsuarios_82CD
+            // 
+            this.lclCantUsuarios_82CD.AutoSize = true;
+            this.lclCantUsuarios_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.lclCantUsuarios_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.lclCantUsuarios_82CD.Location = new System.Drawing.Point(765, 57);
+            this.lclCantUsuarios_82CD.Name = "lclCantUsuarios_82CD";
+            this.lclCantUsuarios_82CD.Size = new System.Drawing.Size(0, 16);
+            this.lclCantUsuarios_82CD.TabIndex = 32;
+            // 
             // frmAdmin_82CD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.lclCantUsuarios_82CD);
+            this.Controls.Add(this.rtbMensaje_82CD);
+            this.Controls.Add(this.cmbRol_82CD);
             this.Controls.Add(this.txtActivo_82CD);
             this.Controls.Add(this.lblActivo_82CD);
             this.Controls.Add(this.txtBloqueado_82CD);
             this.Controls.Add(this.lblBloqueado_82CD);
-            this.Controls.Add(this.Mensaje_82CD);
             this.Controls.Add(this.panFrmUsuario_82CD);
             this.Controls.Add(this.btnSalir_82CD);
             this.Controls.Add(this.btnCancelar_82CD);
@@ -395,14 +413,13 @@
             this.Controls.Add(this.btnCrear_82CD);
             this.Controls.Add(this.txtEmail_82CD);
             this.Controls.Add(this.txtLogin_82CD);
-            this.Controls.Add(this.txtRol_82CD);
             this.Controls.Add(this.txtNombre_82CD);
             this.Controls.Add(this.txtApellidos_82CD);
             this.Controls.Add(this.txtDNI_82CD);
             this.Controls.Add(this.lblEmail_82CD);
             this.Controls.Add(this.lblLogin_82CD);
             this.Controls.Add(this.lblRol_82CD);
-            this.Controls.Add(this.lblApellido_82CD);
+            this.Controls.Add(this.lblApellidos_82CD);
             this.Controls.Add(this.lblNombre_82CD);
             this.Controls.Add(this.lblDNI_82CD);
             this.Controls.Add(this.DGUsuarios_82CD);
@@ -412,6 +429,7 @@
             this.Controls.Add(this.lblTituloUsuarios_82CD);
             this.Name = "frmAdmin_82CD";
             this.Text = "frmUsuarios_82CD";
+            this.Load += new System.EventHandler(this.frmAdmin_82CD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGUsuarios_82CD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -427,14 +445,13 @@
         private System.Windows.Forms.DataGridView DGUsuarios_82CD;
         private System.Windows.Forms.Label lblDNI_82CD;
         private System.Windows.Forms.Label lblNombre_82CD;
-        private System.Windows.Forms.Label lblApellido_82CD;
+        private System.Windows.Forms.Label lblApellidos_82CD;
         private System.Windows.Forms.Label lblRol_82CD;
         private System.Windows.Forms.Label lblLogin_82CD;
         private System.Windows.Forms.Label lblEmail_82CD;
         private System.Windows.Forms.TextBox txtDNI_82CD;
         private System.Windows.Forms.TextBox txtApellidos_82CD;
         private System.Windows.Forms.TextBox txtNombre_82CD;
-        private System.Windows.Forms.TextBox txtRol_82CD;
         private System.Windows.Forms.TextBox txtLogin_82CD;
         private System.Windows.Forms.TextBox txtEmail_82CD;
         private System.Windows.Forms.Button btnCrear_82CD;
@@ -445,10 +462,12 @@
         private System.Windows.Forms.Button btnCancelar_82CD;
         private System.Windows.Forms.Button btnSalir_82CD;
         private System.Windows.Forms.Panel panFrmUsuario_82CD;
-        private System.Windows.Forms.ListBox Mensaje_82CD;
         private System.Windows.Forms.TextBox txtBloqueado_82CD;
         private System.Windows.Forms.Label lblBloqueado_82CD;
         private System.Windows.Forms.TextBox txtActivo_82CD;
         private System.Windows.Forms.Label lblActivo_82CD;
+        private System.Windows.Forms.ComboBox cmbRol_82CD;
+        private System.Windows.Forms.RichTextBox rtbMensaje_82CD;
+        private System.Windows.Forms.Label lclCantUsuarios_82CD;
     }
 }

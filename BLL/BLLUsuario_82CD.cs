@@ -3,10 +3,6 @@ using DAL;
 using Servicio;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL
 {
@@ -31,7 +27,7 @@ namespace BLL
 
             if (listaTotal_82CD.Exists(u => u.LogIn_82CD == usuario_82CD.LogIn_82CD))
             {
-                throw new Exception("El nombre de usuario ya está ocupado por otra cuenta.");
+                throw new Exception("Ese usuario ya existe en el sistema.");
             }
 
             mapperUsuario_82CD.AgregarUsuario_82CD(usuario_82CD);
@@ -53,7 +49,7 @@ namespace BLL
 
         public void DesbloquearUsuario_82CD(String Login_82CD, string Password_82CD)
         {
-            mapperUsuario_82CD.DesbloquearUsuario_82CD(Login_82CD,Password_82CD);
+            mapperUsuario_82CD.DesbloquearUsuario_82CD(Login_82CD, Password_82CD);
         }
 
         public void ActualizarContraseña_82CD(string Login_82CD, string PasswordActual_82CD, string PasswordNueva_82CD, string Confirmacion_82CD)
@@ -84,5 +80,5 @@ namespace BLL
 
 
     }
-    
+
 }

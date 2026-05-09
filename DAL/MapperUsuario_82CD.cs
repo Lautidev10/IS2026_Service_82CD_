@@ -1,13 +1,8 @@
 ﻿using BE;
-using Servicio;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -25,7 +20,7 @@ namespace DAL
 
         private void Desconectar_82CD()
         {
-            if(conexion_82CD != null && conexion_82CD.State == ConnectionState.Open)
+            if (conexion_82CD != null && conexion_82CD.State == ConnectionState.Open)
             {
                 conexion_82CD.Close();
             }
@@ -39,9 +34,9 @@ namespace DAL
             usuariobe_82CD.Apellidos_82CD = reader_82CD["Apellidos_82CD"].ToString();
             usuariobe_82CD.Nombre_82CD = reader_82CD["Nombre_82CD"].ToString();
             usuariobe_82CD.Email_82CD = reader_82CD["Email_82CD"].ToString();
-            usuariobe_82CD.LogIn_82CD = reader_82CD["LogIn_82CD"].ToString() ;
+            usuariobe_82CD.LogIn_82CD = reader_82CD["LogIn_82CD"].ToString();
             usuariobe_82CD.Password_82CD = reader_82CD["Password_82CD"].ToString();
-            usuariobe_82CD.IdRol_82CD = Convert.ToInt32(reader_82CD["IdRol_82CD"]);
+            usuariobe_82CD.IdRol_82CD = int.Parse(reader_82CD["IdRol_82CD"].ToString());
             usuariobe_82CD.Bloqueado_82CD = Convert.ToBoolean(reader_82CD["Bloqueado_82CD"]);
             usuariobe_82CD.Activo_82CD = Convert.ToBoolean(reader_82CD["Activo_82CD"]);
 
@@ -74,7 +69,7 @@ namespace DAL
             return ls_82CD;
         }
 
-        public void AgregarUsuario_82CD (UsuarioBE_82CD usuario_82CD)
+        public void AgregarUsuario_82CD(UsuarioBE_82CD usuario_82CD)
         {
             try
             {
@@ -98,7 +93,7 @@ namespace DAL
             }
         }
 
-        public void ModificarUsuario_82CD (UsuarioBE_82CD usuario_82CD)
+        public void ModificarUsuario_82CD(UsuarioBE_82CD usuario_82CD)
         {
             try
             {
@@ -118,7 +113,7 @@ namespace DAL
             }
         }
 
-        public void CambiarEstadoUsuario_82CD (string dni_82CD, bool activo_82CD)
+        public void CambiarEstadoUsuario_82CD(string dni_82CD, bool activo_82CD)
         {
             try
             {
@@ -180,7 +175,7 @@ namespace DAL
                 cmd_82CD.Parameters.AddWithValue("@LogIn_82CD", login_82CD);
                 cmd_82CD.Parameters.AddWithValue("@Password_82CD", password_82CD);
                 SqlDataReader reader_82CD = cmd_82CD.ExecuteReader();
-                if(reader_82CD.Read())
+                if (reader_82CD.Read())
                 {
                     usuario_82CD = MapearUsuario_82CD(reader_82CD);
                 }
@@ -192,7 +187,7 @@ namespace DAL
             return usuario_82CD;
         }
 
-        public UsuarioBE_82CD BuscarUsuarioPorLogIn_82CD (string login_82CD)
+        public UsuarioBE_82CD BuscarUsuarioPorLogIn_82CD(string login_82CD)
         {
             UsuarioBE_82CD usuario_82CD = null;
             try
@@ -216,7 +211,7 @@ namespace DAL
 
         public UsuarioBE_82CD BuscarUsuarioPorDNI_82CD(string dni_82CD /*string password_82CD*/)
         {
-            UsuarioBE_82CD usuario_82CD =null;
+            UsuarioBE_82CD usuario_82CD = null;
             try
             {
                 Conectar_82CD();
@@ -225,7 +220,7 @@ namespace DAL
                 cmd_82CD.Parameters.AddWithValue("@DNI_82CD", dni_82CD);
                 //cmd_82CD.Parameters.AddWithValue("@Password_82CD", password_82CD);
                 SqlDataReader reader_82CD = cmd_82CD.ExecuteReader();
-                if(reader_82CD.Read())
+                if (reader_82CD.Read())
                 {
                     usuario_82CD = MapearUsuario_82CD(reader_82CD);
                 }
@@ -238,7 +233,7 @@ namespace DAL
             return usuario_82CD;
         }
 
-        public void BloquearUsuario_82CD (string dni)
+        public void BloquearUsuario_82CD(string dni)
         {
             try
             {
@@ -254,8 +249,8 @@ namespace DAL
             }
         }
 
-        
-        
+
+
 
     }
 }

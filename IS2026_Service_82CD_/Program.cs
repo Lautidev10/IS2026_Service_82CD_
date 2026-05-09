@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IS2026_Service_82CD_
@@ -19,6 +16,6 @@ namespace IS2026_Service_82CD_
 
             // Dejamos tu formulario de Login para que arranque la app
             Application.Run(new frmLogin_82CD());
-        }   
+        }
     }
 }
