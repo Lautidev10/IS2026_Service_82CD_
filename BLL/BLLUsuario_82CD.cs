@@ -40,7 +40,8 @@ namespace BLL
         public void ModificarUsuario_82CD(UsuarioBE_82CD usuario_82CD)
         {
             if (string.IsNullOrWhiteSpace(usuario_82CD.DNI_82CD))
-                throw new Exception("Nombre y Apellido no pueden estar vacios");
+                //throw new Exception("Nombre y Apellido no pueden estar vacios");
+                throw new Exception("El DNI no puede estar vacio");
 
             mapperUsuario_82CD.ModificarUsuario_82CD(usuario_82CD);
         }
