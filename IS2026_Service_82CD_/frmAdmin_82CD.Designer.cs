@@ -37,14 +37,14 @@
             this.lblNombre_82CD = new System.Windows.Forms.Label();
             this.lblApellido_82CD = new System.Windows.Forms.Label();
             this.lblRol_82CD = new System.Windows.Forms.Label();
-            this.lblNombreUsuario_82CD = new System.Windows.Forms.Label();
-            this.lblTelefono_82CD = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.lblLogin_82CD = new System.Windows.Forms.Label();
+            this.lblEmail_82CD = new System.Windows.Forms.Label();
+            this.txtDNI_82CD = new System.Windows.Forms.TextBox();
+            this.txtApellidos_82CD = new System.Windows.Forms.TextBox();
+            this.txtNombre_82CD = new System.Windows.Forms.TextBox();
+            this.txtRol_82CD = new System.Windows.Forms.TextBox();
+            this.txtLogin_82CD = new System.Windows.Forms.TextBox();
+            this.txtEmail_82CD = new System.Windows.Forms.TextBox();
             this.btnCrear_82CD = new System.Windows.Forms.Button();
             this.btnDesbloquear_82CD = new System.Windows.Forms.Button();
             this.btnModificar_82CD = new System.Windows.Forms.Button();
@@ -53,6 +53,11 @@
             this.btnCancelar_82CD = new System.Windows.Forms.Button();
             this.btnSalir_82CD = new System.Windows.Forms.Button();
             this.panFrmUsuario_82CD = new System.Windows.Forms.Panel();
+            this.Mensaje_82CD = new System.Windows.Forms.ListBox();
+            this.txtBloqueado_82CD = new System.Windows.Forms.TextBox();
+            this.lblBloqueado_82CD = new System.Windows.Forms.Label();
+            this.txtActivo_82CD = new System.Windows.Forms.TextBox();
+            this.lblActivo_82CD = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGUsuarios_82CD)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,7 +127,7 @@
             this.lblDNI_82CD.AutoSize = true;
             this.lblDNI_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.lblDNI_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.lblDNI_82CD.Location = new System.Drawing.Point(100, 330);
+            this.lblDNI_82CD.Location = new System.Drawing.Point(101, 315);
             this.lblDNI_82CD.Name = "lblDNI_82CD";
             this.lblDNI_82CD.Size = new System.Drawing.Size(31, 16);
             this.lblDNI_82CD.TabIndex = 5;
@@ -133,7 +138,7 @@
             this.lblNombre_82CD.AutoSize = true;
             this.lblNombre_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.lblNombre_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.lblNombre_82CD.Location = new System.Drawing.Point(100, 365);
+            this.lblNombre_82CD.Location = new System.Drawing.Point(101, 385);
             this.lblNombre_82CD.Name = "lblNombre_82CD";
             this.lblNombre_82CD.Size = new System.Drawing.Size(58, 16);
             this.lblNombre_82CD.TabIndex = 6;
@@ -144,92 +149,92 @@
             this.lblApellido_82CD.AutoSize = true;
             this.lblApellido_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.lblApellido_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.lblApellido_82CD.Location = new System.Drawing.Point(100, 400);
+            this.lblApellido_82CD.Location = new System.Drawing.Point(101, 350);
             this.lblApellido_82CD.Name = "lblApellido_82CD";
-            this.lblApellido_82CD.Size = new System.Drawing.Size(56, 16);
+            this.lblApellido_82CD.Size = new System.Drawing.Size(62, 16);
             this.lblApellido_82CD.TabIndex = 7;
-            this.lblApellido_82CD.Text = "Apellido";
+            this.lblApellido_82CD.Text = "Apellidos";
             // 
             // lblRol_82CD
             // 
             this.lblRol_82CD.AutoSize = true;
             this.lblRol_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.lblRol_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.lblRol_82CD.Location = new System.Drawing.Point(100, 435);
+            this.lblRol_82CD.Location = new System.Drawing.Point(101, 453);
             this.lblRol_82CD.Name = "lblRol_82CD";
             this.lblRol_82CD.Size = new System.Drawing.Size(27, 16);
             this.lblRol_82CD.TabIndex = 8;
             this.lblRol_82CD.Text = "Rol";
             // 
-            // lblNombreUsuario_82CD
+            // lblLogin_82CD
             // 
-            this.lblNombreUsuario_82CD.AutoSize = true;
-            this.lblNombreUsuario_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.lblNombreUsuario_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.lblNombreUsuario_82CD.Location = new System.Drawing.Point(100, 470);
-            this.lblNombreUsuario_82CD.Name = "lblNombreUsuario_82CD";
-            this.lblNombreUsuario_82CD.Size = new System.Drawing.Size(53, 16);
-            this.lblNombreUsuario_82CD.TabIndex = 9;
-            this.lblNombreUsuario_82CD.Text = "Usuario";
+            this.lblLogin_82CD.AutoSize = true;
+            this.lblLogin_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.lblLogin_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.lblLogin_82CD.Location = new System.Drawing.Point(101, 490);
+            this.lblLogin_82CD.Name = "lblLogin_82CD";
+            this.lblLogin_82CD.Size = new System.Drawing.Size(41, 16);
+            this.lblLogin_82CD.TabIndex = 9;
+            this.lblLogin_82CD.Text = "Login";
             // 
-            // lblTelefono_82CD
+            // lblEmail_82CD
             // 
-            this.lblTelefono_82CD.AutoSize = true;
-            this.lblTelefono_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.lblTelefono_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.lblTelefono_82CD.Location = new System.Drawing.Point(100, 505);
-            this.lblTelefono_82CD.Name = "lblTelefono_82CD";
-            this.lblTelefono_82CD.Size = new System.Drawing.Size(58, 16);
-            this.lblTelefono_82CD.TabIndex = 10;
-            this.lblTelefono_82CD.Text = "Telefono";
+            this.lblEmail_82CD.AutoSize = true;
+            this.lblEmail_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmail_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.lblEmail_82CD.Location = new System.Drawing.Point(101, 418);
+            this.lblEmail_82CD.Name = "lblEmail_82CD";
+            this.lblEmail_82CD.Size = new System.Drawing.Size(41, 16);
+            this.lblEmail_82CD.TabIndex = 10;
+            this.lblEmail_82CD.Text = "Email";
             // 
-            // textBox1
+            // txtDNI_82CD
             // 
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.textBox1.Location = new System.Drawing.Point(198, 330);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 20);
-            this.textBox1.TabIndex = 11;
+            this.txtDNI_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.txtDNI_82CD.Location = new System.Drawing.Point(199, 315);
+            this.txtDNI_82CD.Name = "txtDNI_82CD";
+            this.txtDNI_82CD.Size = new System.Drawing.Size(150, 20);
+            this.txtDNI_82CD.TabIndex = 11;
             // 
-            // textBox2
+            // txtApellidos_82CD
             // 
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.textBox2.Location = new System.Drawing.Point(198, 365);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(150, 20);
-            this.textBox2.TabIndex = 12;
+            this.txtApellidos_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.txtApellidos_82CD.Location = new System.Drawing.Point(199, 350);
+            this.txtApellidos_82CD.Name = "txtApellidos_82CD";
+            this.txtApellidos_82CD.Size = new System.Drawing.Size(150, 20);
+            this.txtApellidos_82CD.TabIndex = 12;
             // 
-            // textBox3
+            // txtNombre_82CD
             // 
-            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.textBox3.Location = new System.Drawing.Point(198, 400);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(150, 20);
-            this.textBox3.TabIndex = 13;
+            this.txtNombre_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.txtNombre_82CD.Location = new System.Drawing.Point(199, 385);
+            this.txtNombre_82CD.Name = "txtNombre_82CD";
+            this.txtNombre_82CD.Size = new System.Drawing.Size(150, 20);
+            this.txtNombre_82CD.TabIndex = 13;
             // 
-            // textBox4
+            // txtRol_82CD
             // 
-            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.textBox4.Location = new System.Drawing.Point(198, 435);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(150, 20);
-            this.textBox4.TabIndex = 14;
+            this.txtRol_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.txtRol_82CD.Location = new System.Drawing.Point(199, 453);
+            this.txtRol_82CD.Name = "txtRol_82CD";
+            this.txtRol_82CD.Size = new System.Drawing.Size(150, 20);
+            this.txtRol_82CD.TabIndex = 14;
             // 
-            // textBox5
+            // txtLogin_82CD
             // 
-            this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.textBox5.Location = new System.Drawing.Point(198, 470);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(150, 20);
-            this.textBox5.TabIndex = 15;
+            this.txtLogin_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.txtLogin_82CD.Location = new System.Drawing.Point(199, 490);
+            this.txtLogin_82CD.Name = "txtLogin_82CD";
+            this.txtLogin_82CD.Size = new System.Drawing.Size(150, 20);
+            this.txtLogin_82CD.TabIndex = 15;
             // 
-            // textBox6
+            // txtEmail_82CD
             // 
-            this.textBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.textBox6.Location = new System.Drawing.Point(198, 505);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(150, 20);
-            this.textBox6.TabIndex = 16;
+            this.txtEmail_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.txtEmail_82CD.Location = new System.Drawing.Point(199, 418);
+            this.txtEmail_82CD.Name = "txtEmail_82CD";
+            this.txtEmail_82CD.Size = new System.Drawing.Size(150, 20);
+            this.txtEmail_82CD.TabIndex = 16;
             // 
             // btnCrear_82CD
             // 
@@ -323,12 +328,63 @@
             this.panFrmUsuario_82CD.Size = new System.Drawing.Size(985, 40);
             this.panFrmUsuario_82CD.TabIndex = 24;
             // 
+            // Mensaje_82CD
+            // 
+            this.Mensaje_82CD.FormattingEnabled = true;
+            this.Mensaje_82CD.Location = new System.Drawing.Point(505, 315);
+            this.Mensaje_82CD.Name = "Mensaje_82CD";
+            this.Mensaje_82CD.Size = new System.Drawing.Size(267, 225);
+            this.Mensaje_82CD.TabIndex = 25;
+            // 
+            // txtBloqueado_82CD
+            // 
+            this.txtBloqueado_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.txtBloqueado_82CD.Location = new System.Drawing.Point(199, 526);
+            this.txtBloqueado_82CD.Name = "txtBloqueado_82CD";
+            this.txtBloqueado_82CD.Size = new System.Drawing.Size(150, 20);
+            this.txtBloqueado_82CD.TabIndex = 27;
+            // 
+            // lblBloqueado_82CD
+            // 
+            this.lblBloqueado_82CD.AutoSize = true;
+            this.lblBloqueado_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.lblBloqueado_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.lblBloqueado_82CD.Location = new System.Drawing.Point(101, 526);
+            this.lblBloqueado_82CD.Name = "lblBloqueado_82CD";
+            this.lblBloqueado_82CD.Size = new System.Drawing.Size(73, 16);
+            this.lblBloqueado_82CD.TabIndex = 26;
+            this.lblBloqueado_82CD.Text = "Bloqueado";
+            // 
+            // txtActivo_82CD
+            // 
+            this.txtActivo_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.txtActivo_82CD.Location = new System.Drawing.Point(199, 562);
+            this.txtActivo_82CD.Name = "txtActivo_82CD";
+            this.txtActivo_82CD.Size = new System.Drawing.Size(150, 20);
+            this.txtActivo_82CD.TabIndex = 29;
+            // 
+            // lblActivo_82CD
+            // 
+            this.lblActivo_82CD.AutoSize = true;
+            this.lblActivo_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.lblActivo_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.lblActivo_82CD.Location = new System.Drawing.Point(101, 562);
+            this.lblActivo_82CD.Name = "lblActivo_82CD";
+            this.lblActivo_82CD.Size = new System.Drawing.Size(46, 16);
+            this.lblActivo_82CD.TabIndex = 28;
+            this.lblActivo_82CD.Text = "Activo";
+            // 
             // frmAdmin_82CD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.txtActivo_82CD);
+            this.Controls.Add(this.lblActivo_82CD);
+            this.Controls.Add(this.txtBloqueado_82CD);
+            this.Controls.Add(this.lblBloqueado_82CD);
+            this.Controls.Add(this.Mensaje_82CD);
             this.Controls.Add(this.panFrmUsuario_82CD);
             this.Controls.Add(this.btnSalir_82CD);
             this.Controls.Add(this.btnCancelar_82CD);
@@ -337,14 +393,14 @@
             this.Controls.Add(this.btnModificar_82CD);
             this.Controls.Add(this.btnDesbloquear_82CD);
             this.Controls.Add(this.btnCrear_82CD);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lblTelefono_82CD);
-            this.Controls.Add(this.lblNombreUsuario_82CD);
+            this.Controls.Add(this.txtEmail_82CD);
+            this.Controls.Add(this.txtLogin_82CD);
+            this.Controls.Add(this.txtRol_82CD);
+            this.Controls.Add(this.txtNombre_82CD);
+            this.Controls.Add(this.txtApellidos_82CD);
+            this.Controls.Add(this.txtDNI_82CD);
+            this.Controls.Add(this.lblEmail_82CD);
+            this.Controls.Add(this.lblLogin_82CD);
             this.Controls.Add(this.lblRol_82CD);
             this.Controls.Add(this.lblApellido_82CD);
             this.Controls.Add(this.lblNombre_82CD);
@@ -373,14 +429,14 @@
         private System.Windows.Forms.Label lblNombre_82CD;
         private System.Windows.Forms.Label lblApellido_82CD;
         private System.Windows.Forms.Label lblRol_82CD;
-        private System.Windows.Forms.Label lblNombreUsuario_82CD;
-        private System.Windows.Forms.Label lblTelefono_82CD;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label lblLogin_82CD;
+        private System.Windows.Forms.Label lblEmail_82CD;
+        private System.Windows.Forms.TextBox txtDNI_82CD;
+        private System.Windows.Forms.TextBox txtApellidos_82CD;
+        private System.Windows.Forms.TextBox txtNombre_82CD;
+        private System.Windows.Forms.TextBox txtRol_82CD;
+        private System.Windows.Forms.TextBox txtLogin_82CD;
+        private System.Windows.Forms.TextBox txtEmail_82CD;
         private System.Windows.Forms.Button btnCrear_82CD;
         private System.Windows.Forms.Button btnDesbloquear_82CD;
         private System.Windows.Forms.Button btnModificar_82CD;
@@ -389,5 +445,10 @@
         private System.Windows.Forms.Button btnCancelar_82CD;
         private System.Windows.Forms.Button btnSalir_82CD;
         private System.Windows.Forms.Panel panFrmUsuario_82CD;
+        private System.Windows.Forms.ListBox Mensaje_82CD;
+        private System.Windows.Forms.TextBox txtBloqueado_82CD;
+        private System.Windows.Forms.Label lblBloqueado_82CD;
+        private System.Windows.Forms.TextBox txtActivo_82CD;
+        private System.Windows.Forms.Label lblActivo_82CD;
     }
 }

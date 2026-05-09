@@ -9,7 +9,7 @@ namespace DAL
 {
     public class Conexion_82CD
     {
-        private string cadena_82CD = "Data Source=DESKTOP-KOJQQSA;Initial Catalog=IS2026_82CD;Integrated Security=True";
+        private string cadena_82CD = "Data Source=.;Initial Catalog=IS2026_82CD;Integrated Security=True";
 
         public SqlConnection ObtenerConexion_82CD()
         {

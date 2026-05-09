@@ -31,13 +31,13 @@
             this.panelMenuPrincipal_82CD = new System.Windows.Forms.Panel();
             this.lblMenuPrincipal = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblUsuarios_82CD = new System.Windows.Forms.Label();
-            this.lblAdministradores_82CD = new System.Windows.Forms.Label();
-            this.lblNegocio1_82CD = new System.Windows.Forms.Label();
-            this.lblMaestros_82CD = new System.Windows.Forms.Label();
-            this.lblNegocio2_82CD = new System.Windows.Forms.Label();
             this.lblAyuda_82CD = new System.Windows.Forms.Label();
             this.lblReportes_82CD = new System.Windows.Forms.Label();
+            this.lblNegocio2_82CD = new System.Windows.Forms.Label();
+            this.lblNegocio1_82CD = new System.Windows.Forms.Label();
+            this.lblMaestros_82CD = new System.Windows.Forms.Label();
+            this.lblAdministradores_82CD = new System.Windows.Forms.Label();
+            this.lblUsuarios_82CD = new System.Windows.Forms.Label();
             this.panelMenuPrincipal_82CD.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -77,27 +77,38 @@
             this.panel1.Size = new System.Drawing.Size(200, 440);
             this.panel1.TabIndex = 0;
             // 
-            // lblUsuarios_82CD
+            // lblAyuda_82CD
             // 
-            this.lblUsuarios_82CD.AutoSize = true;
-            this.lblUsuarios_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
-            this.lblUsuarios_82CD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblUsuarios_82CD.Location = new System.Drawing.Point(65, 50);
-            this.lblUsuarios_82CD.Name = "lblUsuarios_82CD";
-            this.lblUsuarios_82CD.Size = new System.Drawing.Size(69, 21);
-            this.lblUsuarios_82CD.TabIndex = 1;
-            this.lblUsuarios_82CD.Text = "Usuario";
+            this.lblAyuda_82CD.AutoSize = true;
+            this.lblAyuda_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
+            this.lblAyuda_82CD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblAyuda_82CD.Location = new System.Drawing.Point(65, 350);
+            this.lblAyuda_82CD.Name = "lblAyuda_82CD";
+            this.lblAyuda_82CD.Size = new System.Drawing.Size(59, 21);
+            this.lblAyuda_82CD.TabIndex = 7;
+            this.lblAyuda_82CD.Text = "Ayuda";
             // 
-            // lblAdministradores_82CD
+            // lblReportes_82CD
             // 
-            this.lblAdministradores_82CD.AutoSize = true;
-            this.lblAdministradores_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
-            this.lblAdministradores_82CD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblAdministradores_82CD.Location = new System.Drawing.Point(65, 100);
-            this.lblAdministradores_82CD.Name = "lblAdministradores_82CD";
-            this.lblAdministradores_82CD.Size = new System.Drawing.Size(120, 21);
-            this.lblAdministradores_82CD.TabIndex = 2;
-            this.lblAdministradores_82CD.Text = "Administrador";
+            this.lblReportes_82CD.AutoSize = true;
+            this.lblReportes_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
+            this.lblReportes_82CD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblReportes_82CD.Location = new System.Drawing.Point(65, 300);
+            this.lblReportes_82CD.Name = "lblReportes_82CD";
+            this.lblReportes_82CD.Size = new System.Drawing.Size(79, 21);
+            this.lblReportes_82CD.TabIndex = 6;
+            this.lblReportes_82CD.Text = "Reportes";
+            // 
+            // lblNegocio2_82CD
+            // 
+            this.lblNegocio2_82CD.AutoSize = true;
+            this.lblNegocio2_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
+            this.lblNegocio2_82CD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblNegocio2_82CD.Location = new System.Drawing.Point(65, 250);
+            this.lblNegocio2_82CD.Name = "lblNegocio2_82CD";
+            this.lblNegocio2_82CD.Size = new System.Drawing.Size(87, 21);
+            this.lblNegocio2_82CD.TabIndex = 5;
+            this.lblNegocio2_82CD.Text = "Negocio 2";
             // 
             // lblNegocio1_82CD
             // 
@@ -121,38 +132,28 @@
             this.lblMaestros_82CD.TabIndex = 3;
             this.lblMaestros_82CD.Text = "Maestro";
             // 
-            // lblNegocio2_82CD
+            // lblAdministradores_82CD
             // 
-            this.lblNegocio2_82CD.AutoSize = true;
-            this.lblNegocio2_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
-            this.lblNegocio2_82CD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblNegocio2_82CD.Location = new System.Drawing.Point(65, 250);
-            this.lblNegocio2_82CD.Name = "lblNegocio2_82CD";
-            this.lblNegocio2_82CD.Size = new System.Drawing.Size(87, 21);
-            this.lblNegocio2_82CD.TabIndex = 5;
-            this.lblNegocio2_82CD.Text = "Negocio 2";
+            this.lblAdministradores_82CD.AutoSize = true;
+            this.lblAdministradores_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
+            this.lblAdministradores_82CD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblAdministradores_82CD.Location = new System.Drawing.Point(65, 100);
+            this.lblAdministradores_82CD.Name = "lblAdministradores_82CD";
+            this.lblAdministradores_82CD.Size = new System.Drawing.Size(120, 21);
+            this.lblAdministradores_82CD.TabIndex = 2;
+            this.lblAdministradores_82CD.Text = "Administrador";
+            this.lblAdministradores_82CD.Click += new System.EventHandler(this.lblAdministradores_82CD_Click);
             // 
-            // lblAyuda_82CD
+            // lblUsuarios_82CD
             // 
-            this.lblAyuda_82CD.AutoSize = true;
-            this.lblAyuda_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
-            this.lblAyuda_82CD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblAyuda_82CD.Location = new System.Drawing.Point(65, 350);
-            this.lblAyuda_82CD.Name = "lblAyuda_82CD";
-            this.lblAyuda_82CD.Size = new System.Drawing.Size(59, 21);
-            this.lblAyuda_82CD.TabIndex = 7;
-            this.lblAyuda_82CD.Text = "Ayuda";
-            // 
-            // lblReportes_82CD
-            // 
-            this.lblReportes_82CD.AutoSize = true;
-            this.lblReportes_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
-            this.lblReportes_82CD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblReportes_82CD.Location = new System.Drawing.Point(65, 300);
-            this.lblReportes_82CD.Name = "lblReportes_82CD";
-            this.lblReportes_82CD.Size = new System.Drawing.Size(79, 21);
-            this.lblReportes_82CD.TabIndex = 6;
-            this.lblReportes_82CD.Text = "Reportes";
+            this.lblUsuarios_82CD.AutoSize = true;
+            this.lblUsuarios_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
+            this.lblUsuarios_82CD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblUsuarios_82CD.Location = new System.Drawing.Point(65, 50);
+            this.lblUsuarios_82CD.Name = "lblUsuarios_82CD";
+            this.lblUsuarios_82CD.Size = new System.Drawing.Size(69, 21);
+            this.lblUsuarios_82CD.TabIndex = 1;
+            this.lblUsuarios_82CD.Text = "Usuario";
             // 
             // frmMenuPrincipal_82CD
             // 
