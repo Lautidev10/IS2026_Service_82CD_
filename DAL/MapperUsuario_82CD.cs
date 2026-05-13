@@ -37,8 +37,8 @@ namespace DAL
             usuariobe_82CD.LogIn_82CD = reader_82CD["LogIn_82CD"].ToString();
             usuariobe_82CD.Password_82CD = reader_82CD["Password_82CD"].ToString();
             usuariobe_82CD.IdRol_82CD = int.Parse(reader_82CD["IdRol_82CD"].ToString());
-            usuariobe_82CD.Bloqueado_82CD = Convert.ToBoolean(reader_82CD["Bloqueado_82CD"]);
-            usuariobe_82CD.Activo_82CD = Convert.ToBoolean(reader_82CD["Activo_82CD"]);
+            usuariobe_82CD.Bloqueado_82CD = Convert.ToBoolean(reader_82CD["Bloqueado_82CD"].ToString());
+            usuariobe_82CD.Activo_82CD = Convert.ToBoolean(reader_82CD["Activo_82CD"].ToString());
 
             return usuariobe_82CD;
         }

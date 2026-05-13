@@ -1,4 +1,5 @@
 ﻿using BE;
+using BLL;
 using DAL;
 using Servicio;
 using System;
@@ -13,37 +14,61 @@ namespace IS2026_Service_82CD_
             InitializeComponent();
         }
 
+        BLLUsuario_82CD bllUsuario_82CD = new BLLUsuario_82CD();
+
+        private bool ValidarCampos_82CD()
+        {
+            if (string.IsNullOrWhiteSpace(txtUsuario_82CD.Text) || string.IsNullOrWhiteSpace(txtContraseña_82CD.Text))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         private void btnIniciarSesion_82CD_Click(object sender, EventArgs e)
         {
-            try
+
+            bool validar_82CD = ValidarCampos_82CD();
+
+            if (!validar_82CD)
+            {
+                MessageBox.Show("Debe ingresar usuario y contraseña");
+            }
+            else 
             {
                 string login_82CD = txtUsuario_82CD.Text;
-
                 string password_82CD = txtContraseña_82CD.Text;
-
                 string hash_82CD = ServicioEncriptacion_82CD.Encriptar_82CD(password_82CD);
 
-                MapperUsuario_82CD mapperusuario_82CD = new MapperUsuario_82CD();
-
-                UsuarioBE_82CD usuario_82CD = mapperusuario_82CD.ValidarLogin_82CD(login_82CD, hash_82CD);
-
-                if (usuario_82CD != null)
+                UsuarioBE_82CD usuario_82CD = bllUsuario_82CD.ValidarCredenciales_82CD(login_82CD, hash_82CD);
+                 
+                if(usuario_82CD == null)
                 {
-                    MessageBox.Show("Bienvenido");
-
-                    frmMenuPrincipal_82CD frmMenu = new frmMenuPrincipal_82CD();
-                    frmMenu.Show();
-                    this.Hide();
+                    MessageBox.Show("Usuario o Contraseña incorrectos");
                 }
                 else
                 {
-                    MessageBox.Show("Usuario o contraseña incorrectos");
+                    if(usuario_82CD.Bloqueado_82CD)
+                    {
+                        MessageBox.Show("El usuario se encuentra bloqueado");
+                    }
+                    else
+                    {
+                        SessionManager_82CD.IniciarSesion_82CD(usuario_82CD);
+                        MostrarMenuPrincipal_82CD();
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
+
+        private void MostrarMenuPrincipal_82CD()
+        {
+            frmMenuPrincipal_82CD frmMenuPrincipal_82CD = new frmMenuPrincipal_82CD();
+            frmMenuPrincipal_82CD.Show();
+        }
+
     }
 }

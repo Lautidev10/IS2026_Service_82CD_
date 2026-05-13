@@ -13,7 +13,7 @@ namespace IS2026_Service_82CD_
 
         private BLLUsuario_82CD bllUsuario_82CD = new BLLUsuario_82CD();
         private BLLBitacora_82CD bllbitacora_82CD = new BLLBitacora_82CD();
-        private ModoFrmAdmin_82CD modoActual_82CD = ModoFrmAdmin_82CD.Consulta;
+        private ModoFrmAdmin_82CD modoActual_82CD = ModoFrmAdmin_82CD.Consulta_82CD;
 
         public frmAdmin_82CD()
         {
@@ -22,15 +22,15 @@ namespace IS2026_Service_82CD_
 
         public enum ModoFrmAdmin_82CD
         {
-            Consulta,
-            Añadir
+            Consulta_82CD,
+            Añadir_82CD
         }
 
         private void frmAdmin_82CD_Load(object sender, EventArgs e)
         {
             LimpiarControles_82CD();
             CargarUsuarios_82CD();
-            SetModoFrm_82CD(ModoFrmAdmin_82CD.Consulta);
+            CambiarModo_82CD(ModoFrmAdmin_82CD.Consulta_82CD);
         }
 
 
@@ -72,13 +72,13 @@ namespace IS2026_Service_82CD_
         }
 
 
-        private void SetModoFrm_82CD(ModoFrmAdmin_82CD modo)
+        private void CambiarModo_82CD(ModoFrmAdmin_82CD modo)
         {
             modoActual_82CD = modo;
 
             switch (modo)
             {
-                case ModoFrmAdmin_82CD.Consulta:
+                case ModoFrmAdmin_82CD.Consulta_82CD:
 
                     lblDNI_82CD.Visible = false;
                     txtDNI_82CD.Visible = false;
@@ -111,7 +111,7 @@ namespace IS2026_Service_82CD_
                     break;
 
 
-                case ModoFrmAdmin_82CD.Añadir:
+                case ModoFrmAdmin_82CD.Añadir_82CD:
 
                     lblDNI_82CD.Visible = true;
                     txtDNI_82CD.Visible = true;
@@ -123,12 +123,12 @@ namespace IS2026_Service_82CD_
                     txtEmail_82CD.Visible = true;
                     lblRol_82CD.Visible = true;
                     cmbRol_82CD.Visible = true;
-                    lblLogin_82CD.Visible = true;
-                    txtLogin_82CD.Visible = true;
-                    lblBloqueado_82CD.Visible = true;
-                    txtBloqueado_82CD.Visible = true;
-                    lblActivo_82CD.Visible = true;
-                    txtActivo_82CD.Visible = true;
+                    lblLogin_82CD.Visible = false;
+                    txtLogin_82CD.Visible = false;
+                    lblBloqueado_82CD.Visible = false;
+                    txtBloqueado_82CD.Visible = false;
+                    lblActivo_82CD.Visible = false;
+                    txtActivo_82CD.Visible = false;
 
                     btnCrear_82CD.Visible = false;
                     btnDesbloquear_82CD.Visible = false;
@@ -167,14 +167,14 @@ namespace IS2026_Service_82CD_
         private void btnCrear_82CD_Click(object sender, EventArgs e)
         {
             LimpiarControles_82CD();
-            SetModoFrm_82CD(ModoFrmAdmin_82CD.Añadir);
+            CambiarModo_82CD(ModoFrmAdmin_82CD.Añadir_82CD);
             txtDNI_82CD.Focus();
         }
 
         private void btnCancelar_82CD_Click(object sender, EventArgs e)
         {
             LimpiarControles_82CD();
-            SetModoFrm_82CD(ModoFrmAdmin_82CD.Consulta);
+            CambiarModo_82CD(ModoFrmAdmin_82CD.Consulta_82CD);
             CargarUsuarios_82CD();
         }
 
@@ -199,7 +199,7 @@ namespace IS2026_Service_82CD_
 
                 CargarMensajes_82CD("Usuario creado Correctamente");
                 CargarUsuarios_82CD();
-                SetModoFrm_82CD(ModoFrmAdmin_82CD.Consulta);
+                CambiarModo_82CD(ModoFrmAdmin_82CD.Consulta_82CD);
             }
             catch
             {
@@ -208,7 +208,10 @@ namespace IS2026_Service_82CD_
             LimpiarControles_82CD();
         }
 
-
+        private void btnSalir_82CD_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 

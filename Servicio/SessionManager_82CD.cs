@@ -18,6 +18,23 @@ namespace Servicio
             _usuario_82CD = usuarioActualizado_82CD;
         }
 
+        public static void IniciarSesion_82CD(UsuarioBE_82CD usuarioBE_82CD)
+        {
+            if(_usuario_82CD == null)
+            {
+                _usuario_82CD = usuarioBE_82CD;
+            }
+            else
+            {
+                throw new Exception("Ya hay una sesion Iniciada");
+            }
+            
+        }
+
+        public static void CerrarSesion_82CD()
+        {
+            _usuario_82CD = null;
+        }
 
     }
 }

@@ -52,13 +52,13 @@
             this.btnCancelar_82CD = new System.Windows.Forms.Button();
             this.btnSalir_82CD = new System.Windows.Forms.Button();
             this.panFrmUsuario_82CD = new System.Windows.Forms.Panel();
-            this.txtBloqueado_82CD = new System.Windows.Forms.TextBox();
             this.lblBloqueado_82CD = new System.Windows.Forms.Label();
-            this.txtActivo_82CD = new System.Windows.Forms.TextBox();
             this.lblActivo_82CD = new System.Windows.Forms.Label();
             this.cmbRol_82CD = new System.Windows.Forms.ComboBox();
             this.rtbMensaje_82CD = new System.Windows.Forms.RichTextBox();
             this.lclCantUsuarios_82CD = new System.Windows.Forms.Label();
+            this.txtBloqueado_82CD = new System.Windows.Forms.TextBox();
+            this.txtActivo_82CD = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGUsuarios_82CD)).BeginInit();
             this.SuspendLayout();
             // 
@@ -315,6 +315,7 @@
             this.btnSalir_82CD.TabIndex = 23;
             this.btnSalir_82CD.Text = "Salir";
             this.btnSalir_82CD.UseVisualStyleBackColor = false;
+            this.btnSalir_82CD.Click += new System.EventHandler(this.btnSalir_82CD_Click);
             // 
             // panFrmUsuario_82CD
             // 
@@ -323,14 +324,6 @@
             this.panFrmUsuario_82CD.Name = "panFrmUsuario_82CD";
             this.panFrmUsuario_82CD.Size = new System.Drawing.Size(985, 40);
             this.panFrmUsuario_82CD.TabIndex = 24;
-            // 
-            // txtBloqueado_82CD
-            // 
-            this.txtBloqueado_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.txtBloqueado_82CD.Location = new System.Drawing.Point(199, 526);
-            this.txtBloqueado_82CD.Name = "txtBloqueado_82CD";
-            this.txtBloqueado_82CD.Size = new System.Drawing.Size(150, 20);
-            this.txtBloqueado_82CD.TabIndex = 27;
             // 
             // lblBloqueado_82CD
             // 
@@ -342,14 +335,6 @@
             this.lblBloqueado_82CD.Size = new System.Drawing.Size(73, 16);
             this.lblBloqueado_82CD.TabIndex = 26;
             this.lblBloqueado_82CD.Text = "Bloqueado";
-            // 
-            // txtActivo_82CD
-            // 
-            this.txtActivo_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.txtActivo_82CD.Location = new System.Drawing.Point(199, 562);
-            this.txtActivo_82CD.Name = "txtActivo_82CD";
-            this.txtActivo_82CD.Size = new System.Drawing.Size(150, 20);
-            this.txtActivo_82CD.TabIndex = 29;
             // 
             // lblActivo_82CD
             // 
@@ -390,18 +375,34 @@
             this.lclCantUsuarios_82CD.Size = new System.Drawing.Size(0, 16);
             this.lclCantUsuarios_82CD.TabIndex = 32;
             // 
+            // txtBloqueado_82CD
+            // 
+            this.txtBloqueado_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.txtBloqueado_82CD.Location = new System.Drawing.Point(199, 525);
+            this.txtBloqueado_82CD.Name = "txtBloqueado_82CD";
+            this.txtBloqueado_82CD.Size = new System.Drawing.Size(150, 20);
+            this.txtBloqueado_82CD.TabIndex = 33;
+            // 
+            // txtActivo_82CD
+            // 
+            this.txtActivo_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.txtActivo_82CD.Location = new System.Drawing.Point(199, 562);
+            this.txtActivo_82CD.Name = "txtActivo_82CD";
+            this.txtActivo_82CD.Size = new System.Drawing.Size(150, 20);
+            this.txtActivo_82CD.TabIndex = 34;
+            // 
             // frmAdmin_82CD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.txtActivo_82CD);
+            this.Controls.Add(this.txtBloqueado_82CD);
             this.Controls.Add(this.lclCantUsuarios_82CD);
             this.Controls.Add(this.rtbMensaje_82CD);
             this.Controls.Add(this.cmbRol_82CD);
-            this.Controls.Add(this.txtActivo_82CD);
             this.Controls.Add(this.lblActivo_82CD);
-            this.Controls.Add(this.txtBloqueado_82CD);
             this.Controls.Add(this.lblBloqueado_82CD);
             this.Controls.Add(this.panFrmUsuario_82CD);
             this.Controls.Add(this.btnSalir_82CD);
@@ -462,12 +463,12 @@
         private System.Windows.Forms.Button btnCancelar_82CD;
         private System.Windows.Forms.Button btnSalir_82CD;
         private System.Windows.Forms.Panel panFrmUsuario_82CD;
-        private System.Windows.Forms.TextBox txtBloqueado_82CD;
         private System.Windows.Forms.Label lblBloqueado_82CD;
-        private System.Windows.Forms.TextBox txtActivo_82CD;
         private System.Windows.Forms.Label lblActivo_82CD;
         private System.Windows.Forms.ComboBox cmbRol_82CD;
         private System.Windows.Forms.RichTextBox rtbMensaje_82CD;
         private System.Windows.Forms.Label lclCantUsuarios_82CD;
+        private System.Windows.Forms.TextBox txtBloqueado_82CD;
+        private System.Windows.Forms.TextBox txtActivo_82CD;
     }
 }

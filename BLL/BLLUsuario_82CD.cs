@@ -9,11 +9,17 @@ namespace BLL
     public class BLLUsuario_82CD
     {
         private MapperUsuario_82CD mapperUsuario_82CD = new MapperUsuario_82CD();
-        private BLLBitacora_82CD bLLBitacora_82CD = new BLLBitacora_82CD();
+        private BLLBitacora_82CD bllBitacora_82CD = new BLLBitacora_82CD();
 
         public List<UsuarioBE_82CD> ListarUsuario_82CD(bool soloActivos_82CD)
         {
             return mapperUsuario_82CD.ListarUsuario_82CD(soloActivos_82CD);
+        }
+
+
+        public UsuarioBE_82CD ValidarCredenciales_82CD(string login_82CD, string contraseñaEncriptada_82CD)
+        {
+            return mapperUsuario_82CD.ValidarLogin_82CD(login_82CD,contraseñaEncriptada_82CD);
         }
 
         public void AgregarUsuario_82CD(UsuarioBE_82CD usuario_82CD)
@@ -52,7 +58,7 @@ namespace BLL
             mapperUsuario_82CD.DesbloquearUsuario_82CD(Login_82CD, Password_82CD);
         }
 
-        public void ActualizarContraseña_82CD(string Login_82CD, string PasswordActual_82CD, string PasswordNueva_82CD, string Confirmacion_82CD)
+        /*public void ActualizarContraseña_82CD(string Login_82CD, string PasswordActual_82CD, string PasswordNueva_82CD, string Confirmacion_82CD)
         {
             UsuarioBE_82CD UsuarioActual_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
 
@@ -75,8 +81,8 @@ namespace BLL
             UsuarioActual_82CD.Password_82CD = PasswordNuevaEncriptada_82CD;
             SessionManager_82CD.ActualizarUsuarioEnSesion_82CD(UsuarioActual_82CD);
 
-            bLLBitacora_82CD.RegistrarEvento_82CD("Cambio de Clave Exitoso", UsuarioActual_82CD.LogIn_82CD);
-        }
+            bllBitacora_82CD.RegistrarEvento_82CD("Cambio de Clave Exitoso", UsuarioActual_82CD.LogIn_82CD);
+        }*/
 
 
     }

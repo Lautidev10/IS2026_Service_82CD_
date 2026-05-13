@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Conexion_82CD.cs" />
     <Compile Include="MapperBitacora_82CD.cs" />
+    <Compile Include="MapperRol_82CD.cs" />
     <Compile Include="MapperUsuario_82CD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

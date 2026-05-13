@@ -87,6 +87,7 @@
             this.lblAyuda_82CD.Size = new System.Drawing.Size(59, 21);
             this.lblAyuda_82CD.TabIndex = 7;
             this.lblAyuda_82CD.Text = "Ayuda";
+            this.lblAyuda_82CD.Click += new System.EventHandler(this.lblAyuda_82CD_Click);
             // 
             // lblReportes_82CD
             // 
@@ -98,6 +99,7 @@
             this.lblReportes_82CD.Size = new System.Drawing.Size(79, 21);
             this.lblReportes_82CD.TabIndex = 6;
             this.lblReportes_82CD.Text = "Reportes";
+            this.lblReportes_82CD.Click += new System.EventHandler(this.lblReportes_82CD_Click);
             // 
             // lblNegocio2_82CD
             // 
@@ -109,6 +111,7 @@
             this.lblNegocio2_82CD.Size = new System.Drawing.Size(87, 21);
             this.lblNegocio2_82CD.TabIndex = 5;
             this.lblNegocio2_82CD.Text = "Negocio 2";
+            this.lblNegocio2_82CD.Click += new System.EventHandler(this.lblNegocio2_82CD_Click);
             // 
             // lblNegocio1_82CD
             // 
@@ -120,6 +123,7 @@
             this.lblNegocio1_82CD.Size = new System.Drawing.Size(84, 21);
             this.lblNegocio1_82CD.TabIndex = 4;
             this.lblNegocio1_82CD.Text = "Negocio 1";
+            this.lblNegocio1_82CD.Click += new System.EventHandler(this.lblNegocio1_82CD_Click);
             // 
             // lblMaestros_82CD
             // 
@@ -131,6 +135,7 @@
             this.lblMaestros_82CD.Size = new System.Drawing.Size(72, 21);
             this.lblMaestros_82CD.TabIndex = 3;
             this.lblMaestros_82CD.Text = "Maestro";
+            this.lblMaestros_82CD.Click += new System.EventHandler(this.lblMaestros_82CD_Click);
             // 
             // lblAdministradores_82CD
             // 
@@ -154,6 +159,7 @@
             this.lblUsuarios_82CD.Size = new System.Drawing.Size(69, 21);
             this.lblUsuarios_82CD.TabIndex = 1;
             this.lblUsuarios_82CD.Text = "Usuario";
+            this.lblUsuarios_82CD.Click += new System.EventHandler(this.lblUsuarios_82CD_Click);
             // 
             // frmMenuPrincipal_82CD
             // 
