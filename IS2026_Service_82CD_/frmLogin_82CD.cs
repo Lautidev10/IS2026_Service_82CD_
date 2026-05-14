@@ -48,9 +48,9 @@ namespace IS2026_Service_82CD_
                     SessionManager_82CD.IniciarSesion_82CD(usuario_82CD);
                     MostrarMenuPrincipal_82CD(rol_82CD.NombreRol_82CD);
                 }
-                catch 
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Error al iniciar Sesion");
+                    MessageBox.Show(ex.Message);
                 }
             }
             else

@@ -3,6 +3,7 @@ using DAL;
 using Servicio;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Channels;
 
 namespace BLL
 {
@@ -11,9 +12,9 @@ namespace BLL
         private MapperUsuario_82CD mapperUsuario_82CD = new MapperUsuario_82CD();
         private BLLBitacora_82CD bllBitacora_82CD = new BLLBitacora_82CD();
 
-        public List<UsuarioBE_82CD> ListarUsuario_82CD(bool soloActivos_82CD)
+        public List<UsuarioBE_82CD> ListarUsuario_82CD(bool estado_82CD)
         {
-            return mapperUsuario_82CD.ListarUsuario_82CD(soloActivos_82CD);
+            return mapperUsuario_82CD.ListarUsuario_82CD(estado_82CD);
         }
 
 
@@ -23,7 +24,7 @@ namespace BLL
             if(usuario_82CD == null)
             {
                 //La bitacora podria guardar el intento fallido
-                throw new Exception("Usuario o Contraseña Incorrectos)");
+                throw new Exception("Usuario o Contraseña Incorrectos");
             }
             if (!usuario_82CD.Activo_82CD)
             {
@@ -86,10 +87,23 @@ namespace BLL
             mapperUsuario_82CD.ModificarUsuario_82CD(usuario_82CD);
         }
 
-        public void CambiarEstadoUsuario_82CD(string dni_82CD, bool activo_82CD)
+        public void CambiarEstadoUsuario_82CD(UsuarioBE_82CD usuario_82CD, bool estado_82CD)
         {
-            mapperUsuario_82CD.CambiarEstadoUsuario_82CD(dni_82CD, activo_82CD);
+            if(usuario_82CD == null)
+            {
+                throw new Exception("Debe seleccionar un usuario");
+            }
+            
+            UsuarioBE_82CD sesion_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
+            
+            if(usuario_82CD.LogIn_82CD == sesion_82CD.LogIn_82CD)
+            {
+                throw new Exception("No podes desactivar tu sesion");
+            }
+
+            mapperUsuario_82CD.CambiarEstadoUsuario_82CD(usuario_82CD, estado_82CD);
         }
+
 
         public void DesbloquearUsuario_82CD(String Login_82CD, string Password_82CD)
         {

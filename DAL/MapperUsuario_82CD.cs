@@ -43,7 +43,7 @@ namespace DAL
             return usuariobe_82CD;
         }
 
-        public List<UsuarioBE_82CD> ListarUsuario_82CD(bool soloActivos_82CD)
+        public List<UsuarioBE_82CD> ListarUsuario_82CD(bool estado_82CD)
         {
             List<UsuarioBE_82CD> ls_82CD = new List<UsuarioBE_82CD>();
 
@@ -51,7 +51,7 @@ namespace DAL
             {
                 Conectar_82CD();
                 string query_82CD = "SELECT U.DNI_82CD, U.Apellidos_82CD, U.Nombre_82CD, U.Email_82CD, U.LogIn_82CD, U.Password_82CD, U.IdRol_82CD, U.Bloqueado_82CD, U.Activo_82CD FROM Usuario_82CD U";
-                if (soloActivos_82CD)
+                if (estado_82CD)
                     query_82CD += " WHERE U.Activo_82CD = 1";
                 query_82CD += " ORDER BY U.Apellidos_82CD, U.Nombre_82CD";
                 SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
@@ -113,15 +113,15 @@ namespace DAL
             }
         }
 
-        public void CambiarEstadoUsuario_82CD(string dni_82CD, bool activo_82CD)
+        public void CambiarEstadoUsuario_82CD(UsuarioBE_82CD usuario_82CD, bool estado_82CD)
         {
             try
             {
                 Conectar_82CD();
                 string query_82CD = "UPDATE Usuario_82CD SET Activo_82CD = @Activo_82CD WHERE DNI_82CD = @DNI_82CD";
                 SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
-                cmd_82CD.Parameters.AddWithValue("@DNI_82CD", dni_82CD);
-                cmd_82CD.Parameters.AddWithValue("@Activo_82CD", activo_82CD);
+                cmd_82CD.Parameters.AddWithValue("@DNI_82CD", usuario_82CD.DNI_82CD);
+                cmd_82CD.Parameters.AddWithValue("@Activo_82CD", estado_82CD);
                 cmd_82CD.ExecuteNonQuery();
             }
             finally

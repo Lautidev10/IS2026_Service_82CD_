@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using Servicio;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,7 +13,7 @@ namespace IS2026_Service_82CD_
     {
 
         private BLLUsuario_82CD bllUsuario_82CD = new BLLUsuario_82CD();
-        private BLLBitacora_82CD bllbitacora_82CD = new BLLBitacora_82CD();
+        private BLLRol_82CD bllRol_82CD = new BLLRol_82CD();
         private ModoFrmAdmin_82CD modoActual_82CD = ModoFrmAdmin_82CD.Consulta_82CD;
         private UsuarioBE_82CD usuarioseleccionado_82CD;
 
@@ -31,17 +32,34 @@ namespace IS2026_Service_82CD_
         private void frmAdmin_82CD_Load(object sender, EventArgs e)
         {
             LimpiarControles_82CD();
-            CargarUsuarios_82CD();
+            CargarRoles_82CD();
+            radbtnTodos_82CD.Checked = true;
             CambiarModo_82CD(ModoFrmAdmin_82CD.Consulta_82CD);
         }
 
+        private void ActualizarDataGrid_82CD()
+        {
+            if (radbtnActivos_82CD.Checked)
+                CargarUsuarios_82CD(true);
+            else
+                CargarUsuarios_82CD(false);
+        }
 
+        private void CargarRoles_82CD()
+        {
+            List<BERol_82CD> roles_82CD = bllRol_82CD.ObtenerRoles_82CD();
 
-        private void CargarUsuarios_82CD()
+            cmbRol_82CD.DataSource = roles_82CD;
+            cmbRol_82CD.DisplayMember = "NombreRol_82CD";
+            cmbRol_82CD.ValueMember = "IdRol_82CD";
+
+        }
+
+        private void CargarUsuarios_82CD(bool estado_82CD)
         {
             try
             {
-                List<UsuarioBE_82CD> usuarios_82CD = bllUsuario_82CD.ListarUsuario_82CD(false);
+                List<UsuarioBE_82CD> usuarios_82CD = bllUsuario_82CD.ListarUsuario_82CD(estado_82CD);
 
                 List<UsuarioBE_82CD> listaMostrar_82CD = new List<UsuarioBE_82CD>();
 
@@ -193,7 +211,7 @@ namespace IS2026_Service_82CD_
             txtApellidos_82CD.Text = "";
             txtNombre_82CD.Text = "";
             txtEmail_82CD.Text = "";
-            cmbRol_82CD.Text = "";
+            cmbRol_82CD.SelectedIndex = -1;
             txtLogin_82CD.Text = "";
             txtBloqueado_82CD.Text = "";
             txtActivo_82CD.Text = "";
@@ -203,14 +221,12 @@ namespace IS2026_Service_82CD_
         {
             LimpiarControles_82CD();
             CambiarModo_82CD(ModoFrmAdmin_82CD.Añadir_82CD);
-            txtDNI_82CD.Focus();
         }
 
         private void btnCancelar_82CD_Click(object sender, EventArgs e)
         {
             LimpiarControles_82CD();
             CambiarModo_82CD(ModoFrmAdmin_82CD.Consulta_82CD);
-            CargarUsuarios_82CD();
         }
 
         private void btnAplicar_82CD_Click(object sender, EventArgs e)
@@ -225,7 +241,7 @@ namespace IS2026_Service_82CD_
                         Apellidos_82CD = txtApellidos_82CD.Text,
                         Nombre_82CD = txtNombre_82CD.Text,
                         Email_82CD = txtEmail_82CD.Text,
-                        IdRol_82CD = Convert.ToInt32(cmbRol_82CD.Text),
+                        IdRol_82CD = Convert.ToInt32(cmbRol_82CD.SelectedValue),
                         LogIn_82CD = txtLogin_82CD.Text,
                         Bloqueado_82CD = false,
                         Activo_82CD = true,
@@ -241,13 +257,13 @@ namespace IS2026_Service_82CD_
                     usuarioseleccionado_82CD.Apellidos_82CD = txtApellidos_82CD.Text;
                     usuarioseleccionado_82CD.Nombre_82CD = txtNombre_82CD.Text;
                     usuarioseleccionado_82CD.Email_82CD = txtEmail_82CD.Text;
-                    usuarioseleccionado_82CD.IdRol_82CD = Convert.ToInt32(cmbRol_82CD.Text);
+                    usuarioseleccionado_82CD.IdRol_82CD = Convert.ToInt32(cmbRol_82CD.SelectedValue);
 
                     bllUsuario_82CD.ModificarUsuario_82CD(usuarioseleccionado_82CD);
                     MessageBox.Show("Usuario modificado correctamente");
                 }
 
-                CargarUsuarios_82CD();
+                ActualizarDataGrid_82CD();
                 CambiarModo_82CD(ModoFrmAdmin_82CD.Consulta_82CD);
                 LimpiarControles_82CD();
             }
@@ -267,8 +283,6 @@ namespace IS2026_Service_82CD_
         {
             LimpiarControles_82CD();
             CambiarModo_82CD(ModoFrmAdmin_82CD.Modificar_82CD);
-
-            CargarMensajes_82CD("Seleccione un usuario del listado para modificar");
         }
 
         private void DGUsuarios_82CD_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -283,7 +297,10 @@ namespace IS2026_Service_82CD_
                 Apellidos_82CD = row.Cells["Apellidos_82CD"].Value.ToString(),
                 Nombre_82CD = row.Cells["Nombre_82CD"].Value.ToString(),
                 Email_82CD = row.Cells["Email_82CD"].Value.ToString(),
-                IdRol_82CD = Convert.ToInt32(row.Cells["IdRol_82CD"].Value)
+                IdRol_82CD = Convert.ToInt32(row.Cells["IdRol_82CD"].Value.ToString()),
+                LogIn_82CD = row.Cells["Login_82CD"].Value.ToString(),
+                Bloqueado_82CD = Convert.ToBoolean(row.Cells["Bloqueado_82CD"].Value),
+                Activo_82CD = Convert.ToBoolean(row.Cells["Activo_82CD"].Value),
             };
 
             txtDNI_82CD.Text = usuarioseleccionado_82CD.DNI_82CD;
@@ -293,6 +310,65 @@ namespace IS2026_Service_82CD_
 
             cmbRol_82CD.SelectedValue = usuarioseleccionado_82CD.IdRol_82CD;
         }
+
+        private void btnActDesact_82CD_Click(object sender, EventArgs e)
+        {
+            if(usuarioseleccionado_82CD == null)
+            {
+                MessageBox.Show("Debe Seleccionar un usuario");
+                return;
+            }
+            try
+            {
+                if(usuarioseleccionado_82CD.Activo_82CD == true)
+                {
+                    DialogResult confirmacion_82CD = MessageBox.Show("Desea desactivar al usuario: '" + usuarioseleccionado_82CD.LogIn_82CD + "'?",
+                    "Confirmar desactivacion", MessageBoxButtons.YesNo); 
+                    
+                    if(confirmacion_82CD == DialogResult.No)
+                    {
+                        MessageBox.Show("Desactivacion cancelada");
+                        return;
+                    }
+
+                    bllUsuario_82CD.CambiarEstadoUsuario_82CD(usuarioseleccionado_82CD, false);
+                    MessageBox.Show($"El usuario: {usuarioseleccionado_82CD.LogIn_82CD} fue desactivado");
+                }
+                else
+                {
+                    DialogResult confirmacion_82CD = MessageBox.Show("Desea activar al usuario: '" + usuarioseleccionado_82CD.LogIn_82CD + "'?",
+                    "Confirmar activacion", MessageBoxButtons.YesNo);
+
+                    if (confirmacion_82CD == DialogResult.No)
+                    {
+                        MessageBox.Show("Activacion cancelada");
+                        return;
+                    }
+                    bllUsuario_82CD.CambiarEstadoUsuario_82CD(usuarioseleccionado_82CD, true);
+                    MessageBox.Show($"El usuario: {usuarioseleccionado_82CD.LogIn_82CD} fue activado");
+                }
+                usuarioseleccionado_82CD = null;
+                ActualizarDataGrid_82CD();
+                LimpiarControles_82CD();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        private void radbtnTodos_82CD_CheckedChanged(object sender, EventArgs e)
+        {
+            ActualizarDataGrid_82CD();
+        }
+
+        private void radbtnActivos_82CD_CheckedChanged(object sender, EventArgs e)
+        {
+            ActualizarDataGrid_82CD();
+        }
+
+
     }
 }
 

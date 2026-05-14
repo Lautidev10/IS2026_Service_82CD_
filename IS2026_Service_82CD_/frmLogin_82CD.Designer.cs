@@ -37,18 +37,17 @@
             // 
             // txtUsuario_82CD
             // 
-            this.txtUsuario_82CD.Location = new System.Drawing.Point(184, 31);
-            this.txtUsuario_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsuario_82CD.Location = new System.Drawing.Point(138, 25);
             this.txtUsuario_82CD.Name = "txtUsuario_82CD";
-            this.txtUsuario_82CD.Size = new System.Drawing.Size(208, 22);
+            this.txtUsuario_82CD.Size = new System.Drawing.Size(157, 20);
             this.txtUsuario_82CD.TabIndex = 0;
             // 
             // txtContraseña_82CD
             // 
-            this.txtContraseña_82CD.Location = new System.Drawing.Point(184, 89);
-            this.txtContraseña_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtContraseña_82CD.Location = new System.Drawing.Point(138, 72);
             this.txtContraseña_82CD.Name = "txtContraseña_82CD";
-            this.txtContraseña_82CD.Size = new System.Drawing.Size(208, 22);
+            this.txtContraseña_82CD.PasswordChar = '*';
+            this.txtContraseña_82CD.Size = new System.Drawing.Size(157, 20);
             this.txtContraseña_82CD.TabIndex = 1;
             // 
             // lblUsuario_82CD
@@ -56,10 +55,9 @@
             this.lblUsuario_82CD.AutoSize = true;
             this.lblUsuario_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.lblUsuario_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.lblUsuario_82CD.Location = new System.Drawing.Point(75, 34);
-            this.lblUsuario_82CD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsuario_82CD.Location = new System.Drawing.Point(56, 28);
             this.lblUsuario_82CD.Name = "lblUsuario_82CD";
-            this.lblUsuario_82CD.Size = new System.Drawing.Size(69, 21);
+            this.lblUsuario_82CD.Size = new System.Drawing.Size(53, 16);
             this.lblUsuario_82CD.TabIndex = 2;
             this.lblUsuario_82CD.Text = "Usuario";
             // 
@@ -68,10 +66,9 @@
             this.lblContraseña_82CD.AutoSize = true;
             this.lblContraseña_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.lblContraseña_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.lblContraseña_82CD.Location = new System.Drawing.Point(63, 92);
-            this.lblContraseña_82CD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblContraseña_82CD.Location = new System.Drawing.Point(47, 75);
             this.lblContraseña_82CD.Name = "lblContraseña_82CD";
-            this.lblContraseña_82CD.Size = new System.Drawing.Size(98, 21);
+            this.lblContraseña_82CD.Size = new System.Drawing.Size(77, 16);
             this.lblContraseña_82CD.TabIndex = 3;
             this.lblContraseña_82CD.Text = "Contraseña";
             // 
@@ -80,10 +77,9 @@
             this.btnIniciarSesion_82CD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
             this.btnIniciarSesion_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.btnIniciarSesion_82CD.ForeColor = System.Drawing.Color.White;
-            this.btnIniciarSesion_82CD.Location = new System.Drawing.Point(133, 160);
-            this.btnIniciarSesion_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnIniciarSesion_82CD.Location = new System.Drawing.Point(100, 130);
             this.btnIniciarSesion_82CD.Name = "btnIniciarSesion_82CD";
-            this.btnIniciarSesion_82CD.Size = new System.Drawing.Size(169, 43);
+            this.btnIniciarSesion_82CD.Size = new System.Drawing.Size(127, 35);
             this.btnIniciarSesion_82CD.TabIndex = 4;
             this.btnIniciarSesion_82CD.Text = "Iniciar Sesion";
             this.btnIniciarSesion_82CD.UseVisualStyleBackColor = false;
@@ -91,15 +87,14 @@
             // 
             // frmLogin_82CD
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 257);
+            this.ClientSize = new System.Drawing.Size(340, 209);
             this.Controls.Add(this.btnIniciarSesion_82CD);
             this.Controls.Add(this.lblContraseña_82CD);
             this.Controls.Add(this.lblUsuario_82CD);
             this.Controls.Add(this.txtContraseña_82CD);
             this.Controls.Add(this.txtUsuario_82CD);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmLogin_82CD";
             this.Text = "FrmLogin_82CD";
             this.ResumeLayout(false);
