@@ -64,7 +64,7 @@ namespace DAL
             try
             {
                 Conectar_82CD();
-                string query_82CD = "SELECT IDRol_82CD, Nombre_82CD FROM Rol_82CD";
+                string query_82CD = "SELECT IdRol_82CD, NombreRol_82CD FROM Rol_82CD";
                 SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
                 SqlDataReader reader_82CD = cmd_82CD.ExecuteReader();
 
