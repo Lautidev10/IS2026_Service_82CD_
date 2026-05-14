@@ -172,6 +172,7 @@
             this.Controls.Add(this.panelMenuPrincipal_82CD);
             this.Name = "frmMenuPrincipal_82CD";
             this.Text = "frmMenuPrincipal_82CD";
+            this.Load += new System.EventHandler(this.frmMenuPrincipal_82CD_Load);
             this.panelMenuPrincipal_82CD.ResumeLayout(false);
             this.panelMenuPrincipal_82CD.PerformLayout();
             this.panel1.ResumeLayout(false);

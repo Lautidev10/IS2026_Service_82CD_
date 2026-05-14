@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Rol_82CD.cs" />
+    <Compile Include="BERol_82CD.cs" />
     <Compile Include="UsuarioBE_82CD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

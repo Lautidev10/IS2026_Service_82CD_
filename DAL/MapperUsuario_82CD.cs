@@ -164,28 +164,6 @@ namespace DAL
             }
         }
 
-        public UsuarioBE_82CD ValidarLogin_82CD(string login_82CD, string password_82CD)
-        {
-            UsuarioBE_82CD usuario_82CD = null;
-            try
-            {
-                Conectar_82CD();
-                string query_82CD = "SELECT DNI_82CD, Apellidos_82CD, Nombre_82CD, Email_82CD, LogIn_82CD, Password_82CD, IdRol_82CD, Bloqueado_82CD, Activo_82CD FROM Usuario_82CD WHERE LogIn_82CD = @LogIn_82CD AND Password_82CD = @Password_82CD";
-                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
-                cmd_82CD.Parameters.AddWithValue("@LogIn_82CD", login_82CD);
-                cmd_82CD.Parameters.AddWithValue("@Password_82CD", password_82CD);
-                SqlDataReader reader_82CD = cmd_82CD.ExecuteReader();
-                if (reader_82CD.Read())
-                {
-                    usuario_82CD = MapearUsuario_82CD(reader_82CD);
-                }
-            }
-            finally
-            {
-                Desconectar_82CD();
-            }
-            return usuario_82CD;
-        }
 
         public UsuarioBE_82CD BuscarUsuarioPorLogIn_82CD(string login_82CD)
         {

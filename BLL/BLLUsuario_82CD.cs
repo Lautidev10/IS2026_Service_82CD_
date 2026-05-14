@@ -19,7 +19,31 @@ namespace BLL
 
         public UsuarioBE_82CD ValidarCredenciales_82CD(string login_82CD, string contraseñaEncriptada_82CD)
         {
-            return mapperUsuario_82CD.ValidarLogin_82CD(login_82CD,contraseñaEncriptada_82CD);
+            UsuarioBE_82CD usuario_82CD = mapperUsuario_82CD.BuscarUsuarioPorLogIn_82CD(login_82CD);
+            if(usuario_82CD == null)
+            {
+                //La bitacora podria guardar el intento fallido
+                throw new Exception("Usuario o Contraseña Incorrectos)");
+            }
+            if (!usuario_82CD.Activo_82CD)
+            {
+                //bllBitacora_82CD.RegistrarEvento_82CD("Intento de conexion de usuario inactivo: {1}", login_82CD);
+                throw new Exception("El usuario se encuentra inactivo");
+            }
+            if (usuario_82CD.Bloqueado_82CD)
+            {
+                //bllBitacora_82CD.RegistrarEvento_82CD("Intento de conexion de usuario bloqueado:{0}", login_82CD);
+                throw new Exception("El usuario se encuentra bloqueado");
+            }
+            if(usuario_82CD.Password_82CD != contraseñaEncriptada_82CD)
+            {
+                //La bitacora podria guardar el intendo fallido
+                throw new Exception("Usuario o Contraseña Incorrectos");
+            }
+
+            //bllBitacora_82CD.RegistrarEvento_82CD("El usuario {0} inicio sesion",login_82CD);
+
+            return usuario_82CD;
         }
 
         public void AgregarUsuario_82CD(UsuarioBE_82CD usuario_82CD)

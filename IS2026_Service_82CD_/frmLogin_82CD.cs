@@ -15,6 +15,7 @@ namespace IS2026_Service_82CD_
         }
 
         BLLUsuario_82CD bllUsuario_82CD = new BLLUsuario_82CD();
+        BLLRol_82CD bllRol_82CD = new BLLRol_82CD();
 
         private bool ValidarCampos_82CD()
         {
@@ -33,42 +34,38 @@ namespace IS2026_Service_82CD_
 
             bool validar_82CD = ValidarCampos_82CD();
 
-            if (!validar_82CD)
+            if (validar_82CD)
             {
-                MessageBox.Show("Debe ingresar usuario y contraseña");
-            }
-            else 
-            {
-                string login_82CD = txtUsuario_82CD.Text;
-                string password_82CD = txtContraseña_82CD.Text;
-                string hash_82CD = ServicioEncriptacion_82CD.Encriptar_82CD(password_82CD);
+                try
+                {
+                    string login_82CD = txtUsuario_82CD.Text;
+                    string password_82CD = txtContraseña_82CD.Text;
+                    string hash_82CD = ServicioEncriptacion_82CD.Encriptar_82CD(password_82CD);
 
-                UsuarioBE_82CD usuario_82CD = bllUsuario_82CD.ValidarCredenciales_82CD(login_82CD, hash_82CD);
-                 
-                if(usuario_82CD == null)
-                {
-                    MessageBox.Show("Usuario o Contraseña incorrectos");
+                    UsuarioBE_82CD usuario_82CD = bllUsuario_82CD.ValidarCredenciales_82CD(login_82CD, hash_82CD);
+                    BERol_82CD rol_82CD = bllRol_82CD.BuscarRolporID_82CD(usuario_82CD.IdRol_82CD);
+
+                    SessionManager_82CD.IniciarSesion_82CD(usuario_82CD);
+                    MostrarMenuPrincipal_82CD(rol_82CD.NombreRol_82CD);
                 }
-                else
+                catch 
                 {
-                    if(usuario_82CD.Bloqueado_82CD)
-                    {
-                        MessageBox.Show("El usuario se encuentra bloqueado");
-                    }
-                    else
-                    {
-                        SessionManager_82CD.IniciarSesion_82CD(usuario_82CD);
-                        MostrarMenuPrincipal_82CD();
-                    }
+                    MessageBox.Show("Error al iniciar Sesion");
                 }
             }
+            else
+            {
+                MessageBox.Show("Debe ingresar Usuario y Contraseña");
+            }
+
         }
+        
 
-        private void MostrarMenuPrincipal_82CD()
+        private void MostrarMenuPrincipal_82CD(string Nombrerol_82CD)
         {
-            frmMenuPrincipal_82CD frmMenuPrincipal_82CD = new frmMenuPrincipal_82CD();
+            frmMenuPrincipal_82CD frmMenuPrincipal_82CD = new frmMenuPrincipal_82CD(Nombrerol_82CD);
             frmMenuPrincipal_82CD.Show();
         }
-
+        
     }
 }

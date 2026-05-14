@@ -26,29 +26,61 @@ namespace DAL
                 conexion_82CD.Close();
         }
 
-        private Rol_82CD MappearRol(SqlDataReader reader_82CD)
+        private BERol_82CD MappearRol_82CD(SqlDataReader reader_82CD)
         {
-            Rol_82CD rol_82CD = new Rol_82CD();
-            rol_82CD.IdRol_82CD = int.Parse(reader_82CD["IDRol_82CD"].ToString());
-            rol_82CD.NombreRol_82CD = reader_82CD["Nombre_82CD"].ToString();
+            BERol_82CD rol_82CD = new BERol_82CD();
+            rol_82CD.IdRol_82CD = int.Parse(reader_82CD["IdRol_82CD"].ToString());
+            rol_82CD.NombreRol_82CD = reader_82CD["NombreRol_82CD"].ToString();
             return rol_82CD;
-        } 
+        }
 
-        //public Rol_82CD BucarPorID_82CD(int IdRol_82CD)
-        //{
-        //    Rol_82CD rol_82CD;
+        public BERol_82CD BucarRolPorID_82CD(int IdRol_82CD)
+        {
+            BERol_82CD rol_82CD = null;
 
-        //    try
-        //    {
-        //        Conectar_82CD();
-        //        string query_82CD = "SELECT IdRol_82CD, NombreRol_82CD FROM ROL_82CD";
-        //        SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
-        //        SqlDataReader reader_82CD = cmd_82CD.ExecuteReader();
-        //        while (reader_82CD.Read())
-        //        {
-        //            li
-        //        }
-        //}
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = "SELECT IdRol_82CD, NombreRol_82CD FROM Rol_82CD WHERE IdRol_82CD = @IdRol_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdRol_82CD",IdRol_82CD);
+                SqlDataReader reader_82CD = cmd_82CD.ExecuteReader();
+                if (reader_82CD.Read())
+                {
+                    rol_82CD = MappearRol_82CD(reader_82CD);
+                }
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+            return rol_82CD;
+        }
+
+        public List<BERol_82CD> ObtenerRoles_82CD()
+        {
+            List<BERol_82CD> lista_82CD = new List<BERol_82CD>();
+
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = "SELECT IDRol_82CD, Nombre_82CD FROM Rol_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                SqlDataReader reader_82CD = cmd_82CD.ExecuteReader();
+
+                while (reader_82CD.Read())
+                {
+                    lista_82CD.Add(MappearRol_82CD(reader_82CD));
+                }
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+
+            return lista_82CD;
+        }
+
 
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class Rol_82CD
+    public class BERol_82CD
     {
         public int IdRol_82CD { get; set; }
         public string NombreRol_82CD { get; set; }
