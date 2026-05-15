@@ -276,7 +276,15 @@ namespace IS2026_Service_82CD_
 
         private void btnSalir_82CD_Click(object sender, EventArgs e)
         {
-            this.Close();
+            foreach(Form form_82CD in Application.OpenForms)
+            {
+                if (form_82CD is frmMenuPrincipal_82CD)
+                {
+                    form_82CD.Show();
+                    break;
+                }
+            }
+            this.Hide();
         }
 
         private void btnModificar_82CD_Click(object sender, EventArgs e)

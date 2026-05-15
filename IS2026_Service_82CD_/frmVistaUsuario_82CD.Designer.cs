@@ -59,6 +59,7 @@
             this.btnCancelar_82CD = new System.Windows.Forms.Button();
             this.btnConfirmar_82CD = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblSalir_82CD = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,6 +82,7 @@
             this.btnCambiarContraseña_82CD.TabIndex = 45;
             this.btnCambiarContraseña_82CD.Text = "Cambiar Contraseña";
             this.btnCambiarContraseña_82CD.UseVisualStyleBackColor = false;
+            this.btnCambiarContraseña_82CD.Click += new System.EventHandler(this.btnCambiarContraseña_82CD_Click);
             // 
             // btnCambiarIdioma_82CD
             // 
@@ -93,6 +95,7 @@
             this.btnCambiarIdioma_82CD.TabIndex = 44;
             this.btnCambiarIdioma_82CD.Text = "Cambiar Idioma";
             this.btnCambiarIdioma_82CD.UseVisualStyleBackColor = false;
+            this.btnCambiarIdioma_82CD.Click += new System.EventHandler(this.btnCambiarIdioma_82CD_Click);
             // 
             // btnDesbloquear_82CD
             // 
@@ -105,6 +108,7 @@
             this.btnDesbloquear_82CD.TabIndex = 43;
             this.btnDesbloquear_82CD.Text = "Relogin";
             this.btnDesbloquear_82CD.UseVisualStyleBackColor = false;
+            this.btnDesbloquear_82CD.Click += new System.EventHandler(this.btnDesbloquear_82CD_Click);
             // 
             // btnCrear_82CD
             // 
@@ -281,6 +285,7 @@
             this.btnCerrarSesion_82CD.TabIndex = 67;
             this.btnCerrarSesion_82CD.Text = "Cerrar Sesión";
             this.btnCerrarSesion_82CD.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion_82CD.Click += new System.EventHandler(this.btnCerrarSesion_82CD_Click);
             // 
             // panel3
             // 
@@ -363,6 +368,7 @@
             this.btnCancelar_82CD.TabIndex = 75;
             this.btnCancelar_82CD.Text = "Cancelar";
             this.btnCancelar_82CD.UseVisualStyleBackColor = false;
+            this.btnCancelar_82CD.Click += new System.EventHandler(this.btnCancelar_82CD_Click);
             // 
             // btnConfirmar_82CD
             // 
@@ -375,6 +381,7 @@
             this.btnConfirmar_82CD.TabIndex = 76;
             this.btnConfirmar_82CD.Text = "Confirmar";
             this.btnConfirmar_82CD.UseVisualStyleBackColor = false;
+            this.btnConfirmar_82CD.Click += new System.EventHandler(this.btnConfirmar_82CD_Click);
             // 
             // panel4
             // 
@@ -384,11 +391,24 @@
             this.panel4.Size = new System.Drawing.Size(817, 248);
             this.panel4.TabIndex = 77;
             // 
+            // lblSalir_82CD
+            // 
+            this.lblSalir_82CD.AutoSize = true;
+            this.lblSalir_82CD.Font = new System.Drawing.Font("Montserrat Black", 12.25F, System.Drawing.FontStyle.Bold);
+            this.lblSalir_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.lblSalir_82CD.Location = new System.Drawing.Point(900, 615);
+            this.lblSalir_82CD.Name = "lblSalir_82CD";
+            this.lblSalir_82CD.Size = new System.Drawing.Size(52, 24);
+            this.lblSalir_82CD.TabIndex = 78;
+            this.lblSalir_82CD.Text = "Salir";
+            this.lblSalir_82CD.Click += new System.EventHandler(this.lblSalir_82CD_Click);
+            // 
             // frmVistaUsuario_82CD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.lblSalir_82CD);
             this.Controls.Add(this.btnConfirmar_82CD);
             this.Controls.Add(this.btnCancelar_82CD);
             this.Controls.Add(this.txtContraseñaActual_82CD);
@@ -460,5 +480,6 @@
         private System.Windows.Forms.Button btnCancelar_82CD;
         private System.Windows.Forms.Button btnConfirmar_82CD;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lblSalir_82CD;
     }
 }

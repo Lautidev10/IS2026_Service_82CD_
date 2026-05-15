@@ -8,6 +8,7 @@ namespace IS2026_Service_82CD_
 {
     public partial class frmMenuPrincipal_82CD : Form
     {
+        
         private string rolUsuario_82CD;
 
         public frmMenuPrincipal_82CD(string rol_82CD)
@@ -20,7 +21,8 @@ namespace IS2026_Service_82CD_
         {
             try
             {
-                UsuarioBE_82CD usuarioactual_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
+                //
+                //UsuarioBE_82CD usuarioactual_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
                 ModoMenuPrincipal_82CD();
             }
             catch
@@ -58,44 +60,46 @@ namespace IS2026_Service_82CD_
 
         private void lblAdministradores_82CD_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmAdmin_82CD frmAdmin_82CD = new frmAdmin_82CD();
             frmAdmin_82CD.Show();
-
         }
 
-        public void EnDesarrollo()
+        private void EnDesarrollo_82CD()
         {
            MessageBox.Show("Estamos trabajando en eso ;)");
         }
 
         private void lblUsuarios_82CD_Click(object sender, EventArgs e)
         {
-            EnDesarrollo();
+            this.Hide();
+            frmVistaUsuario_82CD frmVistaUsuario_82CD = new frmVistaUsuario_82CD();
+            frmVistaUsuario_82CD.Show();
         }
 
         private void lblMaestros_82CD_Click(object sender, EventArgs e)
         {
-            EnDesarrollo();
+            EnDesarrollo_82CD();
         }
 
         private void lblNegocio1_82CD_Click(object sender, EventArgs e)
         {
-            EnDesarrollo();
+            EnDesarrollo_82CD();
         }
 
         private void lblNegocio2_82CD_Click(object sender, EventArgs e)
         {
-            EnDesarrollo();
+            EnDesarrollo_82CD();
         }
 
         private void lblReportes_82CD_Click(object sender, EventArgs e)
         {
-            EnDesarrollo();
+            EnDesarrollo_82CD();
         }
 
         private void lblAyuda_82CD_Click(object sender, EventArgs e)
         {
-            EnDesarrollo();
+            EnDesarrollo_82CD();
         }
 
     }

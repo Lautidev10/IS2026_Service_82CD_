@@ -29,6 +29,13 @@ namespace IS2026_Service_82CD_
             }
         }
 
+        private void LimpiarControles()
+        {
+            txtUsuario_82CD.Text = "";
+            txtContraseña_82CD.Text = "";
+        }
+
+
         private void btnIniciarSesion_82CD_Click(object sender, EventArgs e)
         {
 
@@ -57,7 +64,7 @@ namespace IS2026_Service_82CD_
             {
                 MessageBox.Show("Debe ingresar Usuario y Contraseña");
             }
-
+            LimpiarControles();
         }
         
 
@@ -65,6 +72,7 @@ namespace IS2026_Service_82CD_
         {
             frmMenuPrincipal_82CD frmMenuPrincipal_82CD = new frmMenuPrincipal_82CD(Nombrerol_82CD);
             frmMenuPrincipal_82CD.Show();
+            this.Hide();
         }
         
     }
