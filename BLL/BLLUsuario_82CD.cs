@@ -40,15 +40,25 @@ namespace BLL
                 //La bitacora podria guardar el intendo fallido
                 throw new Exception("Usuario o Contraseña Incorrectos");
             }
+            if(usuario_82CD != null && usuario_82CD.LogIn_82CD != login_82CD)
+            {
+                throw new Exception("Usuario o Contraseña Incorrectos");
+            }
 
             //bllBitacora_82CD.RegistrarEvento_82CD("El usuario {0} inicio sesion",login_82CD);
 
             return usuario_82CD;
         }
 
-        public void AgregarUsuario_82CD(UsuarioBE_82CD usuario_82CD)
+        public string AgregarUsuario_82CD(UsuarioBE_82CD usuario_82CD)
         {
             List<UsuarioBE_82CD> listaTotal_82CD = mapperUsuario_82CD.ListarUsuario_82CD(false);
+
+            usuario_82CD.LogIn_82CD = usuario_82CD.Nombre_82CD + usuario_82CD.DNI_82CD;
+
+            string passwordSinEncriptar_82CD = usuario_82CD.Apellidos_82CD + usuario_82CD.DNI_82CD;
+
+            usuario_82CD.Password_82CD = ServicioEncriptacion_82CD.Encriptar_82CD(passwordSinEncriptar_82CD);
 
             if (listaTotal_82CD.Exists(u => u.DNI_82CD == usuario_82CD.DNI_82CD))
             {
@@ -61,6 +71,10 @@ namespace BLL
             }
 
             mapperUsuario_82CD.AgregarUsuario_82CD(usuario_82CD);
+
+            return "Usuario creado correctamente \n\n" +
+                "Usuario: " + usuario_82CD.LogIn_82CD +
+                "Contraseña: " + passwordSinEncriptar_82CD;
         }
 
         public void ModificarUsuario_82CD(UsuarioBE_82CD usuario_82CD)

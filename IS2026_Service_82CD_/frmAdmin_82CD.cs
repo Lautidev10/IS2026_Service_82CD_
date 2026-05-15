@@ -54,6 +54,7 @@ namespace IS2026_Service_82CD_
                         usuario_82CD.Email_82CD = u.Email_82CD;
                         usuario_82CD.LogIn_82CD = u.LogIn_82CD;
                         usuario_82CD.IdRol_82CD = u.IdRol_82CD;
+                        usuario_82CD.Password_82CD = u.Password_82CD;
                         usuario_82CD.Bloqueado_82CD = u.Bloqueado_82CD;
                         usuario_82CD.Activo_82CD = u.Activo_82CD;
 
@@ -187,7 +188,7 @@ namespace IS2026_Service_82CD_
                 Apellidos_82CD = txtApellidos_82CD.Text,
                 Nombre_82CD = txtNombre_82CD.Text,
                 Email_82CD = txtEmail_82CD.Text,
-                IdRol_82CD = cmbRol_82CD.SelectedIndex,
+                IdRol_82CD = Convert.ToInt32(cmbRol_82CD.Text),
                 LogIn_82CD = txtLogin_82CD.Text,
                 Bloqueado_82CD = false,
                 Activo_82CD = true,
@@ -195,15 +196,15 @@ namespace IS2026_Service_82CD_
 
             try
             {
-                bllUsuario_82CD.AgregarUsuario_82CD(nuevoUsuario_82CD);
+                string mensaje_82CD = bllUsuario_82CD.AgregarUsuario_82CD(nuevoUsuario_82CD);
 
-                CargarMensajes_82CD("Usuario creado Correctamente");
+                MessageBox.Show(mensaje_82CD);
                 CargarUsuarios_82CD();
                 CambiarModo_82CD(ModoFrmAdmin_82CD.Consulta_82CD);
             }
-            catch
+            catch (Exception ex)
             {
-                CargarMensajes_82CD("Error al crear usuario");
+                MessageBox.Show(ex.Message);
             }
             LimpiarControles_82CD();
         }
