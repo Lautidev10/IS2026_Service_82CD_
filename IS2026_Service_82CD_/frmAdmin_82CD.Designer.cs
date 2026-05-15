@@ -81,7 +81,7 @@
             this.radbtnActivos_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 8F, System.Drawing.FontStyle.Bold);
             this.radbtnActivos_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
             this.radbtnActivos_82CD.Location = new System.Drawing.Point(467, 68);
-            this.radbtnActivos_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radbtnActivos_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.radbtnActivos_82CD.Name = "radbtnActivos_82CD";
             this.radbtnActivos_82CD.Size = new System.Drawing.Size(65, 40);
             this.radbtnActivos_82CD.TabIndex = 1;
@@ -97,7 +97,7 @@
             this.radbtnTodos_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 8F, System.Drawing.FontStyle.Bold);
             this.radbtnTodos_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
             this.radbtnTodos_82CD.Location = new System.Drawing.Point(600, 68);
-            this.radbtnTodos_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radbtnTodos_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.radbtnTodos_82CD.Name = "radbtnTodos_82CD";
             this.radbtnTodos_82CD.Size = new System.Drawing.Size(55, 40);
             this.radbtnTodos_82CD.TabIndex = 2;
@@ -123,11 +123,12 @@
             this.DGUsuarios_82CD.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.DGUsuarios_82CD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGUsuarios_82CD.Location = new System.Drawing.Point(133, 123);
-            this.DGUsuarios_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DGUsuarios_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.DGUsuarios_82CD.Name = "DGUsuarios_82CD";
             this.DGUsuarios_82CD.RowHeadersWidth = 51;
             this.DGUsuarios_82CD.Size = new System.Drawing.Size(933, 246);
             this.DGUsuarios_82CD.TabIndex = 4;
+            this.DGUsuarios_82CD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGUsuarios_82CD_CellClick);
             // 
             // lblDNI_82CD
             // 
@@ -205,7 +206,7 @@
             // 
             this.txtDNI_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
             this.txtDNI_82CD.Location = new System.Drawing.Point(265, 388);
-            this.txtDNI_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDNI_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.txtDNI_82CD.Name = "txtDNI_82CD";
             this.txtDNI_82CD.Size = new System.Drawing.Size(199, 22);
             this.txtDNI_82CD.TabIndex = 11;
@@ -214,7 +215,7 @@
             // 
             this.txtApellidos_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
             this.txtApellidos_82CD.Location = new System.Drawing.Point(265, 431);
-            this.txtApellidos_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtApellidos_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellidos_82CD.Name = "txtApellidos_82CD";
             this.txtApellidos_82CD.Size = new System.Drawing.Size(199, 22);
             this.txtApellidos_82CD.TabIndex = 12;
@@ -223,7 +224,7 @@
             // 
             this.txtNombre_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
             this.txtNombre_82CD.Location = new System.Drawing.Point(265, 474);
-            this.txtNombre_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre_82CD.Name = "txtNombre_82CD";
             this.txtNombre_82CD.Size = new System.Drawing.Size(199, 22);
             this.txtNombre_82CD.TabIndex = 13;
@@ -232,7 +233,7 @@
             // 
             this.txtLogin_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
             this.txtLogin_82CD.Location = new System.Drawing.Point(265, 603);
-            this.txtLogin_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLogin_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.txtLogin_82CD.Name = "txtLogin_82CD";
             this.txtLogin_82CD.Size = new System.Drawing.Size(199, 22);
             this.txtLogin_82CD.TabIndex = 15;
@@ -241,7 +242,7 @@
             // 
             this.txtEmail_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
             this.txtEmail_82CD.Location = new System.Drawing.Point(265, 514);
-            this.txtEmail_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail_82CD.Name = "txtEmail_82CD";
             this.txtEmail_82CD.Size = new System.Drawing.Size(199, 22);
             this.txtEmail_82CD.TabIndex = 16;
@@ -252,7 +253,7 @@
             this.btnCrear_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.btnCrear_82CD.ForeColor = System.Drawing.Color.White;
             this.btnCrear_82CD.Location = new System.Drawing.Point(1120, 123);
-            this.btnCrear_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCrear_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.btnCrear_82CD.Name = "btnCrear_82CD";
             this.btnCrear_82CD.Size = new System.Drawing.Size(153, 49);
             this.btnCrear_82CD.TabIndex = 17;
@@ -266,7 +267,7 @@
             this.btnDesbloquear_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.btnDesbloquear_82CD.ForeColor = System.Drawing.Color.White;
             this.btnDesbloquear_82CD.Location = new System.Drawing.Point(1120, 203);
-            this.btnDesbloquear_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDesbloquear_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.btnDesbloquear_82CD.Name = "btnDesbloquear_82CD";
             this.btnDesbloquear_82CD.Size = new System.Drawing.Size(153, 49);
             this.btnDesbloquear_82CD.TabIndex = 18;
@@ -279,12 +280,13 @@
             this.btnModificar_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.btnModificar_82CD.ForeColor = System.Drawing.Color.White;
             this.btnModificar_82CD.Location = new System.Drawing.Point(1120, 283);
-            this.btnModificar_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModificar_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar_82CD.Name = "btnModificar_82CD";
             this.btnModificar_82CD.Size = new System.Drawing.Size(153, 49);
             this.btnModificar_82CD.TabIndex = 19;
             this.btnModificar_82CD.Text = "Modificar";
             this.btnModificar_82CD.UseVisualStyleBackColor = false;
+            this.btnModificar_82CD.Click += new System.EventHandler(this.btnModificar_82CD_Click);
             // 
             // btnActDesact_82CD
             // 
@@ -292,7 +294,7 @@
             this.btnActDesact_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.btnActDesact_82CD.ForeColor = System.Drawing.Color.White;
             this.btnActDesact_82CD.Location = new System.Drawing.Point(1120, 363);
-            this.btnActDesact_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActDesact_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.btnActDesact_82CD.Name = "btnActDesact_82CD";
             this.btnActDesact_82CD.Size = new System.Drawing.Size(153, 49);
             this.btnActDesact_82CD.TabIndex = 20;
@@ -305,7 +307,7 @@
             this.btnAplicar_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.btnAplicar_82CD.ForeColor = System.Drawing.Color.White;
             this.btnAplicar_82CD.Location = new System.Drawing.Point(1120, 443);
-            this.btnAplicar_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAplicar_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.btnAplicar_82CD.Name = "btnAplicar_82CD";
             this.btnAplicar_82CD.Size = new System.Drawing.Size(153, 49);
             this.btnAplicar_82CD.TabIndex = 21;
@@ -319,7 +321,7 @@
             this.btnCancelar_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.btnCancelar_82CD.ForeColor = System.Drawing.Color.White;
             this.btnCancelar_82CD.Location = new System.Drawing.Point(1120, 523);
-            this.btnCancelar_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar_82CD.Name = "btnCancelar_82CD";
             this.btnCancelar_82CD.Size = new System.Drawing.Size(153, 49);
             this.btnCancelar_82CD.TabIndex = 22;
@@ -333,7 +335,7 @@
             this.btnSalir_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.btnSalir_82CD.ForeColor = System.Drawing.Color.White;
             this.btnSalir_82CD.Location = new System.Drawing.Point(1120, 603);
-            this.btnSalir_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir_82CD.Name = "btnSalir_82CD";
             this.btnSalir_82CD.Size = new System.Drawing.Size(153, 49);
             this.btnSalir_82CD.TabIndex = 23;
@@ -345,7 +347,7 @@
             // 
             this.panFrmUsuario_82CD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
             this.panFrmUsuario_82CD.Location = new System.Drawing.Point(-1, 0);
-            this.panFrmUsuario_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panFrmUsuario_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.panFrmUsuario_82CD.Name = "panFrmUsuario_82CD";
             this.panFrmUsuario_82CD.Size = new System.Drawing.Size(1313, 49);
             this.panFrmUsuario_82CD.TabIndex = 24;
@@ -381,7 +383,7 @@
             "1",
             "2"});
             this.cmbRol_82CD.Location = new System.Drawing.Point(265, 556);
-            this.cmbRol_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbRol_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.cmbRol_82CD.Name = "cmbRol_82CD";
             this.cmbRol_82CD.Size = new System.Drawing.Size(199, 24);
             this.cmbRol_82CD.TabIndex = 30;
@@ -389,7 +391,7 @@
             // rtbMensaje_82CD
             // 
             this.rtbMensaje_82CD.Location = new System.Drawing.Point(639, 386);
-            this.rtbMensaje_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtbMensaje_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.rtbMensaje_82CD.Name = "rtbMensaje_82CD";
             this.rtbMensaje_82CD.Size = new System.Drawing.Size(427, 265);
             this.rtbMensaje_82CD.TabIndex = 31;
@@ -410,7 +412,7 @@
             // 
             this.txtBloqueado_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
             this.txtBloqueado_82CD.Location = new System.Drawing.Point(265, 646);
-            this.txtBloqueado_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBloqueado_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.txtBloqueado_82CD.Name = "txtBloqueado_82CD";
             this.txtBloqueado_82CD.Size = new System.Drawing.Size(199, 22);
             this.txtBloqueado_82CD.TabIndex = 33;
@@ -419,7 +421,7 @@
             // 
             this.txtActivo_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
             this.txtActivo_82CD.Location = new System.Drawing.Point(265, 692);
-            this.txtActivo_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtActivo_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.txtActivo_82CD.Name = "txtActivo_82CD";
             this.txtActivo_82CD.Size = new System.Drawing.Size(199, 22);
             this.txtActivo_82CD.TabIndex = 34;
@@ -461,7 +463,7 @@
             this.Controls.Add(this.radbtnTodos_82CD);
             this.Controls.Add(this.radbtnActivos_82CD);
             this.Controls.Add(this.lblTituloUsuarios_82CD);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAdmin_82CD";
             this.Text = "frmUsuarios_82CD";
             this.Load += new System.EventHandler(this.frmAdmin_82CD_Load);
