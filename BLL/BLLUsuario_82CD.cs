@@ -38,16 +38,21 @@ namespace BLL
             }
             if(usuario_82CD.Password_82CD != contraseñaEncriptada_82CD)
             {
-                //La bitacora podria guardar el intendo fallido
-                throw new Exception("Usuario o Contraseña Incorrectos");
-            }
-            if(usuario_82CD != null && usuario_82CD.LogIn_82CD != login_82CD)
-            {
-                throw new Exception("Usuario o Contraseña Incorrectos");
+                int intentos_82CD = MonitorAcceso_82CD.RegistrarIntentoFallido_82CD(login_82CD);
+
+                if (MonitorAcceso_82CD.Bloquear(login_82CD))
+                {
+                    mapperUsuario_82CD.BloquearUsuario_82CD(usuario_82CD.LogIn_82CD);
+                    //bllBitacora deber registrar evento de bloqueo de un usuario x.
+                    throw new Exception("Su usuario fue bloqueado por exceso de intentos, debe comunicarse con un administrador");
+                }
+
+                //Ver como implementarlo bien porque podria revelar que un usuario existe en el sistema.
+                throw new Exception("Usuario o Contraseña Incorrectos: Intento "+ intentos_82CD + " de 3");
             }
 
+            MonitorAcceso_82CD.EliminarIntentos_82CD(login_82CD);
             //bllBitacora_82CD.RegistrarEvento_82CD("El usuario {0} inicio sesion",login_82CD);
-
             return usuario_82CD;
         }
 
@@ -81,7 +86,6 @@ namespace BLL
         public void ModificarUsuario_82CD(UsuarioBE_82CD usuario_82CD)
         {
             if (string.IsNullOrWhiteSpace(usuario_82CD.DNI_82CD))
-                //throw new Exception("Nombre y Apellido no pueden estar vacios");
                 throw new Exception("El DNI no puede estar vacio");
 
             mapperUsuario_82CD.ModificarUsuario_82CD(usuario_82CD);

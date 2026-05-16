@@ -9,7 +9,7 @@ namespace DAL
 
         private void Conectar_82CD()
         {
-            conexion_82CD = new Conexion_82CD().ObtenerConexion_82CD();
+            conexion_82CD = Conexion_82CD.ObtenerConexion_82CD();
             conexion_82CD.Open();
         }
 

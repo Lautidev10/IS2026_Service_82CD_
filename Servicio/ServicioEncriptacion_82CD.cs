@@ -15,6 +15,7 @@ namespace Servicio
                 byte[] hash_82CD = sha_82CD.ComputeHash(bytes_82CD);
 
                 StringBuilder sb_82CD = new StringBuilder();
+
                 foreach (byte b in hash_82CD)
                 {
                     sb_82CD.Append(b.ToString("x2"));

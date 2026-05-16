@@ -12,9 +12,7 @@ namespace DAL
 
         private void Conectar_82CD()
         {
-            Conexion_82CD cn_82CD = new Conexion_82CD();
-            conexion_82CD = cn_82CD.ObtenerConexion_82CD();
-
+            conexion_82CD = Conexion_82CD.ObtenerConexion_82CD();
             conexion_82CD.Open();
         }
 
@@ -196,7 +194,6 @@ namespace DAL
                 string query_82CD = "SELECT DNI_82CD, Apellidos_82CD, Nombre_82CD, Email_82CD, [LogIn_82CD], [Password_82CD], IdRol_82CD, Bloqueado_82CD, Activo_82CD FROM Usuario_82CD WHERE DNI_82CD = @DNI_82CD";
                 SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
                 cmd_82CD.Parameters.AddWithValue("@DNI_82CD", dni_82CD);
-                //cmd_82CD.Parameters.AddWithValue("@Password_82CD", password_82CD);
                 SqlDataReader reader_82CD = cmd_82CD.ExecuteReader();
                 if (reader_82CD.Read())
                 {
@@ -211,14 +208,14 @@ namespace DAL
             return usuario_82CD;
         }
 
-        public void BloquearUsuario_82CD(string dni)
+        public void BloquearUsuario_82CD(string login_82CD)
         {
             try
             {
                 Conectar_82CD();
-                string query_82CD = "UPDATE Usuario_82CD SET Bloqueado_82CD = 1 WHERE DNI_82CD = @DNI_82CD";
+                string query_82CD = "UPDATE Usuario_82CD SET Bloqueado_82CD = 1 WHERE LogIn_82CD = @LogIn_82CD";
                 SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
-                cmd_82CD.Parameters.AddWithValue("@DNI_82CD", dni);
+                cmd_82CD.Parameters.AddWithValue("@LogIn_82CD", login_82CD);
                 cmd_82CD.ExecuteNonQuery();
             }
             finally
