@@ -11,6 +11,8 @@ namespace Servicio
 {
     public class MonitorAcceso_82CD
     {
+        //Se podria hacer otro diccionario que guarde los intentos por computadora para asegurar que nadie pueda intentar de averiguar un usuario del sistema
+
         private const int maxIntentos_82CD = 3;
         private static readonly string rutaArchivo_82CD = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "IntentosFallidos_82CD.json");
         

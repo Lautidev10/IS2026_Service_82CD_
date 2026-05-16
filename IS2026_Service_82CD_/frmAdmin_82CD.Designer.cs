@@ -52,11 +52,11 @@
             this.btnCancelar_82CD = new System.Windows.Forms.Button();
             this.btnSalir_82CD = new System.Windows.Forms.Button();
             this.panFrmUsuario_82CD = new System.Windows.Forms.Panel();
-            this.lblBloqueado_82CD = new System.Windows.Forms.Label();
-            this.lblActivo_82CD = new System.Windows.Forms.Label();
             this.cmbRol_82CD = new System.Windows.Forms.ComboBox();
             this.rtbMensaje_82CD = new System.Windows.Forms.RichTextBox();
             this.lclCantUsuarios_82CD = new System.Windows.Forms.Label();
+            this.lblBloqueado_82CD = new System.Windows.Forms.Label();
+            this.lblActivo_82CD = new System.Windows.Forms.Label();
             this.txtBloqueado_82CD = new System.Windows.Forms.TextBox();
             this.txtActivo_82CD = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGUsuarios_82CD)).BeginInit();
@@ -257,6 +257,7 @@
             this.btnDesbloquear_82CD.TabIndex = 18;
             this.btnDesbloquear_82CD.Text = "Desbloquear";
             this.btnDesbloquear_82CD.UseVisualStyleBackColor = false;
+            this.btnDesbloquear_82CD.Click += new System.EventHandler(this.btnDesbloquear_82CD_Click);
             // 
             // btnModificar_82CD
             // 
@@ -331,28 +332,6 @@
             this.panFrmUsuario_82CD.Size = new System.Drawing.Size(985, 40);
             this.panFrmUsuario_82CD.TabIndex = 24;
             // 
-            // lblBloqueado_82CD
-            // 
-            this.lblBloqueado_82CD.AutoSize = true;
-            this.lblBloqueado_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.lblBloqueado_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.lblBloqueado_82CD.Location = new System.Drawing.Point(101, 526);
-            this.lblBloqueado_82CD.Name = "lblBloqueado_82CD";
-            this.lblBloqueado_82CD.Size = new System.Drawing.Size(73, 16);
-            this.lblBloqueado_82CD.TabIndex = 26;
-            this.lblBloqueado_82CD.Text = "Bloqueado";
-            // 
-            // lblActivo_82CD
-            // 
-            this.lblActivo_82CD.AutoSize = true;
-            this.lblActivo_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.lblActivo_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.lblActivo_82CD.Location = new System.Drawing.Point(101, 562);
-            this.lblActivo_82CD.Name = "lblActivo_82CD";
-            this.lblActivo_82CD.Size = new System.Drawing.Size(46, 16);
-            this.lblActivo_82CD.TabIndex = 28;
-            this.lblActivo_82CD.Text = "Activo";
-            // 
             // cmbRol_82CD
             // 
             this.cmbRol_82CD.FormattingEnabled = true;
@@ -378,6 +357,28 @@
             this.lclCantUsuarios_82CD.Name = "lclCantUsuarios_82CD";
             this.lclCantUsuarios_82CD.Size = new System.Drawing.Size(0, 16);
             this.lclCantUsuarios_82CD.TabIndex = 32;
+            // 
+            // lblBloqueado_82CD
+            // 
+            this.lblBloqueado_82CD.AutoSize = true;
+            this.lblBloqueado_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.lblBloqueado_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.lblBloqueado_82CD.Location = new System.Drawing.Point(101, 526);
+            this.lblBloqueado_82CD.Name = "lblBloqueado_82CD";
+            this.lblBloqueado_82CD.Size = new System.Drawing.Size(73, 16);
+            this.lblBloqueado_82CD.TabIndex = 26;
+            this.lblBloqueado_82CD.Text = "Bloqueado";
+            // 
+            // lblActivo_82CD
+            // 
+            this.lblActivo_82CD.AutoSize = true;
+            this.lblActivo_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.lblActivo_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.lblActivo_82CD.Location = new System.Drawing.Point(101, 562);
+            this.lblActivo_82CD.Name = "lblActivo_82CD";
+            this.lblActivo_82CD.Size = new System.Drawing.Size(46, 16);
+            this.lblActivo_82CD.TabIndex = 28;
+            this.lblActivo_82CD.Text = "Activo";
             // 
             // txtBloqueado_82CD
             // 
@@ -467,11 +468,11 @@
         private System.Windows.Forms.Button btnCancelar_82CD;
         private System.Windows.Forms.Button btnSalir_82CD;
         private System.Windows.Forms.Panel panFrmUsuario_82CD;
-        private System.Windows.Forms.Label lblBloqueado_82CD;
-        private System.Windows.Forms.Label lblActivo_82CD;
         private System.Windows.Forms.ComboBox cmbRol_82CD;
         private System.Windows.Forms.RichTextBox rtbMensaje_82CD;
         private System.Windows.Forms.Label lclCantUsuarios_82CD;
+        private System.Windows.Forms.Label lblBloqueado_82CD;
+        private System.Windows.Forms.Label lblActivo_82CD;
         private System.Windows.Forms.TextBox txtBloqueado_82CD;
         private System.Windows.Forms.TextBox txtActivo_82CD;
     }

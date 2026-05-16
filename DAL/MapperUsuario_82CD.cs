@@ -185,7 +185,7 @@ namespace DAL
             return usuario_82CD;
         }
 
-        public UsuarioBE_82CD BuscarUsuarioPorDNI_82CD(string dni_82CD /*string password_82CD*/)
+        public UsuarioBE_82CD BuscarUsuarioPorDNI_82CD(string dni_82CD)
         {
             UsuarioBE_82CD usuario_82CD = null;
             try
@@ -208,14 +208,14 @@ namespace DAL
             return usuario_82CD;
         }
 
-        public void BloquearUsuario_82CD(string login_82CD)
+        public void BloquearUsuario_82CD(string dni_82CD)
         {
             try
             {
                 Conectar_82CD();
-                string query_82CD = "UPDATE Usuario_82CD SET Bloqueado_82CD = 1 WHERE LogIn_82CD = @LogIn_82CD";
+                string query_82CD = "UPDATE Usuario_82CD SET Bloqueado_82CD = 1 WHERE DNI_82CD = @DNI_82CD";
                 SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
-                cmd_82CD.Parameters.AddWithValue("@LogIn_82CD", login_82CD);
+                cmd_82CD.Parameters.AddWithValue("@LogIn_82CD", dni_82CD);
                 cmd_82CD.ExecuteNonQuery();
             }
             finally
@@ -223,9 +223,6 @@ namespace DAL
                 Desconectar_82CD();
             }
         }
-
-
-
 
     }
 }

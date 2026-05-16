@@ -56,7 +56,7 @@ namespace BLL
             return usuario_82CD;
         }
 
-        public string AgregarUsuario_82CD(UsuarioBE_82CD usuario_82CD)
+        public void AgregarUsuario_82CD(UsuarioBE_82CD usuario_82CD)
         {
             List<UsuarioBE_82CD> listaTotal_82CD = mapperUsuario_82CD.ListarUsuario_82CD(false);
 
@@ -77,10 +77,7 @@ namespace BLL
             }
 
             mapperUsuario_82CD.AgregarUsuario_82CD(usuario_82CD);
-
-            return "Usuario creado correctamente \n\n" +
-                "Usuario: " + usuario_82CD.LogIn_82CD +
-                "Contraseña: " + passwordSinEncriptar_82CD;
+            //bllbitacora guarda evento de creacion de usuario
         }
 
         public void ModificarUsuario_82CD(UsuarioBE_82CD usuario_82CD)
@@ -109,9 +106,14 @@ namespace BLL
         }
 
 
-        public void DesbloquearUsuario_82CD(String Login_82CD, string Password_82CD)
+        public void DesbloquearUsuario_82CD(UsuarioBE_82CD usuario_82CD)
         {
-            mapperUsuario_82CD.DesbloquearUsuario_82CD(Login_82CD, Password_82CD);
+            string passwordSinEncriptar_82CD = usuario_82CD.Apellidos_82CD.Replace(" ", "") + usuario_82CD.DNI_82CD;
+
+            usuario_82CD.Password_82CD = ServicioEncriptacion_82CD.Encriptar_82CD(passwordSinEncriptar_82CD);
+
+            mapperUsuario_82CD.DesbloquearUsuario_82CD(usuario_82CD.DNI_82CD, usuario_82CD.Password_82CD);
+            MonitorAcceso_82CD.EliminarIntentos_82CD(usuario_82CD.LogIn_82CD);
         }
 
         public void ActualizarContraseña_82CD(/*string Login_82CD, */string PasswordActual_82CD, string PasswordNueva_82CD, string Confirmacion_82CD)

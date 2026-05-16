@@ -30,7 +30,7 @@ namespace DAL
 
                 cmd_82CD.Parameters.AddWithValue("@Evento", evento_82CD);
                 cmd_82CD.Parameters.AddWithValue("@Login", login_82CD);
-
+                //cmd_82CD.Parameters.AddWithValue("@Login", Fecha_82CD),  Arreglar para que se guarde la fecha en la que se registra un evento
                 cmd_82CD.ExecuteNonQuery();
             }
             finally
