@@ -55,9 +55,9 @@ namespace BLL
         {
             List<UsuarioBE_82CD> listaTotal_82CD = mapperUsuario_82CD.ListarUsuario_82CD(false);
 
-            usuario_82CD.LogIn_82CD = usuario_82CD.Nombre_82CD + usuario_82CD.DNI_82CD;
+            usuario_82CD.LogIn_82CD = usuario_82CD.Nombre_82CD.Replace(" ", "") + usuario_82CD.DNI_82CD;
 
-            string passwordSinEncriptar_82CD = usuario_82CD.Apellidos_82CD + usuario_82CD.DNI_82CD;
+            string passwordSinEncriptar_82CD = usuario_82CD.Apellidos_82CD.Replace(" ", "") + usuario_82CD.DNI_82CD;
 
             usuario_82CD.Password_82CD = ServicioEncriptacion_82CD.Encriptar_82CD(passwordSinEncriptar_82CD);
 
@@ -110,7 +110,7 @@ namespace BLL
             mapperUsuario_82CD.DesbloquearUsuario_82CD(Login_82CD, Password_82CD);
         }
 
-        /*public void ActualizarContraseña_82CD(string Login_82CD, string PasswordActual_82CD, string PasswordNueva_82CD, string Confirmacion_82CD)
+        public void ActualizarContraseña_82CD(/*string Login_82CD, */string PasswordActual_82CD, string PasswordNueva_82CD, string Confirmacion_82CD)
         {
             UsuarioBE_82CD UsuarioActual_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
 
@@ -126,6 +126,11 @@ namespace BLL
                 throw new Exception("La contraseña es incorrecta");
             }
 
+            if(PasswordActual_82CD == PasswordNueva_82CD)
+            {
+                throw new Exception("La nueva contraseña no puede ser igual que la actual");
+            }
+
             string PasswordNuevaEncriptada_82CD = ServicioEncriptacion_82CD.Encriptar_82CD(PasswordNueva_82CD);
 
             mapperUsuario_82CD.ActualizarContraseña_82CD(UsuarioActual_82CD.DNI_82CD, PasswordNuevaEncriptada_82CD);
@@ -134,7 +139,7 @@ namespace BLL
             SessionManager_82CD.ActualizarUsuarioEnSesion_82CD(UsuarioActual_82CD);
 
             bllBitacora_82CD.RegistrarEvento_82CD("Cambio de Clave Exitoso", UsuarioActual_82CD.LogIn_82CD);
-        }*/
+        }
 
 
     }

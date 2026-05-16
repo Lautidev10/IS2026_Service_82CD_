@@ -15,6 +15,7 @@ namespace IS2026_Service_82CD_
         }
 
         private BLLBitacora_82CD bllbitacora_82CD = new BLLBitacora_82CD();
+        private BLLUsuario_82CD bllusuario_82CD = new BLLUsuario_82CD();
 
         private void btnCerrarSesion_82CD_Click(object sender, System.EventArgs e)
         {
@@ -81,7 +82,24 @@ namespace IS2026_Service_82CD_
 
         private void btnCambiarContraseña_82CD_Click(object sender, System.EventArgs e)
         {
-            EnDesarrollo_82CD();
+            try
+            {
+                bllusuario_82CD.ActualizarContraseña_82CD(
+                    txtContraseñaActual_82CD.Text,
+                    txtNuevaContraseña_82CD.Text,
+                    txtConfirmacion_82CD.Text
+                    );
+
+                MessageBox.Show("Contraseña actualizada correctamente");
+
+                txtContraseñaActual_82CD.Clear();
+                txtNuevaContraseña_82CD.Clear();
+                txtConfirmacion_82CD.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 

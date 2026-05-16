@@ -252,8 +252,26 @@ namespace IS2026_Service_82CD_
                     MessageBox.Show(mensaje_82CD);
                     
                 }
+
                 else if (modoActual_82CD == ModoFrmAdmin_82CD.Modificar_82CD)
                 {
+
+                    if (usuarioseleccionado_82CD == null)
+                    {
+                        MessageBox.Show("Debe seleccionar y modificar un usuario");
+                        return;
+                    }
+
+                    if(usuarioseleccionado_82CD.Apellidos_82CD == txtApellidos_82CD.Text &&
+                       usuarioseleccionado_82CD.Nombre_82CD == txtNombre_82CD.Text &&
+                       usuarioseleccionado_82CD.Email_82CD == txtEmail_82CD.Text &&
+                       usuarioseleccionado_82CD.IdRol_82CD == Convert.ToInt32(cmbRol_82CD.SelectedValue)
+                       )
+                    {
+                        MessageBox.Show("Debe modificar al menos un dato del usuario");
+                        return ;
+                    }
+
                     usuarioseleccionado_82CD.Apellidos_82CD = txtApellidos_82CD.Text;
                     usuarioseleccionado_82CD.Nombre_82CD = txtNombre_82CD.Text;
                     usuarioseleccionado_82CD.Email_82CD = txtEmail_82CD.Text;
@@ -306,16 +324,12 @@ namespace IS2026_Service_82CD_
                 Nombre_82CD = row.Cells["Nombre_82CD"].Value.ToString(),
                 Email_82CD = row.Cells["Email_82CD"].Value.ToString(),
                 IdRol_82CD = Convert.ToInt32(row.Cells["IdRol_82CD"].Value.ToString()),
-                LogIn_82CD = row.Cells["Login_82CD"].Value.ToString(),
-                Bloqueado_82CD = Convert.ToBoolean(row.Cells["Bloqueado_82CD"].Value),
-                Activo_82CD = Convert.ToBoolean(row.Cells["Activo_82CD"].Value),
             };
 
             txtDNI_82CD.Text = usuarioseleccionado_82CD.DNI_82CD;
             txtApellidos_82CD.Text = usuarioseleccionado_82CD.Apellidos_82CD;
             txtNombre_82CD.Text = usuarioseleccionado_82CD.Nombre_82CD;
             txtEmail_82CD.Text = usuarioseleccionado_82CD.Email_82CD;
-
             cmbRol_82CD.SelectedValue = usuarioseleccionado_82CD.IdRol_82CD;
         }
 
