@@ -42,7 +42,7 @@ namespace BLL
 
                 if (MonitorAcceso_82CD.Bloquear(login_82CD))
                 {
-                    mapperUsuario_82CD.BloquearUsuario_82CD(usuario_82CD.LogIn_82CD);
+                    mapperUsuario_82CD.BloquearUsuario_82CD(usuario_82CD.DNI_82CD);
                     //bllBitacora deber registrar evento de bloqueo de un usuario x.
                     throw new Exception("Su usuario fue bloqueado por exceso de intentos, debe comunicarse con un administrador");
                 }
@@ -90,11 +90,6 @@ namespace BLL
 
         public void CambiarEstadoUsuario_82CD(UsuarioBE_82CD usuario_82CD, bool estado_82CD)
         {
-            if(usuario_82CD == null)
-            {
-                throw new Exception("Debe seleccionar un usuario");
-            }
-            
             UsuarioBE_82CD sesion_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
             
             if(usuario_82CD.LogIn_82CD == sesion_82CD.LogIn_82CD)
@@ -144,7 +139,7 @@ namespace BLL
             UsuarioActual_82CD.Password_82CD = PasswordNuevaEncriptada_82CD;
             SessionManager_82CD.ActualizarUsuarioEnSesion_82CD(UsuarioActual_82CD);
 
-            bllBitacora_82CD.RegistrarEvento_82CD("Cambio de Clave Exitoso", UsuarioActual_82CD.LogIn_82CD);
+            //bllBitacora_82CD.RegistrarEvento_82CD("Cambio de Clave Exitoso", UsuarioActual_82CD.LogIn_82CD);
         }
 
 

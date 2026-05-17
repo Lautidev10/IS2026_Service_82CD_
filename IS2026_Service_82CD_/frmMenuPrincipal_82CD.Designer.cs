@@ -67,10 +67,10 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(155)))), ((int)(((byte)(220)))));
             this.panel1.Controls.Add(this.lblAyuda_82CD);
             this.panel1.Controls.Add(this.lblReportes_82CD);
+            this.panel1.Controls.Add(this.lblAdministradores_82CD);
+            this.panel1.Controls.Add(this.lblMaestros_82CD);
             this.panel1.Controls.Add(this.lblNegocio2_82CD);
             this.panel1.Controls.Add(this.lblNegocio1_82CD);
-            this.panel1.Controls.Add(this.lblMaestros_82CD);
-            this.panel1.Controls.Add(this.lblAdministradores_82CD);
             this.panel1.Controls.Add(this.lblUsuarios_82CD);
             this.panel1.Location = new System.Drawing.Point(0, 43);
             this.panel1.Name = "panel1";
@@ -130,7 +130,7 @@
             this.lblMaestros_82CD.AutoSize = true;
             this.lblMaestros_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
             this.lblMaestros_82CD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblMaestros_82CD.Location = new System.Drawing.Point(55, 125);
+            this.lblMaestros_82CD.Location = new System.Drawing.Point(55, 75);
             this.lblMaestros_82CD.Name = "lblMaestros_82CD";
             this.lblMaestros_82CD.Size = new System.Drawing.Size(72, 21);
             this.lblMaestros_82CD.TabIndex = 3;
@@ -142,7 +142,7 @@
             this.lblAdministradores_82CD.AutoSize = true;
             this.lblAdministradores_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
             this.lblAdministradores_82CD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblAdministradores_82CD.Location = new System.Drawing.Point(55, 75);
+            this.lblAdministradores_82CD.Location = new System.Drawing.Point(55, 25);
             this.lblAdministradores_82CD.Name = "lblAdministradores_82CD";
             this.lblAdministradores_82CD.Size = new System.Drawing.Size(120, 21);
             this.lblAdministradores_82CD.TabIndex = 2;
@@ -154,7 +154,7 @@
             this.lblUsuarios_82CD.AutoSize = true;
             this.lblUsuarios_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
             this.lblUsuarios_82CD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblUsuarios_82CD.Location = new System.Drawing.Point(55, 30);
+            this.lblUsuarios_82CD.Location = new System.Drawing.Point(55, 125);
             this.lblUsuarios_82CD.Name = "lblUsuarios_82CD";
             this.lblUsuarios_82CD.Size = new System.Drawing.Size(69, 21);
             this.lblUsuarios_82CD.TabIndex = 1;

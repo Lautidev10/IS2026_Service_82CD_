@@ -215,7 +215,7 @@ namespace DAL
                 Conectar_82CD();
                 string query_82CD = "UPDATE Usuario_82CD SET Bloqueado_82CD = 1 WHERE DNI_82CD = @DNI_82CD";
                 SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
-                cmd_82CD.Parameters.AddWithValue("@LogIn_82CD", dni_82CD);
+                cmd_82CD.Parameters.AddWithValue("@DNI_82CD", dni_82CD);
                 cmd_82CD.ExecuteNonQuery();
             }
             finally

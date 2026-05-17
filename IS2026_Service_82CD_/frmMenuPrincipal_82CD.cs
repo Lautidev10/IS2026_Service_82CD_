@@ -9,20 +9,19 @@ namespace IS2026_Service_82CD_
     public partial class frmMenuPrincipal_82CD : Form
     {
         
-        private string rolUsuario_82CD;
+        private BERol_82CD rolUsuario_82CD;
 
-        public frmMenuPrincipal_82CD(string rol_82CD)
+        public frmMenuPrincipal_82CD(BERol_82CD rolIngresado_82CD)
         {
             InitializeComponent();
-            this.rolUsuario_82CD = rol_82CD;
+            this.rolUsuario_82CD = rolIngresado_82CD;
         }
 
         private void frmMenuPrincipal_82CD_Load(object sender, EventArgs e)
         {
             try
             {
-                //
-                //UsuarioBE_82CD usuarioactual_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
+                //UsuarioBE_82CD usuarioactual_82CD = SessionManager_82CD.ObtenerUsuario_82CD(); Para que el menu salude al usuario que inicio sesion
                 ModoMenuPrincipal_82CD();
             }
             catch
@@ -34,7 +33,7 @@ namespace IS2026_Service_82CD_
 
         private void ModoMenuPrincipal_82CD()
         {
-            switch (rolUsuario_82CD)
+            switch (rolUsuario_82CD.NombreRol_82CD)
             {
                 case "Administrador":
                     lblUsuarios_82CD.Visible = true;

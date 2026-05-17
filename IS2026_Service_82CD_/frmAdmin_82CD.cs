@@ -22,12 +22,12 @@ namespace IS2026_Service_82CD_
             InitializeComponent();
         }
 
-        public enum ModoFrmAdmin_82CD
+        private enum ModoFrmAdmin_82CD
         {
             Consulta_82CD,
             Añadir_82CD,
             Modificar_82CD,
-            //Eliminar_82CD, El act/desact tiene que ser tambien con aplicar/cancelar
+            Eliminar_82CD,
             Desbloquear_82CD
         }
 
@@ -55,6 +55,7 @@ namespace IS2026_Service_82CD_
             cmbRol_82CD.DisplayMember = "NombreRol_82CD";
             cmbRol_82CD.ValueMember = "IdRol_82CD";
 
+            cmbRol_82CD.SelectedValue = 0;
         }
 
         private void CargarUsuarios_82CD(bool estado_82CD)
@@ -95,11 +96,11 @@ namespace IS2026_Service_82CD_
         }
 
 
-        private void CambiarModo_82CD(ModoFrmAdmin_82CD modo)
+        private void CambiarModo_82CD(ModoFrmAdmin_82CD modo_82CD)
         {
-            modoActual_82CD = modo;
+            modoActual_82CD = modo_82CD;
 
-            switch (modo)
+            switch (modo_82CD)
             {
                 case ModoFrmAdmin_82CD.Consulta_82CD:
 
@@ -197,7 +198,36 @@ namespace IS2026_Service_82CD_
 
                     break;
 
-                    //ModofrmAdmin82CD.Eliminar_82CD
+                case ModoFrmAdmin_82CD.Eliminar_82CD:
+
+                    lblDNI_82CD.Visible = false;
+                    txtDNI_82CD.Visible = false;
+                    lblApellidos_82CD.Visible = false;
+                    txtApellidos_82CD.Visible = false;
+                    lblNombre_82CD.Visible = false;
+                    txtNombre_82CD.Visible = false;
+                    lblEmail_82CD.Visible = false;
+                    txtEmail_82CD.Visible = false;
+                    lblRol_82CD.Visible = false;
+                    cmbRol_82CD.Visible = false;
+                    lblLogin_82CD.Visible = false;
+                    txtLogin_82CD.Visible = false;
+                    lblBloqueado_82CD.Visible = false;
+                    txtBloqueado_82CD.Visible = false;
+                    lblActivo_82CD.Visible = false;
+                    txtActivo_82CD.Visible = false;
+
+                    btnCrear_82CD.Visible = false;
+                    btnDesbloquear_82CD.Visible = false;
+                    btnModificar_82CD.Visible = false;
+                    btnActDesact_82CD.Visible = false;
+
+                    btnAplicar_82CD.Visible = true;
+                    btnCancelar_82CD.Visible = true;
+
+                    CargarMensajes_82CD("Modo Eliminar");
+
+                    break;
 
                 case ModoFrmAdmin_82CD.Desbloquear_82CD:
 
@@ -269,25 +299,32 @@ namespace IS2026_Service_82CD_
             {
                 if (modoActual_82CD == ModoFrmAdmin_82CD.Añadir_82CD)
                 {
-                    var nuevoUsuario_82CD = new UsuarioBE_82CD
+                    if (String.IsNullOrEmpty(txtDNI_82CD.Text) || String.IsNullOrEmpty(txtApellidos_82CD.Text) || String.IsNullOrEmpty(txtNombre_82CD.Text) || String.IsNullOrEmpty(txtEmail_82CD.Text) || Convert.ToInt32(cmbRol_82CD.SelectedValue) == 0)
                     {
-                        DNI_82CD = txtDNI_82CD.Text,
-                        Apellidos_82CD = txtApellidos_82CD.Text,
-                        Nombre_82CD = txtNombre_82CD.Text,
-                        Email_82CD = txtEmail_82CD.Text,
-                        IdRol_82CD = Convert.ToInt32(cmbRol_82CD.SelectedValue),
-                        LogIn_82CD = txtLogin_82CD.Text,
-                        Bloqueado_82CD = false,
-                        Activo_82CD = true,
-                    };
+                        MessageBox.Show("Debe completar todos los campos para crear un usuario");
+                        return;
+                    }
+                    else
+                    {
+                        var nuevoUsuario_82CD = new UsuarioBE_82CD
+                        {
+                            DNI_82CD = txtDNI_82CD.Text,
+                            Apellidos_82CD = txtApellidos_82CD.Text,
+                            Nombre_82CD = txtNombre_82CD.Text,
+                            Email_82CD = txtEmail_82CD.Text,
+                            IdRol_82CD = Convert.ToInt32(cmbRol_82CD.SelectedValue),
+                            Bloqueado_82CD = false,
+                            Activo_82CD = true,
+                        };
 
-                    bllUsuario_82CD.AgregarUsuario_82CD(nuevoUsuario_82CD);
+                        bllUsuario_82CD.AgregarUsuario_82CD(nuevoUsuario_82CD);
 
-                    string passwordVista_82CD = nuevoUsuario_82CD.Apellidos_82CD.Replace(" ", "") + nuevoUsuario_82CD.DNI_82CD;
+                        string passwordVista_82CD = nuevoUsuario_82CD.Apellidos_82CD.Replace(" ", "") + nuevoUsuario_82CD.DNI_82CD;
 
-                    MessageBox.Show("Usuario creado correctamente" +
-                    "\n Usuario: " + nuevoUsuario_82CD.LogIn_82CD +
-                    "\n Contraseña: " + passwordVista_82CD);
+                        MessageBox.Show("Usuario creado correctamente" +
+                        "\n Usuario: " + nuevoUsuario_82CD.LogIn_82CD +
+                        "\n Contraseña: " + passwordVista_82CD);
+                    }
                 }
 
                 if (modoActual_82CD == ModoFrmAdmin_82CD.Modificar_82CD)
@@ -317,7 +354,42 @@ namespace IS2026_Service_82CD_
                     MessageBox.Show("Usuario modificado correctamente");
                 }
 
-                //if (modoActual_82CD == ModoFrmAdmin_82CD.Eliminar_82CD)
+                if (modoActual_82CD == ModoFrmAdmin_82CD.Eliminar_82CD)
+                {
+                    if (usuarioseleccionado_82CD == null)
+                    {
+                        MessageBox.Show("Debe seleccionar un usuario a desactivar");
+                        return;
+                    }
+
+                    if (usuarioseleccionado_82CD.Activo_82CD == true)
+                    {
+                        DialogResult confirmacion_82CD = MessageBox.Show("Desea desactivar al usuario: " + usuarioseleccionado_82CD.LogIn_82CD + "?",
+                        "Confirmar desactivacion", MessageBoxButtons.YesNo);
+
+                        if (confirmacion_82CD == DialogResult.No)
+                        {
+                            MessageBox.Show("Desactivacion cancelada");
+                            return;
+                        }
+
+                        bllUsuario_82CD.CambiarEstadoUsuario_82CD(usuarioseleccionado_82CD, false);
+                        MessageBox.Show($"El usuario: {usuarioseleccionado_82CD.LogIn_82CD} fue desactivado");
+                    }
+                    else
+                    {
+                        DialogResult confirmacion_82CD = MessageBox.Show("Desea activar al usuario: " + usuarioseleccionado_82CD.LogIn_82CD + "?",
+                        "Confirmar activacion", MessageBoxButtons.YesNo);
+
+                        if (confirmacion_82CD == DialogResult.No)
+                        {
+                            MessageBox.Show("Activacion cancelada");
+                            return;
+                        }
+                        bllUsuario_82CD.CambiarEstadoUsuario_82CD(usuarioseleccionado_82CD, true);
+                        MessageBox.Show($"El usuario: {usuarioseleccionado_82CD.LogIn_82CD} fue activado");
+                    }
+                }
 
                 if (modoActual_82CD == ModoFrmAdmin_82CD.Desbloquear_82CD)
                 {
@@ -332,7 +404,7 @@ namespace IS2026_Service_82CD_
                         return;
                     }
 
-                    DialogResult confirmacion_82CD = MessageBox.Show("Desea desbloquear al usuario: '" + usuarioseleccionado_82CD.LogIn_82CD + "'?",
+                    DialogResult confirmacion_82CD = MessageBox.Show("Desea desbloquear al usuario: " + usuarioseleccionado_82CD.LogIn_82CD + "?",
                     "Confirmar desbloqueo", MessageBoxButtons.YesNo);
 
                     if(confirmacion_82CD == DialogResult.No)
@@ -341,7 +413,7 @@ namespace IS2026_Service_82CD_
                         return;
                     }
                     bllUsuario_82CD.DesbloquearUsuario_82CD(usuarioseleccionado_82CD);
-                    MessageBox.Show("Se desbloqueo al usuario: '" + usuarioseleccionado_82CD.LogIn_82CD +
+                    MessageBox.Show("Se desbloqueo al usuario: " + usuarioseleccionado_82CD.LogIn_82CD +
                         "\n Y su contraseña fue blanqueada.");
                 }
                 usuarioseleccionado_82CD = null;
@@ -373,6 +445,7 @@ namespace IS2026_Service_82CD_
         {
             LimpiarControles_82CD();
             CambiarModo_82CD(ModoFrmAdmin_82CD.Modificar_82CD);
+            usuarioseleccionado_82CD = null;
         }
 
         private void DGUsuarios_82CD_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -402,48 +475,8 @@ namespace IS2026_Service_82CD_
 
         private void btnActDesact_82CD_Click(object sender, EventArgs e)
         {
-            if(usuarioseleccionado_82CD == null)
-            {
-                MessageBox.Show("Debe Seleccionar un usuario");
-                return;
-            }
-            try
-            {
-                if(usuarioseleccionado_82CD.Activo_82CD == true)
-                {
-                    DialogResult confirmacion_82CD = MessageBox.Show("Desea desactivar al usuario: '" + usuarioseleccionado_82CD.LogIn_82CD + "'?",
-                    "Confirmar desactivacion", MessageBoxButtons.YesNo); 
-                    
-                    if(confirmacion_82CD == DialogResult.No)
-                    {
-                        MessageBox.Show("Desactivacion cancelada");
-                        return;
-                    }
-
-                    bllUsuario_82CD.CambiarEstadoUsuario_82CD(usuarioseleccionado_82CD, false);
-                    MessageBox.Show($"El usuario: {usuarioseleccionado_82CD.LogIn_82CD} fue desactivado");
-                }
-                else
-                {
-                    DialogResult confirmacion_82CD = MessageBox.Show("Desea activar al usuario: '" + usuarioseleccionado_82CD.LogIn_82CD + "'?",
-                    "Confirmar activacion", MessageBoxButtons.YesNo);
-
-                    if (confirmacion_82CD == DialogResult.No)
-                    {
-                        MessageBox.Show("Activacion cancelada");
-                        return;
-                    }
-                    bllUsuario_82CD.CambiarEstadoUsuario_82CD(usuarioseleccionado_82CD, true);
-                    MessageBox.Show($"El usuario: {usuarioseleccionado_82CD.LogIn_82CD} fue activado");
-                }
-                usuarioseleccionado_82CD = null;
-                ActualizarDataGrid_82CD();
-                LimpiarControles_82CD();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            CambiarModo_82CD(ModoFrmAdmin_82CD.Eliminar_82CD);
+            usuarioseleccionado_82CD = null;
         }
 
 
@@ -459,12 +492,8 @@ namespace IS2026_Service_82CD_
 
         private void btnDesbloquear_82CD_Click(object sender, EventArgs e)
         {
-            if(usuarioseleccionado_82CD == null)
-            {
-                MessageBox.Show("Debe seleccionar un usuario");
-                return ;
-            }
             CambiarModo_82CD(ModoFrmAdmin_82CD.Desbloquear_82CD);
+            usuarioseleccionado_82CD = null;
         }
 
     }
