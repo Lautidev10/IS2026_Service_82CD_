@@ -23,17 +23,24 @@ namespace BLL
             UsuarioBE_82CD usuario_82CD = mapperUsuario_82CD.BuscarUsuarioPorLogIn_82CD(login_82CD);
             if(usuario_82CD == null)
             {
-                //La bitacora podria guardar el intento fallido
                 throw new Exception("Usuario o Contraseña Incorrectos");
             }
             if (!usuario_82CD.Activo_82CD)
             {
-                //bllBitacora_82CD.RegistrarEvento_82CD("Intento de conexion de usuario inactivo: {1}", login_82CD);
+                bllBitacora_82CD.RegistrarEvento_82CD(
+                    "Intento de inicio de sesion de usuario inactivo",
+                    login_82CD
+                    );
+
                 throw new Exception("El usuario se encuentra inactivo");
             }
             if (usuario_82CD.Bloqueado_82CD)
             {
-                //bllBitacora_82CD.RegistrarEvento_82CD("Intento de conexion de usuario bloqueado:{0}", login_82CD);
+                bllBitacora_82CD.RegistrarEvento_82CD(
+                    "Intento de inicio de sesion de usuario bloqueado",
+                    login_82CD
+                    );
+
                 throw new Exception("El usuario se encuentra bloqueado");
             }
             if(usuario_82CD.Password_82CD != contraseñaEncriptada_82CD)
@@ -43,16 +50,25 @@ namespace BLL
                 if (MonitorAcceso_82CD.Bloquear(login_82CD))
                 {
                     mapperUsuario_82CD.BloquearUsuario_82CD(usuario_82CD.DNI_82CD);
-                    //bllBitacora deber registrar evento de bloqueo de un usuario x.
+
+                    bllBitacora_82CD.RegistrarEvento_82CD(
+                    "Usuario bloqueado por exceso de intentos fallidos",
+                    login_82CD
+                    );
+
                     throw new Exception("Su usuario fue bloqueado por exceso de intentos, debe comunicarse con un administrador");
                 }
 
-                //Ver como implementarlo bien porque podria revelar que un usuario existe en el sistema.
                 throw new Exception("Usuario o Contraseña Incorrectos: Intento "+ intentos_82CD + " de 3");
             }
 
             MonitorAcceso_82CD.EliminarIntentos_82CD(login_82CD);
-            //bllBitacora_82CD.RegistrarEvento_82CD("El usuario {0} inicio sesion",login_82CD);
+
+            bllBitacora_82CD.RegistrarEvento_82CD(
+                    "Inicio de sesion exitoso",
+                    login_82CD
+                    );
+
             return usuario_82CD;
         }
 
@@ -77,7 +93,8 @@ namespace BLL
             }
 
             mapperUsuario_82CD.AgregarUsuario_82CD(usuario_82CD);
-            //bllbitacora guarda evento de creacion de usuario
+
+            bllBitacora_82CD.RegistrarEvento_82CD("Se creo usuario con exito", usuario_82CD.LogIn_82CD);
         }
 
         public void ModificarUsuario_82CD(UsuarioBE_82CD usuario_82CD)
@@ -86,6 +103,8 @@ namespace BLL
                 throw new Exception("El DNI no puede estar vacio");
 
             mapperUsuario_82CD.ModificarUsuario_82CD(usuario_82CD);
+
+            bllBitacora_82CD.RegistrarEvento_82CD("Usuario modificado con exito", usuario_82CD.LogIn_82CD);
         }
 
         public void CambiarEstadoUsuario_82CD(UsuarioBE_82CD usuario_82CD, bool estado_82CD)
@@ -98,6 +117,21 @@ namespace BLL
             }
 
             mapperUsuario_82CD.CambiarEstadoUsuario_82CD(usuario_82CD, estado_82CD);
+
+            if (estado_82CD)
+            {
+                bllBitacora_82CD.RegistrarEvento_82CD(
+                    "Se activo usuario de forma exitosa",
+                    usuario_82CD.LogIn_82CD
+                );
+            }
+            else
+            {
+                bllBitacora_82CD.RegistrarEvento_82CD(
+                    "Se desactivo usuario de forma exitosa",
+                    usuario_82CD.LogIn_82CD
+                );
+            }
         }
 
 
@@ -109,9 +143,11 @@ namespace BLL
 
             mapperUsuario_82CD.DesbloquearUsuario_82CD(usuario_82CD.DNI_82CD, usuario_82CD.Password_82CD);
             MonitorAcceso_82CD.EliminarIntentos_82CD(usuario_82CD.LogIn_82CD);
+
+            bllBitacora_82CD.RegistrarEvento_82CD("Desbloqueo de usuario exitoso", usuario_82CD.LogIn_82CD);
         }
 
-        public void ActualizarContraseña_82CD(/*string Login_82CD, */string PasswordActual_82CD, string PasswordNueva_82CD, string Confirmacion_82CD)
+        public void ActualizarContraseña_82CD(string PasswordActual_82CD, string PasswordNueva_82CD, string Confirmacion_82CD)
         {
             UsuarioBE_82CD UsuarioActual_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
 
@@ -139,7 +175,7 @@ namespace BLL
             UsuarioActual_82CD.Password_82CD = PasswordNuevaEncriptada_82CD;
             SessionManager_82CD.ActualizarUsuarioEnSesion_82CD(UsuarioActual_82CD);
 
-            //bllBitacora_82CD.RegistrarEvento_82CD("Cambio de Clave Exitoso", UsuarioActual_82CD.LogIn_82CD);
+            bllBitacora_82CD.RegistrarEvento_82CD("Cambio de Clave Exitoso", UsuarioActual_82CD.LogIn_82CD);
         }
 
 

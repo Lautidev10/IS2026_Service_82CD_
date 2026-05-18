@@ -41,7 +41,11 @@ namespace IS2026_Service_82CD_
                 else
                 {
                     UsuarioBE_82CD sesion_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
-                    //Registrar con el usuario el evento cierre en bitacora
+
+                    bllbitacora_82CD.RegistrarEvento_82CD(
+                        "Cierre de sesion exitoso",
+                        sesion_82CD.LogIn_82CD
+                        );
 
                     SessionManager_82CD.CerrarSesion_82CD();
 
