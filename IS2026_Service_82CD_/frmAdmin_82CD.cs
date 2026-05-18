@@ -4,6 +4,7 @@ using Servicio;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -87,6 +88,8 @@ namespace IS2026_Service_82CD_
 
                 DGUsuarios_82CD.DataSource = listaMostrar_82CD;
 
+                PintarUsuariosInactivos_82CD();
+
                 lclCantUsuarios_82CD.Text = DGUsuarios_82CD.Rows.Count.ToString();
             }
             catch
@@ -95,6 +98,24 @@ namespace IS2026_Service_82CD_
             }
         }
 
+        private void PintarUsuariosInactivos_82CD()
+        {
+            foreach(DataGridViewRow fila_82CD in DGUsuarios_82CD.Rows)
+            {
+                bool activo_82CD = Convert.ToBoolean(fila_82CD.Cells["Activo_82CD"].Value);
+
+                if (!activo_82CD)
+                {
+                    fila_82CD.DefaultCellStyle.BackColor = Color.Red;
+                    fila_82CD.DefaultCellStyle.ForeColor = Color.White;
+                }
+                else
+                {
+                    fila_82CD.DefaultCellStyle.BackColor=Color.White;
+                    fila_82CD.DefaultCellStyle.ForeColor = Color.Black;
+                }
+            }
+        }
 
         private void CambiarModo_82CD(ModoFrmAdmin_82CD modo_82CD)
         {
