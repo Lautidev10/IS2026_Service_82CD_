@@ -379,7 +379,7 @@ namespace IS2026_Service_82CD_
                 {
                     if (usuarioseleccionado_82CD == null)
                     {
-                        MessageBox.Show("Debe seleccionar un usuario a desactivar");
+                        MessageBox.Show("Debe seleccionar un usuario");
                         return;
                     }
 

@@ -18,10 +18,12 @@ namespace BLL
         }
 
 
-        public UsuarioBE_82CD ValidarCredenciales_82CD(string login_82CD, string contraseñaEncriptada_82CD)
+        public UsuarioBE_82CD ValidarCredenciales_82CD(string login_82CD, string contraseña_82CD)
         {
             UsuarioBE_82CD usuario_82CD = mapperUsuario_82CD.BuscarUsuarioPorLogIn_82CD(login_82CD);
-            if(usuario_82CD == null)
+            string contraseñaEncriptada_82CD = ServicioEncriptacion_82CD.Encriptar_82CD(contraseña_82CD);
+
+            if (usuario_82CD == null)
             {
                 throw new Exception("Usuario o Contraseña Incorrectos");
             }
@@ -61,7 +63,7 @@ namespace BLL
 
                 throw new Exception("Usuario o Contraseña Incorrectos: Intento "+ intentos_82CD + " de 3");
             }
-
+            SessionManager_82CD.IniciarSesion_82CD(usuario_82CD);
             MonitorAcceso_82CD.EliminarIntentos_82CD(login_82CD);
 
             bllBitacora_82CD.RegistrarEvento_82CD(
@@ -76,12 +78,6 @@ namespace BLL
         {
             List<UsuarioBE_82CD> listaTotal_82CD = mapperUsuario_82CD.ListarUsuario_82CD(false);
 
-            usuario_82CD.LogIn_82CD = usuario_82CD.Nombre_82CD.Replace(" ", "") + usuario_82CD.DNI_82CD;
-
-            string passwordSinEncriptar_82CD = usuario_82CD.Apellidos_82CD.Replace(" ", "") + usuario_82CD.DNI_82CD;
-
-            usuario_82CD.Password_82CD = ServicioEncriptacion_82CD.Encriptar_82CD(passwordSinEncriptar_82CD);
-
             if (listaTotal_82CD.Exists(u => u.DNI_82CD == usuario_82CD.DNI_82CD))
             {
                 throw new Exception("El DNI ya existe en el sistema.");
@@ -91,6 +87,11 @@ namespace BLL
             {
                 throw new Exception("Ese usuario ya existe en el sistema.");
             }
+
+            usuario_82CD.LogIn_82CD = usuario_82CD.Nombre_82CD.Replace(" ", "") + usuario_82CD.DNI_82CD;
+            string passwordSinEncriptar_82CD = usuario_82CD.Apellidos_82CD.Replace(" ", "") + usuario_82CD.DNI_82CD;
+
+            usuario_82CD.Password_82CD = ServicioEncriptacion_82CD.Encriptar_82CD(passwordSinEncriptar_82CD);
 
             mapperUsuario_82CD.AgregarUsuario_82CD(usuario_82CD);
 

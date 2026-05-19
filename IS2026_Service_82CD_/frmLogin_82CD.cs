@@ -47,12 +47,10 @@ namespace IS2026_Service_82CD_
                 {
                     string login_82CD = txtUsuario_82CD.Text;
                     string password_82CD = txtContraseña_82CD.Text;
-                    string hash_82CD = ServicioEncriptacion_82CD.Encriptar_82CD(password_82CD);
 
-                    UsuarioBE_82CD usuario_82CD = bllUsuario_82CD.ValidarCredenciales_82CD(login_82CD, hash_82CD);
+                    UsuarioBE_82CD usuario_82CD = bllUsuario_82CD.ValidarCredenciales_82CD(login_82CD, password_82CD);
                     BERol_82CD rol_82CD = bllRol_82CD.BuscarRolporID_82CD(usuario_82CD.IdRol_82CD);
 
-                    SessionManager_82CD.IniciarSesion_82CD(usuario_82CD);
                     MostrarMenuPrincipal_82CD(rol_82CD);
                 }
                 catch(Exception ex)
