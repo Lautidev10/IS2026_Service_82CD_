@@ -21,7 +21,6 @@ namespace BLL
         public UsuarioBE_82CD ValidarCredenciales_82CD(string login_82CD, string contraseña_82CD)
         {
             UsuarioBE_82CD usuario_82CD = mapperUsuario_82CD.BuscarUsuarioPorLogIn_82CD(login_82CD);
-            string contraseñaEncriptada_82CD = ServicioEncriptacion_82CD.Encriptar_82CD(contraseña_82CD);
 
             if (usuario_82CD == null)
             {
@@ -45,7 +44,10 @@ namespace BLL
 
                 throw new Exception("El usuario se encuentra bloqueado");
             }
-            if(usuario_82CD.Password_82CD != contraseñaEncriptada_82CD)
+
+            string contraseñaEncriptada_82CD = ServicioEncriptacion_82CD.Encriptar_82CD(contraseña_82CD);
+
+            if (usuario_82CD.Password_82CD != contraseñaEncriptada_82CD)
             {
                 int intentos_82CD = MonitorAcceso_82CD.RegistrarIntentoFallido_82CD(login_82CD);
 

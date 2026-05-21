@@ -482,7 +482,7 @@ namespace IS2026_Service_82CD_
                 Nombre_82CD = row.Cells["Nombre_82CD"].Value.ToString(),
                 Email_82CD = row.Cells["Email_82CD"].Value.ToString(),
                 IdRol_82CD = Convert.ToInt32(row.Cells["IdRol_82CD"].Value.ToString()),
-                LogIn_82CD = row.Cells["Login_82CD"].Value.ToString(),
+                LogIn_82CD = row.Cells["LogIn_82CD"].Value.ToString(),
                 Bloqueado_82CD = Convert.ToBoolean(row.Cells["Bloqueado_82CD"].Value),
                 Activo_82CD = Convert.ToBoolean(row.Cells["Activo_82CD"].Value),
             };

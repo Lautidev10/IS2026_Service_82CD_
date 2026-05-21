@@ -20,7 +20,7 @@ namespace Servicio
 
         public static void IniciarSesion_82CD(UsuarioBE_82CD usuarioBE_82CD)
         {
-            if(_usuario_82CD == null)
+            if (_usuario_82CD == null)
             {
                 _usuario_82CD = usuarioBE_82CD;
             }
@@ -28,7 +28,7 @@ namespace Servicio
             {
                 throw new Exception("Ya hay una sesion Iniciada");
             }
-            
+
         }
 
         public static void CerrarSesion_82CD()

@@ -48,8 +48,10 @@ namespace IS2026_Service_82CD_
                     string login_82CD = txtUsuario_82CD.Text;
                     string password_82CD = txtContraseña_82CD.Text;
 
+                    
                     UsuarioBE_82CD usuario_82CD = bllUsuario_82CD.ValidarCredenciales_82CD(login_82CD, password_82CD);
                     BERol_82CD rol_82CD = bllRol_82CD.BuscarRolporID_82CD(usuario_82CD.IdRol_82CD);
+
 
                     MostrarMenuPrincipal_82CD(rol_82CD);
                 }
