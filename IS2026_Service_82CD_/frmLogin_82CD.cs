@@ -1,5 +1,4 @@
-﻿using BE;
-using BLL;
+﻿using BLL;
 using DAL;
 using Servicio;
 using System;
@@ -49,8 +48,8 @@ namespace IS2026_Service_82CD_
                     string password_82CD = txtContraseña_82CD.Text;
 
                     
-                    UsuarioBE_82CD usuario_82CD = bllUsuario_82CD.ValidarCredenciales_82CD(login_82CD, password_82CD);
-                    BERol_82CD rol_82CD = bllRol_82CD.BuscarRolporID_82CD(usuario_82CD.IdRol_82CD);
+                    ServicioUsuario_82CD usuario_82CD = bllUsuario_82CD.ValidarCredenciales_82CD(login_82CD, password_82CD);
+                    ServicioRol_82CD rol_82CD = bllRol_82CD.BuscarRolporID_82CD(usuario_82CD.IdRol_82CD);
 
 
                     MostrarMenuPrincipal_82CD(rol_82CD);
@@ -68,12 +67,22 @@ namespace IS2026_Service_82CD_
         }
         
 
-        private void MostrarMenuPrincipal_82CD(BERol_82CD rol_82CD)
+        private void MostrarMenuPrincipal_82CD(ServicioRol_82CD rol_82CD)
         {
             frmMenuPrincipal_82CD frmMenuPrincipal_82CD = new frmMenuPrincipal_82CD(rol_82CD);
             frmMenuPrincipal_82CD.Show();
             this.Hide();
         }
-        
+
+        private void frmLogin_82CD_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                bllRol_82CD.VerificarRolesBase_82CD();
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }

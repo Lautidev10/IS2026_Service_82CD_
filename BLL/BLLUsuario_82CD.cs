@@ -1,4 +1,4 @@
-﻿using BE;
+﻿
 using DAL;
 using Servicio;
 using System;
@@ -12,15 +12,15 @@ namespace BLL
         private MapperUsuario_82CD mapperUsuario_82CD = new MapperUsuario_82CD();
         private BLLBitacora_82CD bllBitacora_82CD = new BLLBitacora_82CD();
 
-        public List<UsuarioBE_82CD> ListarUsuario_82CD(bool estado_82CD)
+        public List<ServicioUsuario_82CD> ListarUsuario_82CD(bool estado_82CD)
         {
             return mapperUsuario_82CD.ListarUsuario_82CD(estado_82CD);
         }
 
 
-        public UsuarioBE_82CD ValidarCredenciales_82CD(string login_82CD, string contraseña_82CD)
+        public ServicioUsuario_82CD ValidarCredenciales_82CD(string login_82CD, string contraseña_82CD)
         {
-            UsuarioBE_82CD usuario_82CD = mapperUsuario_82CD.BuscarUsuarioPorLogIn_82CD(login_82CD);
+            ServicioUsuario_82CD usuario_82CD = mapperUsuario_82CD.BuscarUsuarioPorLogIn_82CD(login_82CD);
 
             if (usuario_82CD == null)
             {
@@ -76,9 +76,9 @@ namespace BLL
             return usuario_82CD;
         }
 
-        public void AgregarUsuario_82CD(UsuarioBE_82CD usuario_82CD)
+        public void AgregarUsuario_82CD(ServicioUsuario_82CD usuario_82CD)
         {
-            List<UsuarioBE_82CD> listaTotal_82CD = mapperUsuario_82CD.ListarUsuario_82CD(false);
+            List<ServicioUsuario_82CD> listaTotal_82CD = mapperUsuario_82CD.ListarUsuario_82CD(false);
 
             if (listaTotal_82CD.Exists(u => u.DNI_82CD == usuario_82CD.DNI_82CD))
             {
@@ -100,7 +100,7 @@ namespace BLL
             bllBitacora_82CD.RegistrarEvento_82CD("Se creo usuario con exito", usuario_82CD.LogIn_82CD);
         }
 
-        public void ModificarUsuario_82CD(UsuarioBE_82CD usuario_82CD)
+        public void ModificarUsuario_82CD(ServicioUsuario_82CD usuario_82CD)
         {
             if (string.IsNullOrWhiteSpace(usuario_82CD.DNI_82CD))
                 throw new Exception("El DNI no puede estar vacio");
@@ -110,9 +110,9 @@ namespace BLL
             bllBitacora_82CD.RegistrarEvento_82CD("Usuario modificado con exito", usuario_82CD.LogIn_82CD);
         }
 
-        public void CambiarEstadoUsuario_82CD(UsuarioBE_82CD usuario_82CD, bool estado_82CD)
+        public void CambiarEstadoUsuario_82CD(ServicioUsuario_82CD usuario_82CD, bool estado_82CD)
         {
-            UsuarioBE_82CD sesion_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
+            ServicioUsuario_82CD sesion_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
             
             if(usuario_82CD.LogIn_82CD == sesion_82CD.LogIn_82CD)
             {
@@ -138,7 +138,7 @@ namespace BLL
         }
 
 
-        public void DesbloquearUsuario_82CD(UsuarioBE_82CD usuario_82CD)
+        public void DesbloquearUsuario_82CD(ServicioUsuario_82CD usuario_82CD)
         {
             string passwordSinEncriptar_82CD = usuario_82CD.Apellidos_82CD.Replace(" ", "") + usuario_82CD.DNI_82CD;
 
@@ -152,7 +152,7 @@ namespace BLL
 
         public void ActualizarContraseña_82CD(string PasswordActual_82CD, string PasswordNueva_82CD, string Confirmacion_82CD)
         {
-            UsuarioBE_82CD UsuarioActual_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
+            ServicioUsuario_82CD UsuarioActual_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
 
             if (PasswordNueva_82CD != Confirmacion_82CD)
             {

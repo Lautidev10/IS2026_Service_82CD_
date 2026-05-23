@@ -1,4 +1,4 @@
-﻿using BE;
+﻿
 using Servicio;
 using System;
 using System.Windows.Forms;
@@ -9,9 +9,9 @@ namespace IS2026_Service_82CD_
     public partial class frmMenuPrincipal_82CD : Form
     {
         
-        private BERol_82CD rolUsuario_82CD;
+        private ServicioRol_82CD rolUsuario_82CD;
 
-        public frmMenuPrincipal_82CD(BERol_82CD rolIngresado_82CD)
+        public frmMenuPrincipal_82CD(ServicioRol_82CD rolIngresado_82CD)
         {
             InitializeComponent();
             this.rolUsuario_82CD = rolIngresado_82CD;
@@ -21,7 +21,7 @@ namespace IS2026_Service_82CD_
         {
             try
             {
-                //UsuarioBE_82CD usuarioactual_82CD = SessionManager_82CD.ObtenerUsuario_82CD(); Para que el menu salude al usuario que inicio sesion
+                //ServicioUsuario_82CD usuarioactual_82CD = SessionManager_82CD.ObtenerUsuario_82CD(); Para que el menu salude al usuario que inicio sesion
                 ModoMenuPrincipal_82CD();
             }
             catch

@@ -5,8 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BE;
 using System.ComponentModel;
+using Servicio;
 
 namespace DAL
 {
@@ -26,17 +26,17 @@ namespace DAL
                 conexion_82CD.Close();
         }
 
-        private BERol_82CD MappearRol_82CD(SqlDataReader reader_82CD)
+        private ServicioRol_82CD MappearRol_82CD(SqlDataReader reader_82CD)
         {
-            BERol_82CD rol_82CD = new BERol_82CD();
+            ServicioRol_82CD rol_82CD = new ServicioRol_82CD();
             rol_82CD.IdRol_82CD = int.Parse(reader_82CD["IdRol_82CD"].ToString());
             rol_82CD.NombreRol_82CD = reader_82CD["NombreRol_82CD"].ToString();
             return rol_82CD;
         }
 
-        public BERol_82CD BucarRolPorID_82CD(int IdRol_82CD)
+        public ServicioRol_82CD BucarRolPorID_82CD(int IdRol_82CD)
         {
-            BERol_82CD rol_82CD = null;
+            ServicioRol_82CD rol_82CD = null;
 
             try
             {
@@ -57,9 +57,9 @@ namespace DAL
             return rol_82CD;
         }
 
-        public List<BERol_82CD> ObtenerRoles_82CD()
+        public List<ServicioRol_82CD> ObtenerRoles_82CD()
         {
-            List<BERol_82CD> lista_82CD = new List<BERol_82CD>();
+            List<ServicioRol_82CD> lista_82CD = new List<ServicioRol_82CD>();
 
             try
             {
@@ -81,6 +81,32 @@ namespace DAL
             return lista_82CD;
         }
 
+        public void CrearRolesBase_82CD()
+        {
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = @"
+                IF NOT EXISTS (SELECT 1 FROM Rol_82CD WHERE NombreRol_82CD = 'Administrador')
+                BEGIN
+                    INSERT INTO Rol_82CD (NombreRol_82CD)
+                    VALUES ('Administrador')
+                END
+
+                IF NOT EXISTS (SELECT 1 FROM Rol_82CD WHERE NombreRol_82CD = 'Cliente')
+                BEGIN
+                    INSERT INTO Rol_82CD (NombreRol_82CD)
+                    VALUES ('Cliente')
+                END";
+
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.ExecuteNonQuery();
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
 
     }
 }

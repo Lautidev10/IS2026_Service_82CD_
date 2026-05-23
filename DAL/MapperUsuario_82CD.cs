@@ -1,4 +1,5 @@
-﻿using BE;
+﻿
+using Servicio;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -24,26 +25,26 @@ namespace DAL
             }
         }
 
-        private UsuarioBE_82CD MapearUsuario_82CD(SqlDataReader reader_82CD)
+        private ServicioUsuario_82CD MapearUsuario_82CD(SqlDataReader reader_82CD)
         {
-            UsuarioBE_82CD usuariobe_82CD = new UsuarioBE_82CD();
+            ServicioUsuario_82CD ServicioUsuario_82CD = new ServicioUsuario_82CD();
 
-            usuariobe_82CD.DNI_82CD = reader_82CD["DNI_82CD"].ToString();
-            usuariobe_82CD.Apellidos_82CD = reader_82CD["Apellidos_82CD"].ToString();
-            usuariobe_82CD.Nombre_82CD = reader_82CD["Nombre_82CD"].ToString();
-            usuariobe_82CD.Email_82CD = reader_82CD["Email_82CD"].ToString();
-            usuariobe_82CD.LogIn_82CD = reader_82CD["LogIn_82CD"].ToString();
-            usuariobe_82CD.Password_82CD = reader_82CD["Password_82CD"].ToString();
-            usuariobe_82CD.IdRol_82CD = int.Parse(reader_82CD["IdRol_82CD"].ToString());
-            usuariobe_82CD.Bloqueado_82CD = Convert.ToBoolean(reader_82CD["Bloqueado_82CD"].ToString());
-            usuariobe_82CD.Activo_82CD = Convert.ToBoolean(reader_82CD["Activo_82CD"].ToString());
+            ServicioUsuario_82CD.DNI_82CD = reader_82CD["DNI_82CD"].ToString();
+            ServicioUsuario_82CD.Apellidos_82CD = reader_82CD["Apellidos_82CD"].ToString();
+            ServicioUsuario_82CD.Nombre_82CD = reader_82CD["Nombre_82CD"].ToString();
+            ServicioUsuario_82CD.Email_82CD = reader_82CD["Email_82CD"].ToString();
+            ServicioUsuario_82CD.LogIn_82CD = reader_82CD["LogIn_82CD"].ToString();
+            ServicioUsuario_82CD.Password_82CD = reader_82CD["Password_82CD"].ToString();
+            ServicioUsuario_82CD.IdRol_82CD = int.Parse(reader_82CD["IdRol_82CD"].ToString());
+            ServicioUsuario_82CD.Bloqueado_82CD = Convert.ToBoolean(reader_82CD["Bloqueado_82CD"].ToString());
+            ServicioUsuario_82CD.Activo_82CD = Convert.ToBoolean(reader_82CD["Activo_82CD"].ToString());
 
-            return usuariobe_82CD;
+            return ServicioUsuario_82CD;
         }
 
-        public List<UsuarioBE_82CD> ListarUsuario_82CD(bool estado_82CD)
+        public List<ServicioUsuario_82CD> ListarUsuario_82CD(bool estado_82CD)
         {
-            List<UsuarioBE_82CD> ls_82CD = new List<UsuarioBE_82CD>();
+            List<ServicioUsuario_82CD> ls_82CD = new List<ServicioUsuario_82CD>();
 
             try
             {
@@ -67,7 +68,7 @@ namespace DAL
             return ls_82CD;
         }
 
-        public void AgregarUsuario_82CD(UsuarioBE_82CD usuario_82CD)
+        public void AgregarUsuario_82CD(ServicioUsuario_82CD usuario_82CD)
         {
             try
             {
@@ -91,7 +92,7 @@ namespace DAL
             }
         }
 
-        public void ModificarUsuario_82CD(UsuarioBE_82CD usuario_82CD)
+        public void ModificarUsuario_82CD(ServicioUsuario_82CD usuario_82CD)
         {
             try
             {
@@ -111,7 +112,7 @@ namespace DAL
             }
         }
 
-        public void CambiarEstadoUsuario_82CD(UsuarioBE_82CD usuario_82CD, bool estado_82CD)
+        public void CambiarEstadoUsuario_82CD(ServicioUsuario_82CD usuario_82CD, bool estado_82CD)
         {
             try
             {
@@ -163,9 +164,9 @@ namespace DAL
         }
 
 
-        public UsuarioBE_82CD BuscarUsuarioPorLogIn_82CD(string login_82CD)
+        public ServicioUsuario_82CD BuscarUsuarioPorLogIn_82CD(string login_82CD)
         {
-            UsuarioBE_82CD usuario_82CD = null;
+            ServicioUsuario_82CD usuario_82CD = null;
             try
             {
                 Conectar_82CD();
@@ -185,9 +186,9 @@ namespace DAL
             return usuario_82CD;
         }
 
-        public UsuarioBE_82CD BuscarUsuarioPorDNI_82CD(string dni_82CD)
+        public ServicioUsuario_82CD BuscarUsuarioPorDNI_82CD(string dni_82CD)
         {
-            UsuarioBE_82CD usuario_82CD = null;
+            ServicioUsuario_82CD usuario_82CD = null;
             try
             {
                 Conectar_82CD();

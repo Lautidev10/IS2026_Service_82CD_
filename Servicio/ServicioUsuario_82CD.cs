@@ -1,6 +1,12 @@
-﻿namespace BE
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Servicio
 {
-    public class UsuarioBE_82CD
+    public class ServicioUsuario_82CD
     {
         public string DNI_82CD { get; set; }
         public string Apellidos_82CD { get; set; }
@@ -11,6 +17,5 @@
         public int IdRol_82CD { get; set; }
         public bool Bloqueado_82CD { get; set; }
         public bool Activo_82CD { get; set; }
-
     }
 }

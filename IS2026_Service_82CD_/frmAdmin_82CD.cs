@@ -1,5 +1,4 @@
-﻿using BE;
-using BLL;
+﻿using BLL;
 using Servicio;
 using System;
 using System.Collections.Generic;
@@ -16,7 +15,7 @@ namespace IS2026_Service_82CD_
         private BLLUsuario_82CD bllUsuario_82CD = new BLLUsuario_82CD();
         private BLLRol_82CD bllRol_82CD = new BLLRol_82CD();
         private ModoFrmAdmin_82CD modoActual_82CD = ModoFrmAdmin_82CD.Consulta_82CD;
-        private UsuarioBE_82CD usuarioseleccionado_82CD;
+        private ServicioUsuario_82CD usuarioseleccionado_82CD;
 
         public frmAdmin_82CD()
         {
@@ -50,7 +49,7 @@ namespace IS2026_Service_82CD_
 
         private void CargarRoles_82CD()
         {
-            List<BERol_82CD> roles_82CD = bllRol_82CD.ObtenerRoles_82CD();
+            List<ServicioRol_82CD> roles_82CD = bllRol_82CD.ObtenerRoles_82CD();
 
             cmbRol_82CD.DataSource = roles_82CD;
             cmbRol_82CD.DisplayMember = "NombreRol_82CD";
@@ -63,14 +62,14 @@ namespace IS2026_Service_82CD_
         {
             try
             {
-                List<UsuarioBE_82CD> usuarios_82CD = bllUsuario_82CD.ListarUsuario_82CD(estado_82CD);
+                List<ServicioUsuario_82CD> usuarios_82CD = bllUsuario_82CD.ListarUsuario_82CD(estado_82CD);
 
-                List<UsuarioBE_82CD> listaMostrar_82CD = new List<UsuarioBE_82CD>();
+                List<ServicioUsuario_82CD> listaMostrar_82CD = new List<ServicioUsuario_82CD>();
 
-                foreach (UsuarioBE_82CD u in usuarios_82CD)
+                foreach (ServicioUsuario_82CD u in usuarios_82CD)
                 {
                     {
-                        UsuarioBE_82CD usuario_82CD = new UsuarioBE_82CD();
+                        ServicioUsuario_82CD usuario_82CD = new ServicioUsuario_82CD();
 
                         usuario_82CD.DNI_82CD = u.DNI_82CD;
                         usuario_82CD.Apellidos_82CD = u.Apellidos_82CD;
@@ -327,7 +326,7 @@ namespace IS2026_Service_82CD_
                     }
                     else
                     {
-                        var nuevoUsuario_82CD = new UsuarioBE_82CD
+                        var nuevoUsuario_82CD = new ServicioUsuario_82CD
                         {
                             DNI_82CD = txtDNI_82CD.Text,
                             Apellidos_82CD = txtApellidos_82CD.Text,
@@ -475,7 +474,7 @@ namespace IS2026_Service_82CD_
 
             DataGridViewRow row = DGUsuarios_82CD.Rows[e.RowIndex];
 
-            usuarioseleccionado_82CD = new UsuarioBE_82CD
+            usuarioseleccionado_82CD = new ServicioUsuario_82CD
             {
                 DNI_82CD = row.Cells["DNI_82CD"].Value.ToString(),
                 Apellidos_82CD = row.Cells["Apellidos_82CD"].Value.ToString(),

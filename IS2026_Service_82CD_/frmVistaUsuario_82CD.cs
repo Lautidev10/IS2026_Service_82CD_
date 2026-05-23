@@ -1,11 +1,10 @@
-﻿using BE;
-using BLL;
+﻿using BLL;
 using Servicio;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Windows.Forms;
-using static IS2026_Service_82CD_.frmAdmin_82CD;
+
 
 namespace IS2026_Service_82CD_
 {
@@ -40,7 +39,7 @@ namespace IS2026_Service_82CD_
                 }
                 else
                 {
-                    UsuarioBE_82CD sesion_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
+                    ServicioUsuario_82CD sesion_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
 
                     bllbitacora_82CD.RegistrarEvento_82CD(
                         "Cierre de sesion exitoso",
