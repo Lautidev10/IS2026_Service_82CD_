@@ -28,18 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelMenuPrincipal_82CD = new System.Windows.Forms.Panel();
             this.lblMenuPrincipal = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblAyuda_82CD = new System.Windows.Forms.Label();
             this.lblReportes_82CD = new System.Windows.Forms.Label();
+            this.lblAdministradores_82CD = new System.Windows.Forms.Label();
+            this.lblMaestros_82CD = new System.Windows.Forms.Label();
             this.lblNegocio2_82CD = new System.Windows.Forms.Label();
             this.lblNegocio1_82CD = new System.Windows.Forms.Label();
-            this.lblMaestros_82CD = new System.Windows.Forms.Label();
-            this.lblAdministradores_82CD = new System.Windows.Forms.Label();
             this.lblUsuarios_82CD = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.gestionDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMenuPrincipal_82CD.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenuPrincipal_82CD
@@ -101,6 +105,30 @@
             this.lblReportes_82CD.Text = "Reportes";
             this.lblReportes_82CD.Click += new System.EventHandler(this.lblReportes_82CD_Click);
             // 
+            // lblAdministradores_82CD
+            // 
+            this.lblAdministradores_82CD.AutoSize = true;
+            this.lblAdministradores_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
+            this.lblAdministradores_82CD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblAdministradores_82CD.Location = new System.Drawing.Point(55, 25);
+            this.lblAdministradores_82CD.Name = "lblAdministradores_82CD";
+            this.lblAdministradores_82CD.Size = new System.Drawing.Size(120, 21);
+            this.lblAdministradores_82CD.TabIndex = 2;
+            this.lblAdministradores_82CD.Text = "Administrador";
+            this.lblAdministradores_82CD.Click += new System.EventHandler(this.lblAdministradores_82CD_Click);
+            // 
+            // lblMaestros_82CD
+            // 
+            this.lblMaestros_82CD.AutoSize = true;
+            this.lblMaestros_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
+            this.lblMaestros_82CD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblMaestros_82CD.Location = new System.Drawing.Point(55, 75);
+            this.lblMaestros_82CD.Name = "lblMaestros_82CD";
+            this.lblMaestros_82CD.Size = new System.Drawing.Size(72, 21);
+            this.lblMaestros_82CD.TabIndex = 3;
+            this.lblMaestros_82CD.Text = "Maestro";
+            this.lblMaestros_82CD.Click += new System.EventHandler(this.lblMaestros_82CD_Click);
+            // 
             // lblNegocio2_82CD
             // 
             this.lblNegocio2_82CD.AutoSize = true;
@@ -125,30 +153,6 @@
             this.lblNegocio1_82CD.Text = "Negocio 1";
             this.lblNegocio1_82CD.Click += new System.EventHandler(this.lblNegocio1_82CD_Click);
             // 
-            // lblMaestros_82CD
-            // 
-            this.lblMaestros_82CD.AutoSize = true;
-            this.lblMaestros_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
-            this.lblMaestros_82CD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblMaestros_82CD.Location = new System.Drawing.Point(55, 75);
-            this.lblMaestros_82CD.Name = "lblMaestros_82CD";
-            this.lblMaestros_82CD.Size = new System.Drawing.Size(72, 21);
-            this.lblMaestros_82CD.TabIndex = 3;
-            this.lblMaestros_82CD.Text = "Maestro";
-            this.lblMaestros_82CD.Click += new System.EventHandler(this.lblMaestros_82CD_Click);
-            // 
-            // lblAdministradores_82CD
-            // 
-            this.lblAdministradores_82CD.AutoSize = true;
-            this.lblAdministradores_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 11F, System.Drawing.FontStyle.Bold);
-            this.lblAdministradores_82CD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblAdministradores_82CD.Location = new System.Drawing.Point(55, 25);
-            this.lblAdministradores_82CD.Name = "lblAdministradores_82CD";
-            this.lblAdministradores_82CD.Size = new System.Drawing.Size(120, 21);
-            this.lblAdministradores_82CD.TabIndex = 2;
-            this.lblAdministradores_82CD.Text = "Administrador";
-            this.lblAdministradores_82CD.Click += new System.EventHandler(this.lblAdministradores_82CD_Click);
-            // 
             // lblUsuarios_82CD
             // 
             this.lblUsuarios_82CD.AutoSize = true;
@@ -160,6 +164,20 @@
             this.lblUsuarios_82CD.TabIndex = 1;
             this.lblUsuarios_82CD.Text = "Usuario";
             this.lblUsuarios_82CD.Click += new System.EventHandler(this.lblUsuarios_82CD_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gestionDeUsuariosToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            // 
+            // gestionDeUsuariosToolStripMenuItem
+            // 
+            this.gestionDeUsuariosToolStripMenuItem.Name = "gestionDeUsuariosToolStripMenuItem";
+            this.gestionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestionDeUsuariosToolStripMenuItem.Text = "Gestion de Usuarios";
+            this.gestionDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.gestionDeUsuariosToolStripMenuItem_Click);
             // 
             // frmMenuPrincipal_82CD
             // 
@@ -177,6 +195,7 @@
             this.panelMenuPrincipal_82CD.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -193,5 +212,7 @@
         private System.Windows.Forms.Label lblAyuda_82CD;
         private System.Windows.Forms.Label lblReportes_82CD;
         private System.Windows.Forms.Label lblNegocio2_82CD;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem gestionDeUsuariosToolStripMenuItem;
     }
 }

@@ -59,10 +59,34 @@ namespace IS2026_Service_82CD_
 
         private void lblAdministradores_82CD_Click(object sender, EventArgs e)
         {
+            ContextMenuStrip contextms_82CD = new ContextMenuStrip();
+            
+            ToolStripMenuItem itemGestion_82CD = new ToolStripMenuItem("Gestión de Usuarios");
+            itemGestion_82CD.Click += itemGestion_82CD_Click;
+            
+            ToolStripMenuItem itemBitacora_82CD = new ToolStripMenuItem("Bitácora");
+            itemBitacora_82CD.Click += itemBitacora_82CD_Click;
+
+            contextms_82CD.Items.Add(itemGestion_82CD);
+            contextms_82CD.Items.Add(itemBitacora_82CD);
+
+            contextms_82CD.Show(lblAdministradores_82CD, new System.Drawing.Point(0, lblAdministradores_82CD.Height));
+        }
+
+        private void itemGestion_82CD_Click(object sender, EventArgs e)
+        {
             this.Hide();
             frmAdmin_82CD frmAdmin_82CD = new frmAdmin_82CD();
             frmAdmin_82CD.Show();
         }
+
+        private void itemBitacora_82CD_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmBitacora_82CD frmbitacora_82CD = new FrmBitacora_82CD();
+            frmbitacora_82CD.Show();
+        }
+
 
         private void EnDesarrollo_82CD()
         {
@@ -101,5 +125,9 @@ namespace IS2026_Service_82CD_
             EnDesarrollo_82CD();
         }
 
+        private void gestionDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
