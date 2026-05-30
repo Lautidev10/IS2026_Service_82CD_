@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLLBitacora_82CD.cs" />
+    <Compile Include="BLLEvento_82CD.cs" />
     <Compile Include="BLLRol_82CD.cs" />
     <Compile Include="BLLUsuario_82CD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

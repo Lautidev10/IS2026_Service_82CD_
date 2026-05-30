@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MapperBitacora_82CD.cs" />
+    <Compile Include="MapperEvento_82CD.cs" />
     <Compile Include="MapperRol_82CD.cs" />
     <Compile Include="MapperUsuario_82CD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

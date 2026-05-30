@@ -125,9 +125,5 @@ namespace IS2026_Service_82CD_
             EnDesarrollo_82CD();
         }
 
-        private void gestionDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

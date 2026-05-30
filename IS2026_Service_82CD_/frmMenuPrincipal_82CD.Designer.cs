@@ -177,7 +177,6 @@
             this.gestionDeUsuariosToolStripMenuItem.Name = "gestionDeUsuariosToolStripMenuItem";
             this.gestionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gestionDeUsuariosToolStripMenuItem.Text = "Gestion de Usuarios";
-            this.gestionDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.gestionDeUsuariosToolStripMenuItem_Click);
             // 
             // frmMenuPrincipal_82CD
             // 

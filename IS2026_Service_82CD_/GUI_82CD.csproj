@@ -78,6 +78,9 @@
     <Compile Include="frmVistaUsuario_82CD.Designer.cs">
       <DependentUpon>frmVistaUsuario_82CD.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmBitacora_82CD.resx">
+      <DependentUpon>FrmBitacora_82CD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin_82CD.resx">
       <DependentUpon>frmLogin_82CD.cs</DependentUpon>
     </EmbeddedResource>

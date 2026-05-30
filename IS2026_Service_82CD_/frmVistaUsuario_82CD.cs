@@ -15,7 +15,7 @@ namespace IS2026_Service_82CD_
             InitializeComponent();
         }
 
-        private BLLBitacora_82CD bllbitacora_82CD = new BLLBitacora_82CD();
+        private BLLEvento_82CD BLLEvento_82CD = new BLLEvento_82CD();
         private BLLUsuario_82CD bllusuario_82CD = new BLLUsuario_82CD();
         private ModoFrmVistaUsuario_82CD modoVistaUsuario_82CD = ModoFrmVistaUsuario_82CD.Vista_82CD;
 
@@ -39,14 +39,16 @@ namespace IS2026_Service_82CD_
                 }
                 else
                 {
-                    ServicioUsuario_82CD sesion_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
+                    // Si usuario confirma que quiere cerrar sesion, debe haber un metodo BLLUsuario.CerrarSesion como en cambiar contraseña y de ahi llamar al session manager.
 
-                    bllbitacora_82CD.RegistrarEvento_82CD(
-                        "Cierre de sesion exitoso",
-                        sesion_82CD.LogIn_82CD
-                        );
+                    //ServicioUsuario_82CD sesion_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
 
-                    SessionManager_82CD.CerrarSesion_82CD();
+                    //BLLEvento_82CD.RegistrarEvento_82CD(
+                    //    "Cierre de sesion exitoso",
+                    //    sesion_82CD.LogIn_82CD
+                    //    );
+
+                    //SessionManager_82CD.CerrarSesion_82CD();
 
                     List<Form> formActivas_82CD = new List<Form>();
                     foreach(Form form_82CD in Application.OpenForms)
