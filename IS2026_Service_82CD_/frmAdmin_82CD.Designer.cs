@@ -54,7 +54,7 @@
             this.panFrmUsuario_82CD = new System.Windows.Forms.Panel();
             this.cmbRol_82CD = new System.Windows.Forms.ComboBox();
             this.rtbMensaje_82CD = new System.Windows.Forms.RichTextBox();
-            this.lclCantUsuarios_82CD = new System.Windows.Forms.Label();
+            this.lblCantUsuarios_82CD = new System.Windows.Forms.Label();
             this.lblBloqueado_82CD = new System.Windows.Forms.Label();
             this.lblActivo_82CD = new System.Windows.Forms.Label();
             this.txtBloqueado_82CD = new System.Windows.Forms.TextBox();
@@ -348,15 +348,15 @@
             this.rtbMensaje_82CD.TabIndex = 31;
             this.rtbMensaje_82CD.Text = "";
             // 
-            // lclCantUsuarios_82CD
+            // lblCantUsuarios_82CD
             // 
-            this.lclCantUsuarios_82CD.AutoSize = true;
-            this.lclCantUsuarios_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.lclCantUsuarios_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.lclCantUsuarios_82CD.Location = new System.Drawing.Point(765, 57);
-            this.lclCantUsuarios_82CD.Name = "lclCantUsuarios_82CD";
-            this.lclCantUsuarios_82CD.Size = new System.Drawing.Size(0, 16);
-            this.lclCantUsuarios_82CD.TabIndex = 32;
+            this.lblCantUsuarios_82CD.AutoSize = true;
+            this.lblCantUsuarios_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.lblCantUsuarios_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.lblCantUsuarios_82CD.Location = new System.Drawing.Point(765, 57);
+            this.lblCantUsuarios_82CD.Name = "lblCantUsuarios_82CD";
+            this.lblCantUsuarios_82CD.Size = new System.Drawing.Size(0, 16);
+            this.lblCantUsuarios_82CD.TabIndex = 32;
             // 
             // lblBloqueado_82CD
             // 
@@ -404,7 +404,7 @@
             this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.txtActivo_82CD);
             this.Controls.Add(this.txtBloqueado_82CD);
-            this.Controls.Add(this.lclCantUsuarios_82CD);
+            this.Controls.Add(this.lblCantUsuarios_82CD);
             this.Controls.Add(this.rtbMensaje_82CD);
             this.Controls.Add(this.cmbRol_82CD);
             this.Controls.Add(this.lblActivo_82CD);
@@ -470,7 +470,7 @@
         private System.Windows.Forms.Panel panFrmUsuario_82CD;
         private System.Windows.Forms.ComboBox cmbRol_82CD;
         private System.Windows.Forms.RichTextBox rtbMensaje_82CD;
-        private System.Windows.Forms.Label lclCantUsuarios_82CD;
+        private System.Windows.Forms.Label lblCantUsuarios_82CD;
         private System.Windows.Forms.Label lblBloqueado_82CD;
         private System.Windows.Forms.Label lblActivo_82CD;
         private System.Windows.Forms.TextBox txtBloqueado_82CD;

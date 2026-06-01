@@ -13,7 +13,7 @@ namespace Servicio
         public int IDEvento_82CD { get; set; }
         public string LogIn_82CD { get; set; }
         public DateTime Fecha_82CD { get; set; }
-        public DateTime Hora_82CD { get; set; }
+        public TimeSpan Hora_82CD { get; set; }
         public string Modulo_82CD { get; set; }
         public string Evento_82CD { get; set; }
         public int Criticidad_82CD { get; set; }

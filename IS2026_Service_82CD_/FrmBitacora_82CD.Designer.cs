@@ -39,8 +39,8 @@
             this.cmbModulo_82CD = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.DaTimeFechaFinal_82CD = new System.Windows.Forms.DateTimePicker();
             this.DaTimeFechaInicial_82CD = new System.Windows.Forms.DateTimePicker();
+            this.DaTimeFechaFinal_82CD = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.btnImprimir_82CD = new System.Windows.Forms.Button();
             this.btnLimpiar_82CD = new System.Windows.Forms.Button();
@@ -92,6 +92,7 @@
             this.DGBitacora_82CD.RowHeadersWidth = 51;
             this.DGBitacora_82CD.Size = new System.Drawing.Size(750, 250);
             this.DGBitacora_82CD.TabIndex = 5;
+            this.DGBitacora_82CD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGBitacora_82CD_CellClick);
             // 
             // lblFechaInicial_82CD
             // 
@@ -115,6 +116,7 @@
             this.btnAplicar_82CD.TabIndex = 77;
             this.btnAplicar_82CD.Text = "Aplicar";
             this.btnAplicar_82CD.UseVisualStyleBackColor = false;
+            this.btnAplicar_82CD.Click += new System.EventHandler(this.btnAplicar_82CD_Click);
             // 
             // cmbEvento_82CD
             // 
@@ -165,19 +167,19 @@
             this.label3.TabIndex = 83;
             this.label3.Text = "Fecha Final";
             // 
-            // DaTimeFechaFinal_82CD
-            // 
-            this.DaTimeFechaFinal_82CD.Location = new System.Drawing.Point(366, 349);
-            this.DaTimeFechaFinal_82CD.Name = "DaTimeFechaFinal_82CD";
-            this.DaTimeFechaFinal_82CD.Size = new System.Drawing.Size(143, 20);
-            this.DaTimeFechaFinal_82CD.TabIndex = 84;
-            // 
             // DaTimeFechaInicial_82CD
             // 
-            this.DaTimeFechaInicial_82CD.Location = new System.Drawing.Point(637, 349);
+            this.DaTimeFechaInicial_82CD.Location = new System.Drawing.Point(366, 349);
             this.DaTimeFechaInicial_82CD.Name = "DaTimeFechaInicial_82CD";
             this.DaTimeFechaInicial_82CD.Size = new System.Drawing.Size(143, 20);
-            this.DaTimeFechaInicial_82CD.TabIndex = 86;
+            this.DaTimeFechaInicial_82CD.TabIndex = 84;
+            // 
+            // DaTimeFechaFinal_82CD
+            // 
+            this.DaTimeFechaFinal_82CD.Location = new System.Drawing.Point(637, 349);
+            this.DaTimeFechaFinal_82CD.Name = "DaTimeFechaFinal_82CD";
+            this.DaTimeFechaFinal_82CD.Size = new System.Drawing.Size(143, 20);
+            this.DaTimeFechaFinal_82CD.TabIndex = 86;
             // 
             // label4
             // 
@@ -201,6 +203,7 @@
             this.btnImprimir_82CD.TabIndex = 88;
             this.btnImprimir_82CD.Text = "Imprimir";
             this.btnImprimir_82CD.UseVisualStyleBackColor = false;
+            this.btnImprimir_82CD.Click += new System.EventHandler(this.btnImprimir_82CD_Click);
             // 
             // btnLimpiar_82CD
             // 
@@ -213,6 +216,7 @@
             this.btnLimpiar_82CD.TabIndex = 89;
             this.btnLimpiar_82CD.Text = "Limpiar";
             this.btnLimpiar_82CD.UseVisualStyleBackColor = false;
+            this.btnLimpiar_82CD.Click += new System.EventHandler(this.btnLimpiar_82CD_Click);
             // 
             // cmbCriticidad_82CD
             // 
@@ -232,6 +236,7 @@
             this.lblSalir_82CD.Size = new System.Drawing.Size(52, 24);
             this.lblSalir_82CD.TabIndex = 91;
             this.lblSalir_82CD.Text = "Salir";
+            this.lblSalir_82CD.Click += new System.EventHandler(this.lblSalir_82CD_Click);
             // 
             // lblnombre_82CD
             // 
@@ -289,8 +294,8 @@
             this.Controls.Add(this.btnLimpiar_82CD);
             this.Controls.Add(this.btnImprimir_82CD);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.DaTimeFechaInicial_82CD);
             this.Controls.Add(this.DaTimeFechaFinal_82CD);
+            this.Controls.Add(this.DaTimeFechaInicial_82CD);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbEvento_82CD);
             this.Controls.Add(this.label1);
@@ -304,6 +309,7 @@
             this.Controls.Add(this.lblLogin_82CD);
             this.Name = "FrmBitacora_82CD";
             this.Text = "FrmBitacora_82CD";
+            this.Load += new System.EventHandler(this.FrmBitacora_82CD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGBitacora_82CD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -322,8 +328,8 @@
         private System.Windows.Forms.ComboBox cmbModulo_82CD;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker DaTimeFechaFinal_82CD;
         private System.Windows.Forms.DateTimePicker DaTimeFechaInicial_82CD;
+        private System.Windows.Forms.DateTimePicker DaTimeFechaFinal_82CD;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnImprimir_82CD;
         private System.Windows.Forms.Button btnLimpiar_82CD;

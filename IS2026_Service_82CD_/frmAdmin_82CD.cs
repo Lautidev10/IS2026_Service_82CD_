@@ -89,7 +89,7 @@ namespace IS2026_Service_82CD_
 
                 PintarUsuariosInactivos_82CD();
 
-                lclCantUsuarios_82CD.Text = DGUsuarios_82CD.Rows.Count.ToString();
+                lblCantUsuarios_82CD.Text = DGUsuarios_82CD.Rows.Count.ToString();
             }
             catch
             {

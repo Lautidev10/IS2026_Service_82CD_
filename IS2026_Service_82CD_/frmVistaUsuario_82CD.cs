@@ -31,7 +31,7 @@ namespace IS2026_Service_82CD_
             try
             {
                 DialogResult confirmacion_82CD = MessageBox.Show("Desea cerrar la sesion?",
-                    "Confirmar cierre de sesion?", MessageBoxButtons.YesNo);
+                    "Confirmar cierre de sesion", MessageBoxButtons.YesNo);
 
                 if(confirmacion_82CD == DialogResult.No)
                 {
@@ -39,18 +39,9 @@ namespace IS2026_Service_82CD_
                 }
                 else
                 {
-                    // Si usuario confirma que quiere cerrar sesion, debe haber un metodo BLLUsuario.CerrarSesion como en cambiar contraseña y de ahi llamar al session manager.
-
-                    //ServicioUsuario_82CD sesion_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
-
-                    //BLLEvento_82CD.RegistrarEvento_82CD(
-                    //    "Cierre de sesion exitoso",
-                    //    sesion_82CD.LogIn_82CD
-                    //    );
-
-                    //SessionManager_82CD.CerrarSesion_82CD();
-
+                    bllusuario_82CD.CerrarSesion_82CD();
                     List<Form> formActivas_82CD = new List<Form>();
+                    
                     foreach(Form form_82CD in Application.OpenForms)
                     {
                         if(!(form_82CD is frmLogin_82CD))
