@@ -158,25 +158,43 @@ namespace DAL
             List<ServicioEvento_82CD> eventosFiltrados_82CD = new List<ServicioEvento_82CD>();
             try
             {
-                //Probar si funciona bien que filtre solo por las columnas que completo el usuario.
-
                 Conectar_82CD();
                 string query_82CD = @"SELECT * FROM Eventos_82CD
-                              WHERE Fecha_82CD BETWEEN @FechaInicial AND @FechaFinal 
-                              AND (@Login IS NULL OR LogIn_82CD = @Login)
-                              AND (@Modulo IS NULL OR Modulo_82CD = @Modulo)
-                              AND (@Evento IS NULL OR Evento_82CD = @Evento)
-                              AND (@Criticidad = -1 OR Criticidad_82CD = @Criticidad)
-                              ORDER BY Fecha_82CD ASC, Hora_82CD ASC";
+                              WHERE Fecha_82CD BETWEEN @FechaInicial_82CD AND @FechaFinal_82CD";
+                
+                SqlCommand cmd_82CD = new SqlCommand();
+                cmd_82CD.Connection = conexion_82CD;
+                
+                cmd_82CD.Parameters.AddWithValue("@FechaInicial_82CD", fechaInicial_82CD);
+                cmd_82CD.Parameters.AddWithValue("@FechaFinal_82CD", fechaFinal_82CD);
+                
+                if(login_82CD != null)
+                {
+                    query_82CD += " AND LogIn_82CD = @LogIn_82CD";
+                    cmd_82CD.Parameters.AddWithValue("@LogIn_82CD", login_82CD);
+                }
 
-                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
-                cmd_82CD.Parameters.AddWithValue("@FechaInicial", fechaInicial_82CD);
-                cmd_82CD.Parameters.AddWithValue("@FechaFinal", fechaFinal_82CD);
-                cmd_82CD.Parameters.AddWithValue("@Login", login_82CD);
-                cmd_82CD.Parameters.AddWithValue("@Modulo", modulo_82CD);
-                cmd_82CD.Parameters.AddWithValue("@Evento", evento_82CD);
-                cmd_82CD.Parameters.AddWithValue("@Criticidad", criticidad_82CD);
+                if (evento_82CD != null)
+                {
+                    query_82CD += " AND Evento_82CD = @Evento_82CD";
+                    cmd_82CD.Parameters.AddWithValue("@Evento_82CD", evento_82CD);
+                }
 
+                if(modulo_82CD != null)
+                {
+                    query_82CD += " AND Modulo_82CD = @Modulo_82CD";
+                    cmd_82CD.Parameters.AddWithValue("@Modulo_82CD", modulo_82CD);
+                }
+
+                if (criticidad_82CD != -1)
+                {
+                    query_82CD += " AND Criticidad_82CD = @Criticidad_82CD";
+                    cmd_82CD.Parameters.AddWithValue("@Criticidad_82CD", criticidad_82CD);
+                }
+
+                query_82CD += " ORDER BY Fecha_82CD DESC, Hora_82CD DESC";
+                
+                cmd_82CD.CommandText = query_82CD;
                 SqlDataReader reader_82CD = cmd_82CD.ExecuteReader();
                 while (reader_82CD.Read())
                 {

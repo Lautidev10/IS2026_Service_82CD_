@@ -90,7 +90,7 @@ namespace IS2026_Service_82CD_
             }
             else
             {
-                MessageBox.Show("Error al cargar la grilla");
+                MessageBox.Show("No se encontraron eventos");
             }
         }
 
