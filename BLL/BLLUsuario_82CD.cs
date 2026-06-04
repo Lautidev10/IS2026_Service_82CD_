@@ -20,48 +20,6 @@ namespace BLL
 
         public ServicioUsuario_82CD ValidarCredenciales_82CD(string login_82CD, string contraseña_82CD)
         {
-            //ServicioUsuario_82CD usuario_82CD = mapperUsuario_82CD.BuscarUsuarioPorLogIn_82CD(login_82CD);
-
-            //if (usuario_82CD == null)
-            //{
-            //    throw new Exception("Usuario o Contraseña Incorrectos");
-            //}
-            //if (!usuario_82CD.Activo_82CD)
-            //{
-            //    //bllEvento_82CD.RegistrarEvento_82CD(usuario_82CD.LogIn_82CD, "Intento de inicio de sesión de usuario inactivo", "Login", 1);
-
-            //    throw new Exception("El usuario se encuentra inactivo");
-            //}
-            //if (usuario_82CD.Bloqueado_82CD)
-            //{
-            //    //bllEvento_82CD.RegistrarEvento_82CD(usuario_82CD.LogIn_82CD, "Intento de inicio de sesión de usuario bloqueado", "Login", 1);
-
-            //    throw new Exception("El usuario se encuentra bloqueado");
-            //}
-
-            //string contraseñaEncriptada_82CD = ServicioEncriptacion_82CD.Encriptar_82CD(contraseña_82CD);
-
-            //if (usuario_82CD.Password_82CD != contraseñaEncriptada_82CD)
-            //{
-            //    int intentos_82CD = MonitorAcceso_82CD.RegistrarIntentoFallido_82CD(login_82CD);
-
-            //    if (MonitorAcceso_82CD.Bloquear(login_82CD))
-            //    {
-            //        mapperUsuario_82CD.BloquearUsuario_82CD(usuario_82CD.DNI_82CD);
-
-            //        bllEvento_82CD.RegistrarEvento_82CD(usuario_82CD.LogIn_82CD, "Bloquear Usuario", "Login", 1);
-            //        throw new Exception("Su usuario fue bloqueado por exceso de intentos, debe comunicarse con un administrador");
-            //    }
-
-            //    throw new Exception("Usuario o Contraseña Incorrectos: Intento "+ intentos_82CD + " de 3");
-            //}
-            //SessionManager_82CD.IniciarSesion_82CD(usuario_82CD);
-            //MonitorAcceso_82CD.EliminarIntentos_82CD(login_82CD);
-
-            //bllEvento_82CD.RegistrarEvento_82CD(usuario_82CD.LogIn_82CD, "Iniciar Sesión", "Login", 1);
-
-            //return usuario_82CD;
-
             ServicioUsuario_82CD usuario_82CD = mapperUsuario_82CD.BuscarUsuarioPorLogIn_82CD(login_82CD);
 
             if (usuario_82CD == null)
@@ -209,7 +167,7 @@ namespace BLL
 
             if (UsuarioActual_82CD.Password_82CD != PassActualIngresadaHasheada_82CD)
             {
-                throw new Exception("La contraseña es incorrecta");
+                throw new Exception("La contraseña actual es incorrecta");
             }
 
             if(PasswordActual_82CD == PasswordNueva_82CD)
