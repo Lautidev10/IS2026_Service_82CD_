@@ -128,8 +128,31 @@ namespace IS2026_Service_82CD_
 
                     bllusuario_82CD.ActualizarContraseña_82CD(contraseñaActual_82CD, nuevaContraseña_82CD, confirmacion_82CD);
                     MessageBox.Show("Contraseña actualizada correctamente");
-                }
+                    bllusuario_82CD.CerrarSesion_82CD();
+                    List<Form> formularios_82CD = new List<Form>();
 
+                    foreach (Form form_82CD in Application.OpenForms)
+                    {
+                        if(!(form_82CD is frmLogin_82CD))
+                        {
+                            formularios_82CD.Add(form_82CD);
+                        }
+                    }
+
+                    foreach(Form form_82CD in formularios_82CD)
+                    {
+                        form_82CD.Close();
+                    }
+
+                    foreach(Form form_82CD in Application.OpenForms)
+                    {
+                        if(form_82CD is frmLogin_82CD)
+                        {
+                            form_82CD.Show();
+                            break;
+                        }
+                    }
+                }
             }
             catch(Exception ex)
             {

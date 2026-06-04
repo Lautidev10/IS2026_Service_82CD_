@@ -97,7 +97,7 @@ namespace DAL
             try
             {
                 Conectar_82CD();
-                string query_82CD = "UPDATE Usuario_82CD SET Apellidos_82CD = @Apellidos_82CD, Nombre_82CD = @Nombre_82CD, Email_82CD = @Email_82CD, IdRol_82CD = @IdRol_82CD WHERE DNI_82CD = @DNI_82CD";
+                string query_82CD = "UPDATE Usuario_82CD SET Email_82CD = @Email_82CD, IdRol_82CD = @IdRol_82CD WHERE DNI_82CD = @DNI_82CD";
                 SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
                 cmd_82CD.Parameters.AddWithValue("@DNI_82CD", usuario_82CD.DNI_82CD);
                 cmd_82CD.Parameters.AddWithValue("@Apellidos_82CD", usuario_82CD.Apellidos_82CD);
