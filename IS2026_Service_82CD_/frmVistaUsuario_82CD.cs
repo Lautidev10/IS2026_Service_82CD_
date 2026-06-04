@@ -181,6 +181,9 @@ namespace IS2026_Service_82CD_
             {
                 case ModoFrmVistaUsuario_82CD.Vista_82CD:
 
+                    lblUsuarioActual_82CD.Visible = false;
+                    txtUsuarioActual_82CD.Visible = false;
+
                     lblDNI_82CD.Visible = false;
                     txtDNI_82CD.Visible = false;
                     lblNombre_82CD.Visible = false;
@@ -217,6 +220,9 @@ namespace IS2026_Service_82CD_
 
                 case ModoFrmVistaUsuario_82CD.CambiarContraseña_82CD:
 
+                    lblUsuarioActual_82CD.Visible = true;
+                    txtUsuarioActual_82CD.Visible = true;
+
                     lblContraseñaActual_82CD.Visible = true;
                     txtContraseñaActual_82CD.Visible = true;
                     lblNuevaContraseña_82CD.Visible = true;
@@ -242,6 +248,9 @@ namespace IS2026_Service_82CD_
         {
             LimpiarControles();
             //Metodo para roles con cmbbox como FrmAdmin
+            ServicioUsuario_82CD usuario_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
+            txtUsuarioActual_82CD.Text = usuario_82CD.LogIn_82CD;
+
             CambiarModo_82CD(ModoFrmVistaUsuario_82CD.Vista_82CD);
         }
 
