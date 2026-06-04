@@ -76,11 +76,6 @@ namespace IS2026_Service_82CD_
             MessageBox.Show("Estamos trabajando en eso ;)");
         }
 
-        private void btnDesbloquear_82CD_Click(object sender, System.EventArgs e)
-        {
-            EnDesarrollo_82CD();
-        }
-
         private void btnCambiarIdioma_82CD_Click(object sender, System.EventArgs e)
         {
             EnDesarrollo_82CD();
@@ -254,6 +249,10 @@ namespace IS2026_Service_82CD_
             CambiarModo_82CD(ModoFrmVistaUsuario_82CD.Vista_82CD);
         }
 
-
+        private void btnRelogin_82CD_Click(object sender, EventArgs e)
+        {
+            frmLogin_82CD login_82CD = new frmLogin_82CD();
+            login_82CD.Show();
+        }
     }
 }

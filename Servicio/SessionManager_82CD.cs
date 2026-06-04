@@ -28,7 +28,6 @@ namespace Servicio
             {
                 throw new Exception("Ya hay una sesion Iniciada");
             }
-
         }
 
         public static void CerrarSesion_82CD()
