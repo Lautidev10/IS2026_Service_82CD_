@@ -191,10 +191,10 @@ namespace IS2026_Service_82CD_
 
                     lblDNI_82CD.Visible = false;
                     txtDNI_82CD.Visible = false;
-                    lblApellidos_82CD.Visible = true;
-                    txtApellidos_82CD.Visible = true;
-                    lblNombre_82CD.Visible = true;
-                    txtNombre_82CD.Visible = true;
+                    lblApellidos_82CD.Visible = false;
+                    txtApellidos_82CD.Visible = false;
+                    lblNombre_82CD.Visible = false;
+                    txtNombre_82CD.Visible = false;
                     lblEmail_82CD.Visible = true;
                     txtEmail_82CD.Visible = true;
                     lblRol_82CD.Visible = true;
@@ -355,8 +355,7 @@ namespace IS2026_Service_82CD_
                         return;
                     }
 
-                    if(usuarioseleccionado_82CD.Apellidos_82CD == txtApellidos_82CD.Text &&
-                       usuarioseleccionado_82CD.Nombre_82CD == txtNombre_82CD.Text &&
+                    if(
                        usuarioseleccionado_82CD.Email_82CD == txtEmail_82CD.Text &&
                        usuarioseleccionado_82CD.IdRol_82CD == Convert.ToInt32(cmbRol_82CD.SelectedValue)
                        )
@@ -365,8 +364,6 @@ namespace IS2026_Service_82CD_
                         return ;
                     }
 
-                    usuarioseleccionado_82CD.Apellidos_82CD = txtApellidos_82CD.Text;
-                    usuarioseleccionado_82CD.Nombre_82CD = txtNombre_82CD.Text;
                     usuarioseleccionado_82CD.Email_82CD = txtEmail_82CD.Text;
                     usuarioseleccionado_82CD.IdRol_82CD = Convert.ToInt32(cmbRol_82CD.SelectedValue);
 

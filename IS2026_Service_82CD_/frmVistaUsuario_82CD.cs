@@ -76,11 +76,6 @@ namespace IS2026_Service_82CD_
             MessageBox.Show("Estamos trabajando en eso ;)");
         }
 
-        private void btnDesbloquear_82CD_Click(object sender, System.EventArgs e)
-        {
-            EnDesarrollo_82CD();
-        }
-
         private void btnCambiarIdioma_82CD_Click(object sender, System.EventArgs e)
         {
             EnDesarrollo_82CD();
@@ -128,8 +123,31 @@ namespace IS2026_Service_82CD_
 
                     bllusuario_82CD.ActualizarContraseña_82CD(contraseñaActual_82CD, nuevaContraseña_82CD, confirmacion_82CD);
                     MessageBox.Show("Contraseña actualizada correctamente");
-                }
+                    bllusuario_82CD.CerrarSesion_82CD();
+                    List<Form> formularios_82CD = new List<Form>();
 
+                    foreach (Form form_82CD in Application.OpenForms)
+                    {
+                        if(!(form_82CD is frmLogin_82CD))
+                        {
+                            formularios_82CD.Add(form_82CD);
+                        }
+                    }
+
+                    foreach(Form form_82CD in formularios_82CD)
+                    {
+                        form_82CD.Close();
+                    }
+
+                    foreach(Form form_82CD in Application.OpenForms)
+                    {
+                        if(form_82CD is frmLogin_82CD)
+                        {
+                            form_82CD.Show();
+                            break;
+                        }
+                    }
+                }
             }
             catch(Exception ex)
             {
@@ -157,6 +175,9 @@ namespace IS2026_Service_82CD_
             switch (modo_82CD)
             {
                 case ModoFrmVistaUsuario_82CD.Vista_82CD:
+
+                    lblUsuarioActual_82CD.Visible = false;
+                    txtUsuarioActual_82CD.Visible = false;
 
                     lblDNI_82CD.Visible = false;
                     txtDNI_82CD.Visible = false;
@@ -194,6 +215,9 @@ namespace IS2026_Service_82CD_
 
                 case ModoFrmVistaUsuario_82CD.CambiarContraseña_82CD:
 
+                    lblUsuarioActual_82CD.Visible = true;
+                    txtUsuarioActual_82CD.Visible = true;
+
                     lblContraseñaActual_82CD.Visible = true;
                     txtContraseñaActual_82CD.Visible = true;
                     lblNuevaContraseña_82CD.Visible = true;
@@ -219,9 +243,16 @@ namespace IS2026_Service_82CD_
         {
             LimpiarControles();
             //Metodo para roles con cmbbox como FrmAdmin
+            ServicioUsuario_82CD usuario_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
+            txtUsuarioActual_82CD.Text = usuario_82CD.LogIn_82CD;
+
             CambiarModo_82CD(ModoFrmVistaUsuario_82CD.Vista_82CD);
         }
 
-
+        private void btnRelogin_82CD_Click(object sender, EventArgs e)
+        {
+            frmLogin_82CD login_82CD = new frmLogin_82CD();
+            login_82CD.Show();
+        }
     }
 }
