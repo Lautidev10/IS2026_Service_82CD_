@@ -71,10 +71,6 @@ namespace BLL
                 {
                     throw new Exception("El usuario ya tiene una sesión iniciada");
                 }
-                else
-                {
-                    throw new Exception("Bienvenido al sistema");
-                }
             }
 
             SessionManager_82CD.IniciarSesion_82CD(usuario_82CD);

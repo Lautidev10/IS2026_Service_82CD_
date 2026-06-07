@@ -35,5 +35,9 @@ namespace Servicio
             _usuario_82CD = null;
         }
 
+        public static bool HaySesionActiva_82CD()
+        {
+            return _usuario_82CD != null;
+        }
     }
 }
