@@ -45,10 +45,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion_82CD.cs" />
+    <Compile Include="IElementoPermiso_82CD.cs" />
     <Compile Include="MonitorAcceso_82CD.cs" />
     <Compile Include="ServicioEncriptacion_82CD.cs" />
     <Compile Include="ServicioEvento_82CD.cs" />
+    <Compile Include="ServicioFamilia_82CD.cs" />
     <Compile Include="ServicioIntentosUsuario_82CD.cs" />
+    <Compile Include="ServicioPermiso_82CD.cs" />
     <Compile Include="ServicioRol_82CD.cs" />
     <Compile Include="ServicioUsuario_82CD.cs" />
     <Compile Include="SessionManager_82CD.cs" />

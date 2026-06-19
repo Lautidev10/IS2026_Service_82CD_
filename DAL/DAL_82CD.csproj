@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MapperEvento_82CD.cs" />
+    <Compile Include="MapperFamilia_82CD.cs" />
+    <Compile Include="MapperPermiso_82CD.cs" />
     <Compile Include="MapperRol_82CD.cs" />
     <Compile Include="MapperUsuario_82CD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

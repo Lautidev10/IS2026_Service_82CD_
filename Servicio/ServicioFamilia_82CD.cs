@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Servicio
 {
-    public class ServicioRol_82CD
+    public class ServicioFamilia_82CD : IElementoPermiso_82CD
     {
-        public int IdRol_82CD { get; set; }
-        public string NombreRol_82CD { get; set; }
-
+        public int IdFamilia_82CD { get; set; }
+        public string Nombre_82CD { get; set; }
 
         private List<IElementoPermiso_82CD> elementos_82CD = new List<IElementoPermiso_82CD>();
 
@@ -19,44 +18,32 @@ namespace Servicio
             get { return elementos_82CD; }
         }
 
+        
         public void AgregarElemento_82CD(IElementoPermiso_82CD elemento_82CD)
         {
             elementos_82CD.Add(elemento_82CD);
         }
 
+        public List<ServicioPermiso_82CD> permisosSeleccionados_82CD { get;set; } = new List <ServicioPermiso_82CD>();
+        public List<ServicioFamilia_82CD> familiasSeleccionadas_82CD { get; set; } = new List<ServicioFamilia_82CD>();
 
-        public List<ServicioPermiso_82CD> PermisosSeleccionados_82CD { get; set; } = new List<ServicioPermiso_82CD>();
-
-        public List<ServicioFamilia_82CD> FamiliasSeleccionadas_82CD { get; set; } = new List<ServicioFamilia_82CD>();
-
-        
 
         public List<ServicioPermiso_82CD> ObtenerPermisos_82CD()
         {
             List<ServicioPermiso_82CD> accesos_82CD = new List<ServicioPermiso_82CD>();
 
-            foreach (IElementoPermiso_82CD elemento_82CD in elementos_82CD)
+            foreach (IElementoPermiso_82CD elementosRelacionados_82CD in elementos_82CD)
             {
-                List<ServicioPermiso_82CD> permisosDelElemento_82CD = elemento_82CD.ObtenerPermisos_82CD();
+                List<ServicioPermiso_82CD> permisosDelElemento_82CD = elementosRelacionados_82CD.ObtenerPermisos_82CD();
 
                 foreach (ServicioPermiso_82CD permiso_82CD in permisosDelElemento_82CD)
                 {
                     accesos_82CD.Add(permiso_82CD);
                 }
-
             }
             return accesos_82CD;
         }
 
-        public bool TienePermiso_82CD(string nombre_82CD)
-        {
-            foreach (ServicioPermiso_82CD permiso_82CD in ObtenerPermisos_82CD())
-            {
-                if (permiso_82CD.Nombre_82CD == nombre_82CD)
-                    return true;
-            }
-            return false;
-        }
 
     }
 }

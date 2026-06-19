@@ -11,6 +11,7 @@ namespace BLL
     public class BLLRol_82CD
     {
         private MapperRol_82CD mapperRol_82CD = new MapperRol_82CD();
+        private BLLEvento_82CD bllEvento_82CD = new BLLEvento_82CD();
 
         public List<ServicioRol_82CD> ObtenerRoles_82CD()
         {
@@ -22,9 +23,11 @@ namespace BLL
             return mapperRol_82CD.BucarRolPorID_82CD(idRol_82CD);
         }
 
-        public void VerificarRolesBase_82CD()
-        {
-            mapperRol_82CD.CrearRolesBase_82CD();
-        }
+
+        //ABM Roles
+
+        //Verificar si un rol es utilizado por algun usuario recorriendo con la DAL
+
+        //Asignaar los permisos y cargar familias (con los permisos y familias que puede contener una familia) relacionados al rol con la lista de elementos
     }
 }

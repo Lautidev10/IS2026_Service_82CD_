@@ -43,7 +43,7 @@ namespace DAL
                 Conectar_82CD();
                 string query_82CD = "SELECT IdRol_82CD, NombreRol_82CD FROM Rol_82CD WHERE IdRol_82CD = @IdRol_82CD";
                 SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
-                cmd_82CD.Parameters.AddWithValue("@IdRol_82CD",IdRol_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdRol_82CD", IdRol_82CD);
                 SqlDataReader reader_82CD = cmd_82CD.ExecuteReader();
                 if (reader_82CD.Read())
                 {
@@ -81,32 +81,14 @@ namespace DAL
             return lista_82CD;
         }
 
-        public void CrearRolesBase_82CD()
-        {
-            try
-            {
-                Conectar_82CD();
-                string query_82CD = @"
-                IF NOT EXISTS (SELECT 1 FROM Rol_82CD WHERE NombreRol_82CD = 'Administrador')
-                BEGIN
-                    INSERT INTO Rol_82CD (NombreRol_82CD)
-                    VALUES ('Administrador')
-                END
 
-                IF NOT EXISTS (SELECT 1 FROM Rol_82CD WHERE NombreRol_82CD = 'Cliente')
-                BEGIN
-                    INSERT INTO Rol_82CD (NombreRol_82CD)
-                    VALUES ('Cliente')
-                END";
+        //ABM ROLES
 
-                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
-                cmd_82CD.ExecuteNonQuery();
-            }
-            finally
-            {
-                Desconectar_82CD();
-            }
-        }
+        //Estructura recursiva para reconstruir los permisos que deberia tener un rol desde la BD.
+
+        //Asociar los permisos y familias que tiene rol reconstruyendolo desde la BD
+
+        //Validaciones, no permitir que un rol se elimine si es utilizado por algun usuario del sistema (tanto activos como inactivos).
 
     }
 }
