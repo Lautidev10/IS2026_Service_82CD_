@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace IS2026_Service_82CD_
+{
+    public partial class FrmPerfiles_82CD : Form
+    {
+        public FrmPerfiles_82CD()
+        {
+            InitializeComponent();
+        }
+    }
+}
