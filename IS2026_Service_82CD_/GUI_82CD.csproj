@@ -52,6 +52,12 @@
     <Compile Include="FrmBitacora_82CD.Designer.cs">
       <DependentUpon>FrmBitacora_82CD.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPerfiles_82CD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPerfiles_82CD.Designer.cs">
+      <DependentUpon>FrmPerfiles_82CD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="frmLogin_82CD.cs">
@@ -89,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdmin_82CD.resx">
       <DependentUpon>frmAdmin_82CD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPerfiles_82CD.resx">
+      <DependentUpon>FrmPerfiles_82CD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVistaUsuario_82CD.resx">
       <DependentUpon>frmVistaUsuario_82CD.cs</DependentUpon>

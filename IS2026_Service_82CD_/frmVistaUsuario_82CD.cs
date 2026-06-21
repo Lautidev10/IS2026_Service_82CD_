@@ -179,20 +179,6 @@ namespace IS2026_Service_82CD_
                     lblUsuarioActual_82CD.Visible = false;
                     txtUsuarioActual_82CD.Visible = false;
 
-                    lblDNI_82CD.Visible = false;
-                    txtDNI_82CD.Visible = false;
-                    lblNombre_82CD.Visible = false;
-                    txtNombre_82CD.Visible = false;
-                    lblApellido_82CD.Visible = false;
-                    txtApellido_82CD.Visible = false;
-                    lblLogin_82CD.Visible = false;
-                    txtLogin_82CD.Visible = false;
-                    lbLRol_82CD.Visible = false;
-                    txtRol_82CD.Visible = false;
-                    lblEmail.Visible = false;
-                    txtEmail_82CD.Visible = false;
-                    panel_82CD.Visible = false;
-
                     lblContraseñaActual_82CD.Visible = false;
                     txtContraseñaActual_82CD.Visible = false;
                     lblNuevaContraseña_82CD.Visible = false;
@@ -242,7 +228,6 @@ namespace IS2026_Service_82CD_
         private void frmVistaUsuario_82CD_Load(object sender, EventArgs e)
         {
             LimpiarControles();
-            //Metodo para roles con cmbbox como FrmAdmin
             ServicioUsuario_82CD usuario_82CD = SessionManager_82CD.ObtenerUsuario_82CD();
             txtUsuarioActual_82CD.Text = usuario_82CD.LogIn_82CD;
 
@@ -254,5 +239,7 @@ namespace IS2026_Service_82CD_
             frmLogin_82CD login_82CD = new frmLogin_82CD();
             login_82CD.Show();
         }
+
+        
     }
 }
