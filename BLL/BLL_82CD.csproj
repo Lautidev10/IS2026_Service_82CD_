@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="BLLEvento_82CD.cs" />
     <Compile Include="BLLFamilia_82CD.cs" />
-    <Compile Include="BLLPermiso.cs" />
+    <Compile Include="BLLPermiso_82CD.cs" />
     <Compile Include="BLLRol_82CD.cs" />
     <Compile Include="BLLUsuario_82CD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

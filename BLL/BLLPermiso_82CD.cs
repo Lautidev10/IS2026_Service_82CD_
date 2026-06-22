@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class BLLPermiso
+    public class BLLPermiso_82CD
     {
         private MapperPermiso_82CD mapperPermiso_82CD = new MapperPermiso_82CD();
 

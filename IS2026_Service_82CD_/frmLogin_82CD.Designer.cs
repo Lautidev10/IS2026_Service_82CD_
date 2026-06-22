@@ -103,7 +103,6 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmLogin_82CD";
             this.Text = "FrmLogin_82CD";
-            this.Load += new System.EventHandler(this.frmLogin_82CD_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

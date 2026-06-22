@@ -58,6 +58,7 @@
             this.radbtnFamilias_82CD.Text = "Familias";
             this.radbtnFamilias_82CD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radbtnFamilias_82CD.UseVisualStyleBackColor = true;
+            this.radbtnFamilias_82CD.CheckedChanged += new System.EventHandler(this.radbtnFamilias_82CD_CheckedChanged);
             // 
             // radbtnRoles_82CD
             // 
@@ -73,6 +74,7 @@
             this.radbtnRoles_82CD.Text = "Roles";
             this.radbtnRoles_82CD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radbtnRoles_82CD.UseVisualStyleBackColor = true;
+            this.radbtnRoles_82CD.CheckedChanged += new System.EventHandler(this.radbtnRoles_82CD_CheckedChanged);
             // 
             // treeFamRol_82CD
             // 
@@ -93,8 +95,10 @@
             this.lstPeFam_82CD.ItemHeight = 15;
             this.lstPeFam_82CD.Location = new System.Drawing.Point(502, 100);
             this.lstPeFam_82CD.Name = "lstPeFam_82CD";
+            this.lstPeFam_82CD.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstPeFam_82CD.Size = new System.Drawing.Size(450, 244);
             this.lstPeFam_82CD.TabIndex = 6;
+            this.lstPeFam_82CD.SelectedIndexChanged += new System.EventHandler(this.lstPeFam_82CD_SelectedIndexChanged);
             // 
             // lblRolFam_82CD
             // 
@@ -113,6 +117,7 @@
             this.cmbRolFam_82CD.Name = "cmbRolFam_82CD";
             this.cmbRolFam_82CD.Size = new System.Drawing.Size(135, 21);
             this.cmbRolFam_82CD.TabIndex = 9;
+            this.cmbRolFam_82CD.SelectedIndexChanged += new System.EventHandler(this.cmbRolFam_82CD_SelectedIndexChanged);
             // 
             // btnCrear_82CD
             // 
@@ -125,6 +130,7 @@
             this.btnCrear_82CD.TabIndex = 92;
             this.btnCrear_82CD.Text = "Crear";
             this.btnCrear_82CD.UseVisualStyleBackColor = false;
+            this.btnCrear_82CD.Click += new System.EventHandler(this.btnCrear_82CD_Click);
             // 
             // btnEliminar_82CD
             // 
@@ -137,6 +143,7 @@
             this.btnEliminar_82CD.TabIndex = 94;
             this.btnEliminar_82CD.Text = "Eliminar";
             this.btnEliminar_82CD.UseVisualStyleBackColor = false;
+            this.btnEliminar_82CD.Click += new System.EventHandler(this.btnEliminar_82CD_Click);
             // 
             // txtNombre_82CD
             // 
@@ -175,6 +182,7 @@
             this.btnAplicar_82CD.TabIndex = 98;
             this.btnAplicar_82CD.Text = "Aplicar";
             this.btnAplicar_82CD.UseVisualStyleBackColor = false;
+            this.btnAplicar_82CD.Click += new System.EventHandler(this.btnAplicar_82CD_Click);
             // 
             // btnCancelar_82CD
             // 
@@ -187,6 +195,7 @@
             this.btnCancelar_82CD.TabIndex = 99;
             this.btnCancelar_82CD.Text = "Cancelar";
             this.btnCancelar_82CD.UseVisualStyleBackColor = false;
+            this.btnCancelar_82CD.Click += new System.EventHandler(this.btnCancelar_82CD_Click);
             // 
             // lblNombre_82CD
             // 
@@ -221,6 +230,7 @@
             this.Controls.Add(this.radbtnRoles_82CD);
             this.Name = "FrmPerfiles_82CD";
             this.Text = "FrmPerfiles_82CD";
+            this.Load += new System.EventHandler(this.FrmPerfiles_82CD_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
