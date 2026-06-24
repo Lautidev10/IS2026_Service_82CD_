@@ -100,7 +100,11 @@ namespace BLL
                 }
             }
         }
-    
+
+        public void VerificarRolesBase_82CD()
+        {
+            mapperRol_82CD.CrearRolesBase_82CD();
+        }
     
     }
 }

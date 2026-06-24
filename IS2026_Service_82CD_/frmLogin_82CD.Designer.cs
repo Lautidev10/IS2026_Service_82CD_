@@ -38,7 +38,7 @@
             // txtUsuario_82CD
             // 
             this.txtUsuario_82CD.Location = new System.Drawing.Point(184, 31);
-            this.txtUsuario_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsuario_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsuario_82CD.Name = "txtUsuario_82CD";
             this.txtUsuario_82CD.Size = new System.Drawing.Size(208, 22);
             this.txtUsuario_82CD.TabIndex = 0;
@@ -46,7 +46,7 @@
             // txtContraseña_82CD
             // 
             this.txtContraseña_82CD.Location = new System.Drawing.Point(184, 89);
-            this.txtContraseña_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtContraseña_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.txtContraseña_82CD.Name = "txtContraseña_82CD";
             this.txtContraseña_82CD.PasswordChar = '*';
             this.txtContraseña_82CD.Size = new System.Drawing.Size(208, 22);
@@ -82,7 +82,7 @@
             this.btnIniciarSesion_82CD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btnIniciarSesion_82CD.ForeColor = System.Drawing.Color.White;
             this.btnIniciarSesion_82CD.Location = new System.Drawing.Point(133, 160);
-            this.btnIniciarSesion_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnIniciarSesion_82CD.Margin = new System.Windows.Forms.Padding(4);
             this.btnIniciarSesion_82CD.Name = "btnIniciarSesion_82CD";
             this.btnIniciarSesion_82CD.Size = new System.Drawing.Size(169, 43);
             this.btnIniciarSesion_82CD.TabIndex = 4;
@@ -100,9 +100,10 @@
             this.Controls.Add(this.lblUsuario_82CD);
             this.Controls.Add(this.txtContraseña_82CD);
             this.Controls.Add(this.txtUsuario_82CD);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmLogin_82CD";
             this.Text = "FrmLogin_82CD";
+            this.Load += new System.EventHandler(this.frmLogin_82CD_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -42,17 +42,19 @@
             this.btnAplicar_82CD = new System.Windows.Forms.Button();
             this.btnCancelar_82CD = new System.Windows.Forms.Button();
             this.lblNombre_82CD = new System.Windows.Forms.Label();
+            this.lblSalir_82CD = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // radbtnFamilias_82CD
             // 
             this.radbtnFamilias_82CD.AutoSize = true;
             this.radbtnFamilias_82CD.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.radbtnFamilias_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 8F, System.Drawing.FontStyle.Bold);
+            this.radbtnFamilias_82CD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.radbtnFamilias_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.radbtnFamilias_82CD.Location = new System.Drawing.Point(890, 58);
+            this.radbtnFamilias_82CD.Location = new System.Drawing.Point(1187, 71);
+            this.radbtnFamilias_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radbtnFamilias_82CD.Name = "radbtnFamilias_82CD";
-            this.radbtnFamilias_82CD.Size = new System.Drawing.Size(59, 32);
+            this.radbtnFamilias_82CD.Size = new System.Drawing.Size(71, 37);
             this.radbtnFamilias_82CD.TabIndex = 4;
             this.radbtnFamilias_82CD.TabStop = true;
             this.radbtnFamilias_82CD.Text = "Familias";
@@ -64,11 +66,12 @@
             // 
             this.radbtnRoles_82CD.AutoSize = true;
             this.radbtnRoles_82CD.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.radbtnRoles_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 8F, System.Drawing.FontStyle.Bold);
+            this.radbtnRoles_82CD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.radbtnRoles_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.radbtnRoles_82CD.Location = new System.Drawing.Point(815, 58);
+            this.radbtnRoles_82CD.Location = new System.Drawing.Point(1087, 71);
+            this.radbtnRoles_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radbtnRoles_82CD.Name = "radbtnRoles_82CD";
-            this.radbtnRoles_82CD.Size = new System.Drawing.Size(42, 32);
+            this.radbtnRoles_82CD.Size = new System.Drawing.Size(53, 37);
             this.radbtnRoles_82CD.TabIndex = 3;
             this.radbtnRoles_82CD.TabStop = true;
             this.radbtnRoles_82CD.Text = "Roles";
@@ -79,24 +82,26 @@
             // treeFamRol_82CD
             // 
             this.treeFamRol_82CD.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.treeFamRol_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 8F, System.Drawing.FontStyle.Bold);
+            this.treeFamRol_82CD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.treeFamRol_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.treeFamRol_82CD.Location = new System.Drawing.Point(25, 100);
+            this.treeFamRol_82CD.Location = new System.Drawing.Point(33, 123);
+            this.treeFamRol_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.treeFamRol_82CD.Name = "treeFamRol_82CD";
-            this.treeFamRol_82CD.Size = new System.Drawing.Size(450, 244);
+            this.treeFamRol_82CD.Size = new System.Drawing.Size(599, 299);
             this.treeFamRol_82CD.TabIndex = 5;
             // 
             // lstPeFam_82CD
             // 
             this.lstPeFam_82CD.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.lstPeFam_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 8F, System.Drawing.FontStyle.Bold);
+            this.lstPeFam_82CD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.lstPeFam_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
             this.lstPeFam_82CD.FormattingEnabled = true;
-            this.lstPeFam_82CD.ItemHeight = 15;
-            this.lstPeFam_82CD.Location = new System.Drawing.Point(502, 100);
+            this.lstPeFam_82CD.ItemHeight = 16;
+            this.lstPeFam_82CD.Location = new System.Drawing.Point(669, 123);
+            this.lstPeFam_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lstPeFam_82CD.Name = "lstPeFam_82CD";
             this.lstPeFam_82CD.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstPeFam_82CD.Size = new System.Drawing.Size(450, 244);
+            this.lstPeFam_82CD.Size = new System.Drawing.Size(599, 292);
             this.lstPeFam_82CD.TabIndex = 6;
             this.lstPeFam_82CD.SelectedIndexChanged += new System.EventHandler(this.lstPeFam_82CD_SelectedIndexChanged);
             // 
@@ -105,28 +110,31 @@
             this.lblRolFam_82CD.AutoSize = true;
             this.lblRolFam_82CD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.lblRolFam_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.lblRolFam_82CD.Location = new System.Drawing.Point(758, 358);
+            this.lblRolFam_82CD.Location = new System.Drawing.Point(1011, 441);
+            this.lblRolFam_82CD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRolFam_82CD.Name = "lblRolFam_82CD";
-            this.lblRolFam_82CD.Size = new System.Drawing.Size(0, 15);
+            this.lblRolFam_82CD.Size = new System.Drawing.Size(0, 18);
             this.lblRolFam_82CD.TabIndex = 8;
             // 
             // cmbRolFam_82CD
             // 
             this.cmbRolFam_82CD.FormattingEnabled = true;
-            this.cmbRolFam_82CD.Location = new System.Drawing.Point(755, 379);
+            this.cmbRolFam_82CD.Location = new System.Drawing.Point(1007, 466);
+            this.cmbRolFam_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbRolFam_82CD.Name = "cmbRolFam_82CD";
-            this.cmbRolFam_82CD.Size = new System.Drawing.Size(135, 21);
+            this.cmbRolFam_82CD.Size = new System.Drawing.Size(179, 24);
             this.cmbRolFam_82CD.TabIndex = 9;
             this.cmbRolFam_82CD.SelectedIndexChanged += new System.EventHandler(this.cmbRolFam_82CD_SelectedIndexChanged);
             // 
             // btnCrear_82CD
             // 
             this.btnCrear_82CD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.btnCrear_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.btnCrear_82CD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btnCrear_82CD.ForeColor = System.Drawing.Color.White;
-            this.btnCrear_82CD.Location = new System.Drawing.Point(105, 360);
+            this.btnCrear_82CD.Location = new System.Drawing.Point(140, 443);
+            this.btnCrear_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCrear_82CD.Name = "btnCrear_82CD";
-            this.btnCrear_82CD.Size = new System.Drawing.Size(125, 42);
+            this.btnCrear_82CD.Size = new System.Drawing.Size(167, 52);
             this.btnCrear_82CD.TabIndex = 92;
             this.btnCrear_82CD.Text = "Crear";
             this.btnCrear_82CD.UseVisualStyleBackColor = false;
@@ -135,11 +143,12 @@
             // btnEliminar_82CD
             // 
             this.btnEliminar_82CD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.btnEliminar_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.btnEliminar_82CD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btnEliminar_82CD.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar_82CD.Location = new System.Drawing.Point(605, 360);
+            this.btnEliminar_82CD.Location = new System.Drawing.Point(807, 443);
+            this.btnEliminar_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminar_82CD.Name = "btnEliminar_82CD";
-            this.btnEliminar_82CD.Size = new System.Drawing.Size(125, 42);
+            this.btnEliminar_82CD.Size = new System.Drawing.Size(167, 52);
             this.btnEliminar_82CD.TabIndex = 94;
             this.btnEliminar_82CD.Text = "Eliminar";
             this.btnEliminar_82CD.UseVisualStyleBackColor = false;
@@ -147,38 +156,42 @@
             // 
             // txtNombre_82CD
             // 
-            this.txtNombre_82CD.Location = new System.Drawing.Point(255, 380);
+            this.txtNombre_82CD.Location = new System.Drawing.Point(340, 468);
+            this.txtNombre_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNombre_82CD.Name = "txtNombre_82CD";
-            this.txtNombre_82CD.Size = new System.Drawing.Size(135, 20);
+            this.txtNombre_82CD.Size = new System.Drawing.Size(179, 22);
             this.txtNombre_82CD.TabIndex = 95;
             // 
             // panFrmUsuario_82CD
             // 
             this.panFrmUsuario_82CD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
             this.panFrmUsuario_82CD.Location = new System.Drawing.Point(0, 0);
+            this.panFrmUsuario_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panFrmUsuario_82CD.Name = "panFrmUsuario_82CD";
-            this.panFrmUsuario_82CD.Size = new System.Drawing.Size(985, 43);
+            this.panFrmUsuario_82CD.Size = new System.Drawing.Size(1313, 53);
             this.panFrmUsuario_82CD.TabIndex = 96;
             // 
             // lblBitacora_82CD
             // 
             this.lblBitacora_82CD.AutoSize = true;
-            this.lblBitacora_82CD.Font = new System.Drawing.Font("Montserrat Black", 14F, System.Drawing.FontStyle.Bold);
+            this.lblBitacora_82CD.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.lblBitacora_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.lblBitacora_82CD.Location = new System.Drawing.Point(20, 58);
+            this.lblBitacora_82CD.Location = new System.Drawing.Point(27, 71);
+            this.lblBitacora_82CD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBitacora_82CD.Name = "lblBitacora_82CD";
-            this.lblBitacora_82CD.Size = new System.Drawing.Size(208, 26);
+            this.lblBitacora_82CD.Size = new System.Drawing.Size(237, 29);
             this.lblBitacora_82CD.TabIndex = 97;
             this.lblBitacora_82CD.Text = "Gestión de Perfiles";
             // 
             // btnAplicar_82CD
             // 
             this.btnAplicar_82CD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.btnAplicar_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.btnAplicar_82CD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btnAplicar_82CD.ForeColor = System.Drawing.Color.White;
-            this.btnAplicar_82CD.Location = new System.Drawing.Point(335, 440);
+            this.btnAplicar_82CD.Location = new System.Drawing.Point(447, 542);
+            this.btnAplicar_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAplicar_82CD.Name = "btnAplicar_82CD";
-            this.btnAplicar_82CD.Size = new System.Drawing.Size(133, 34);
+            this.btnAplicar_82CD.Size = new System.Drawing.Size(177, 42);
             this.btnAplicar_82CD.TabIndex = 98;
             this.btnAplicar_82CD.Text = "Aplicar";
             this.btnAplicar_82CD.UseVisualStyleBackColor = false;
@@ -187,11 +200,12 @@
             // btnCancelar_82CD
             // 
             this.btnCancelar_82CD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.btnCancelar_82CD.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.btnCancelar_82CD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btnCancelar_82CD.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar_82CD.Location = new System.Drawing.Point(515, 440);
+            this.btnCancelar_82CD.Location = new System.Drawing.Point(687, 542);
+            this.btnCancelar_82CD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar_82CD.Name = "btnCancelar_82CD";
-            this.btnCancelar_82CD.Size = new System.Drawing.Size(133, 34);
+            this.btnCancelar_82CD.Size = new System.Drawing.Size(177, 42);
             this.btnCancelar_82CD.TabIndex = 99;
             this.btnCancelar_82CD.Text = "Cancelar";
             this.btnCancelar_82CD.UseVisualStyleBackColor = false;
@@ -202,18 +216,33 @@
             this.lblNombre_82CD.AutoSize = true;
             this.lblNombre_82CD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.lblNombre_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
-            this.lblNombre_82CD.Location = new System.Drawing.Point(252, 358);
+            this.lblNombre_82CD.Location = new System.Drawing.Point(336, 441);
+            this.lblNombre_82CD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre_82CD.Name = "lblNombre_82CD";
-            this.lblNombre_82CD.Size = new System.Drawing.Size(58, 15);
+            this.lblNombre_82CD.Size = new System.Drawing.Size(68, 18);
             this.lblNombre_82CD.TabIndex = 100;
             this.lblNombre_82CD.Text = "Nombre";
             // 
+            // lblSalir_82CD
+            // 
+            this.lblSalir_82CD.AutoSize = true;
+            this.lblSalir_82CD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
+            this.lblSalir_82CD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(65)))), ((int)(((byte)(120)))));
+            this.lblSalir_82CD.Location = new System.Drawing.Point(1229, 608);
+            this.lblSalir_82CD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSalir_82CD.Name = "lblSalir_82CD";
+            this.lblSalir_82CD.Size = new System.Drawing.Size(60, 25);
+            this.lblSalir_82CD.TabIndex = 101;
+            this.lblSalir_82CD.Text = "Salir";
+            this.lblSalir_82CD.Click += new System.EventHandler(this.lblSalir_82CD_Click);
+            // 
             // FrmPerfiles_82CD
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(984, 486);
+            this.ClientSize = new System.Drawing.Size(1302, 642);
+            this.Controls.Add(this.lblSalir_82CD);
             this.Controls.Add(this.lblNombre_82CD);
             this.Controls.Add(this.btnCancelar_82CD);
             this.Controls.Add(this.btnAplicar_82CD);
@@ -228,6 +257,7 @@
             this.Controls.Add(this.treeFamRol_82CD);
             this.Controls.Add(this.radbtnFamilias_82CD);
             this.Controls.Add(this.radbtnRoles_82CD);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmPerfiles_82CD";
             this.Text = "FrmPerfiles_82CD";
             this.Load += new System.EventHandler(this.FrmPerfiles_82CD_Load);
@@ -252,5 +282,6 @@
         private System.Windows.Forms.Button btnAplicar_82CD;
         private System.Windows.Forms.Button btnCancelar_82CD;
         private System.Windows.Forms.Label lblNombre_82CD;
+        private System.Windows.Forms.Label lblSalir_82CD;
     }
 }

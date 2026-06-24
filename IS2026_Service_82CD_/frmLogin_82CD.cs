@@ -70,5 +70,16 @@ namespace IS2026_Service_82CD_
             this.Hide();
         }
 
+        private void frmLogin_82CD_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                bllRol_82CD.VerificarRolesBase_82CD();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }

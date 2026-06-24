@@ -277,5 +277,31 @@ namespace DAL
             }
         }
 
+        public void CrearRolesBase_82CD()
+        {
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = @"
+                IF NOT EXISTS (SELECT 1 FROM Rol_82CD WHERE NombreRol_82CD = 'Administrador')
+                BEGIN
+                    INSERT INTO Rol_82CD (NombreRol_82CD)
+                    VALUES ('Administrador')
+                END
+
+                IF NOT EXISTS (SELECT 1 FROM Rol_82CD WHERE NombreRol_82CD = 'Cliente')
+                BEGIN
+                    INSERT INTO Rol_82CD (NombreRol_82CD)
+                    VALUES ('Cliente')
+                END";
+
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.ExecuteNonQuery();
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
     }
 }
