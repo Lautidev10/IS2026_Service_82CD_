@@ -26,7 +26,7 @@ namespace BLL
         public ServicioRol_82CD CargarRol_82CD(int idRol_82CD)
         {
             ServicioRol_82CD rol_82CD = mapperRol_82CD.BucarRolPorID_82CD(idRol_82CD);
-            
+
             if (rol_82CD == null)
                 return null;
 
@@ -85,7 +85,7 @@ namespace BLL
             {
                 if (idsPermisosTotales_82CD.Contains(permiso_82CD.IdPermiso_82CD))
                     throw new Exception("El permiso '" + permiso_82CD.Nombre_82CD + "' está repetido.");
-                
+
                 idsPermisosTotales_82CD.Add(permiso_82CD.IdPermiso_82CD);
             }
 
@@ -95,7 +95,7 @@ namespace BLL
                 {
                     if (idsPermisosTotales_82CD.Contains(permiso_82CD.IdPermiso_82CD))
                         throw new Exception("El permiso '" + permiso_82CD.Nombre_82CD + "' ya está incluido en una familia seleccionada.");
-                
+
                     idsPermisosTotales_82CD.Add(permiso_82CD.IdPermiso_82CD);
                 }
             }
@@ -105,6 +105,79 @@ namespace BLL
         {
             mapperRol_82CD.CrearRolesBase_82CD();
         }
-    
+
+        public bool RolTienePermiso_82CD(int idRol_82CD, int idPermiso_82CD)
+        {
+            return mapperRol_82CD.RolTienePermiso_82CD(idRol_82CD, idPermiso_82CD);
+        }
+
+        public void AgregarPermisoARol_82CD(int idRol_82CD, int idPermiso_82CD)
+        {
+            mapperRol_82CD.AgregarPermisoARol_82CD(idRol_82CD, idPermiso_82CD);
+        }
+
+        public void QuitarPermisoARol_82CD(int idRol_82CD, int idPermiso_82CD)
+        {
+            mapperRol_82CD.QuitarPermisoARol_82CD(idRol_82CD, idPermiso_82CD);
+        }
+
+        public bool RolTieneFamilia_82CD(int idRol_82CD, int idFamilia_82CD)
+        {
+            return mapperRol_82CD.RolTieneFamilia_82CD(idRol_82CD, idFamilia_82CD);
+        }
+
+        public void AgregarFamiliaARol_82CD(int idRol_82CD, int idFamilia_82CD)
+        {
+            mapperRol_82CD.AgregarFamiliaARol_82CD(idRol_82CD, idFamilia_82CD);
+        }
+
+        public void QuitarFamiliaARol_82CD(int idRol_82CD, int idFamilia_82CD)
+        {
+            mapperRol_82CD.QuitarFamiliaARol_82CD(idRol_82CD, idFamilia_82CD);
+        }
+
+        public void ValidarFamiliaParaAgregarARol_82CD(int idRol_82CD, ServicioFamilia_82CD familiaNueva_82CD)
+        {
+            MapperFamilia_82CD mapperFamilia_82CD = new MapperFamilia_82CD();
+
+            ServicioRol_82CD rolActual_82CD = CargarRol_82CD(idRol_82CD);
+
+            ServicioFamilia_82CD familiaConArbol_82CD = mapperFamilia_82CD.CargarElementosFamilia_82CD(familiaNueva_82CD.IdFamilia_82CD);
+
+            List<ServicioPermiso_82CD> permisosDirectosDelRol_82CD = new List<ServicioPermiso_82CD>();
+            List<ServicioFamilia_82CD> familiasDelRol_82CD = new List<ServicioFamilia_82CD>();
+
+            foreach (IElementoPermiso_82CD elemento_82CD in rolActual_82CD.Elementos_82CD)
+            {
+                ServicioPermiso_82CD permiso_82CD = elemento_82CD as ServicioPermiso_82CD;
+                if (permiso_82CD != null)
+                    permisosDirectosDelRol_82CD.Add(permiso_82CD);
+
+                ServicioFamilia_82CD familia_82CD = elemento_82CD as ServicioFamilia_82CD;
+                if (familia_82CD != null)
+                    familiasDelRol_82CD.Add(familia_82CD);
+            }
+
+            familiasDelRol_82CD.Add(familiaConArbol_82CD);
+            ValidarPermisosSinRepetir_82CD(permisosDirectosDelRol_82CD, familiasDelRol_82CD);
+        }
+
+        public void ValidarPermisoParaAgregarARol_82CD(int idRol_82CD, ServicioPermiso_82CD permisoNuevo_82CD)
+        {
+            ServicioRol_82CD rolActual_82CD = CargarRol_82CD(idRol_82CD);
+            List<ServicioPermiso_82CD> permisosDirectosDelRol_82CD = new List<ServicioPermiso_82CD>();
+            List<ServicioFamilia_82CD> familiasDelRol_82CD = new List<ServicioFamilia_82CD>();
+            foreach (IElementoPermiso_82CD elemento_82CD in rolActual_82CD.Elementos_82CD)
+            {
+                ServicioPermiso_82CD permiso_82CD = elemento_82CD as ServicioPermiso_82CD;
+                if (permiso_82CD != null)
+                    permisosDirectosDelRol_82CD.Add(permiso_82CD);
+                ServicioFamilia_82CD familia_82CD = elemento_82CD as ServicioFamilia_82CD;
+                if (familia_82CD != null)
+                    familiasDelRol_82CD.Add(familia_82CD);
+            }
+            permisosDirectosDelRol_82CD.Add(permisoNuevo_82CD);
+            ValidarPermisosSinRepetir_82CD(permisosDirectosDelRol_82CD, familiasDelRol_82CD);
+        }
     }
 }

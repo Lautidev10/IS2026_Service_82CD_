@@ -78,13 +78,13 @@ namespace DAL
                 Desconectar_82CD();
             }
 
-            return lista_82CD; 
+            return lista_82CD;
         }
 
 
         public ServicioRol_82CD CargarElementosDelRol_82CD(ServicioRol_82CD Rol_82CD)
         {
-          
+
             // Cada CargarElementosFamilia abre y cierra su propia conexion
             MapperFamilia_82CD mapperFamilia_82CD = new MapperFamilia_82CD();
 
@@ -296,6 +296,110 @@ namespace DAL
                 END";
 
                 SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.ExecuteNonQuery();
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
+
+        public bool RolTienePermiso_82CD(int idRol_82CD, int idPermiso_82CD)
+        {
+            try
+            {
+                Conectar_82CD();
+
+                string query_82CD = @"SELECT COUNT(*) FROM RolPermiso_82CD WHERE IdRol_82CD = @IdRol_82CD AND IdPermiso_82CD = @IdPermiso_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdRol_82CD", idRol_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdPermiso_82CD", idPermiso_82CD);
+
+                return Convert.ToInt32(cmd_82CD.ExecuteScalar()) > 0;
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
+
+        public void AgregarPermisoARol_82CD(int idRol_82CD, int idPermiso_82CD)
+        {
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = @"INSERT INTO RolPermiso_82CD (IdRol_82CD, IdPermiso_82CD) VALUES (@IdRol_82CD, @IdPermiso_82CD)";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdRol_82CD", idRol_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdPermiso_82CD", idPermiso_82CD);
+                cmd_82CD.ExecuteNonQuery();
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
+
+        public void QuitarPermisoARol_82CD(int idRol_82CD, int idPermiso_82CD)
+        {
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = @"DELETE FROM RolPermiso_82CD WHERE IdRol_82CD = @IdRol_82CD AND IdPermiso_82CD = @IdPermiso_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdRol_82CD", idRol_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdPermiso_82CD", idPermiso_82CD);
+                cmd_82CD.ExecuteNonQuery();
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
+
+        public bool RolTieneFamilia_82CD(int idRol_82CD, int idFamilia_82CD)
+        {
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = @"SELECT COUNT(*) FROM RolFamilia_82CD WHERE IdRol_82CD = @IdRol_82CD AND IdFamilia_82CD = @IdFamilia_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdRol_82CD", idRol_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdFamilia_82CD", idFamilia_82CD);
+                return Convert.ToInt32(cmd_82CD.ExecuteScalar()) > 0;
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
+
+        public void AgregarFamiliaARol_82CD(int idRol_82CD, int idFamilia_82CD)
+        {
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = @"INSERT INTO RolFamilia_82CD (IdRol_82CD, IdFamilia_82CD) VALUES (@IdRol_82CD, @IdFamilia_82CD)";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdRol_82CD", idRol_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdFamilia_82CD", idFamilia_82CD);
+                cmd_82CD.ExecuteNonQuery();
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
+
+        public void QuitarFamiliaARol_82CD(int idRol_82CD, int idFamilia_82CD)
+        {
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = @"DELETE FROM RolFamilia_82CD WHERE IdRol_82CD = @IdRol_82CD AND IdFamilia_82CD = @IdFamilia_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdRol_82CD", idRol_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdFamilia_82CD", idFamilia_82CD);
                 cmd_82CD.ExecuteNonQuery();
             }
             finally

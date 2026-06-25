@@ -101,6 +101,87 @@ namespace BLL
             }
         }
 
+        public bool FamiliaTienePermiso_82CD(int idFamilia_82CD, int idPermiso_82CD)
+        {
+            return mapperFamilia_82CD.FamiliaTienePermiso_82CD(idFamilia_82CD, idPermiso_82CD);
+        }
 
+        public void AgregarPermisoAFamilia_82CD(int idFamilia_82CD, int idPermiso_82CD)
+        {
+            mapperFamilia_82CD.AgregarPermisoAFamilia_82CD(idFamilia_82CD, idPermiso_82CD);
+        }
+
+        public void QuitarPermisoAFamilia_82CD(int idFamilia_82CD, int idPermiso_82CD)
+        {
+            mapperFamilia_82CD.QuitarPermisoAFamilia_82CD(idFamilia_82CD, idPermiso_82CD);
+        }
+
+        public bool FamiliaTieneSubfamilia_82CD(int idFamiliaPadre_82CD, int idFamiliaHija_82CD)
+        {
+            return mapperFamilia_82CD.FamiliaTieneSubfamilia_82CD(idFamiliaPadre_82CD, idFamiliaHija_82CD);
+        }
+
+        public void AgregarSubfamiliaAFamilia_82CD(int idFamiliaPadre_82CD, int idFamiliaHija_82CD)
+        {
+            mapperFamilia_82CD.AgregarSubfamiliaAFamilia_82CD(idFamiliaPadre_82CD, idFamiliaHija_82CD);
+        }
+
+        public void QuitarSubfamiliaAFamilia_82CD(int idFamiliaPadre_82CD, int idFamiliaHija_82CD)
+        {
+            mapperFamilia_82CD.QuitarSubfamiliaAFamilia_82CD(idFamiliaPadre_82CD, idFamiliaHija_82CD);
+        }
+
+        public void ValidarPermisoParaAgregarAFamilia_82CD(int idFamilia_82CD, ServicioPermiso_82CD permisoNuevo_82CD)
+        {
+            ServicioFamilia_82CD familiaActual_82CD = CargarFamilia_82CD(idFamilia_82CD);
+
+            List<ServicioPermiso_82CD> permisosDirectos_82CD = new List<ServicioPermiso_82CD>();
+            List<ServicioFamilia_82CD> subfamilias_82CD = new List<ServicioFamilia_82CD>();
+
+            foreach (IElementoPermiso_82CD elemento_82CD in familiaActual_82CD.Elementos_82CD)
+            {
+                ServicioPermiso_82CD permiso_82CD = elemento_82CD as ServicioPermiso_82CD;
+                if (permiso_82CD != null)
+                    permisosDirectos_82CD.Add(permiso_82CD);
+
+                ServicioFamilia_82CD familia_82CD = elemento_82CD as ServicioFamilia_82CD;
+                if (familia_82CD != null)
+                    subfamilias_82CD.Add(familia_82CD);
+            }
+
+            permisosDirectos_82CD.Add(permisoNuevo_82CD);
+
+            ValidarPermisosSinRepetir_82CD(permisosDirectos_82CD, subfamilias_82CD);
+        }
+
+        public void ValidarSubfamiliaParaAgregarAFamilia_82CD(int idFamiliaPadre_82CD, ServicioFamilia_82CD subfamiliaNueva_82CD)
+        {
+            if (idFamiliaPadre_82CD == subfamiliaNueva_82CD.IdFamilia_82CD)
+                throw new Exception("Una familia no puede contenerse a sí misma.");
+
+            ServicioFamilia_82CD familiaActual_82CD = CargarFamilia_82CD(idFamiliaPadre_82CD);
+
+            ServicioFamilia_82CD subfamiliaConArbol_82CD =
+                mapperFamilia_82CD.CargarElementosFamilia_82CD(subfamiliaNueva_82CD.IdFamilia_82CD);
+
+            List<ServicioPermiso_82CD> permisosDirectos_82CD = new List<ServicioPermiso_82CD>();
+            List<ServicioFamilia_82CD> subfamilias_82CD = new List<ServicioFamilia_82CD>();
+
+            foreach (IElementoPermiso_82CD elemento_82CD in familiaActual_82CD.Elementos_82CD)
+            {
+                ServicioPermiso_82CD permiso_82CD = elemento_82CD as ServicioPermiso_82CD;
+                if (permiso_82CD != null)
+                    permisosDirectos_82CD.Add(permiso_82CD);
+
+                ServicioFamilia_82CD familia_82CD = elemento_82CD as ServicioFamilia_82CD;
+                if (familia_82CD != null)
+                    subfamilias_82CD.Add(familia_82CD);
+            }
+
+            subfamilias_82CD.Add(subfamiliaConArbol_82CD);
+
+            ValidarPermisosSinRepetir_82CD(permisosDirectos_82CD, subfamilias_82CD);
+        }
     }
 }
+    

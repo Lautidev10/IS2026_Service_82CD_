@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Net.Http.Headers;
 
 namespace DAL
 {
@@ -316,6 +318,117 @@ namespace DAL
             }
         }
 
+
+        public bool FamiliaTienePermiso_82CD(int idFamilia_82CD, int idPermiso_82CD)
+        {
+            try
+            {
+                Conectar_82CD();
+
+                string query_82CD = @"SELECT COUNT(*) FROM FamiliaPermiso_82CD WHERE IdFamilia_82CD = @IdFamilia_82CD AND IdPermiso_82CD = @IdPermiso_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdFamilia_82CD", idFamilia_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdPermiso_82CD", idPermiso_82CD);
+
+                return Convert.ToInt32(cmd_82CD.ExecuteScalar()) > 0;
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
+
+        public void AgregarPermisoAFamilia_82CD(int idFamilia_82CD, int idPermiso_82CD)
+        {
+            try
+            {
+                Conectar_82CD();
+
+                string query_82CD = @"INSERT INTO FamiliaPermiso_82CD (IdFamilia_82CD, IdPermiso_82CD) VALUES (@IdFamilia_82CD, @IdPermiso_82CD)";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdFamilia_82CD", idFamilia_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdPermiso_82CD", idPermiso_82CD);
+
+                cmd_82CD.ExecuteNonQuery();
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
+
+        public void QuitarPermisoAFamilia_82CD(int idFamilia_82CD, int idPermiso_82CD)
+        {
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = @"DELETE FROM FamiliaPermiso_82CD WHERE IdFamilia_82CD = @IdFamilia_82CD AND IdPermiso_82CD = @IdPermiso_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdFamilia_82CD", idFamilia_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdPermiso_82CD", idPermiso_82CD);
+
+                cmd_82CD.ExecuteNonQuery();
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
+
+        public bool FamiliaTieneSubfamilia_82CD(int idFamiliaPadre_82CD, int idFamiliaHija_82CD)
+        {
+            try
+            {
+                Conectar_82CD();
+
+                string query_82CD = @"SELECT COUNT(*) FROM FamiliaFamilia_82CD WHERE IdFamiliaPadre_82CD = @IdFamiliaPadre_82CD AND IdFamiliaHija_82CD = @IdFamiliaHija_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdFamiliaPadre_82CD", idFamiliaPadre_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdFamiliaHija_82CD", idFamiliaHija_82CD);
+
+                return Convert.ToInt32(cmd_82CD.ExecuteScalar()) > 0;
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
+
+        public void AgregarSubfamiliaAFamilia_82CD(int idFamiliaPadre_82CD, int idFamiliaHija_82CD)
+        {
+            try
+            {
+                Conectar_82CD();
+
+                string query_82CD = @"INSERT INTO FamiliaFamilia_82CD (IdFamiliaPadre_82CD, IdFamiliaHija_82CD) VALUES (@IdFamiliaPadre_82CD, @IdFamiliaHija_82CD)";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdFamiliaPadre_82CD", idFamiliaPadre_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdFamiliaHija_82CD", idFamiliaHija_82CD);
+
+                cmd_82CD.ExecuteNonQuery();
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
+
+        public void QuitarSubfamiliaAFamilia_82CD(int idFamiliaPadre_82CD, int idFamiliaHija_82CD)
+        {
+            try
+            {
+                Conectar_82CD();
+                string query_82CD = @"DELETE FROM FamiliaFamilia_82CD WHERE IdFamiliaPadre_82CD = @IdFamiliaPadre_82CD AND IdFamiliaHija_82CD = @IdFamiliaHija_82CD";
+                SqlCommand cmd_82CD = new SqlCommand(query_82CD, conexion_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdFamiliaPadre_82CD", idFamiliaPadre_82CD);
+                cmd_82CD.Parameters.AddWithValue("@IdFamiliaHija_82CD", idFamiliaHija_82CD);
+                cmd_82CD.ExecuteNonQuery();
+            }
+            finally
+            {
+                Desconectar_82CD();
+            }
+        }
 
     }
 }
